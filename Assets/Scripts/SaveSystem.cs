@@ -9,8 +9,7 @@ public class SaveSystem
 {
     private static readonly string FileName = "user.data";
 
-    public static void SaveData(User user)
-    {
+    public static void SaveData(User user) {
         BinaryFormatter formatter = new BinaryFormatter();
         string path = Application.persistentDataPath + "/" + FileName;
         FileStream stream = new FileStream(path, FileMode.Create);
@@ -21,11 +20,9 @@ public class SaveSystem
         stream.Close();
     }
     
-    public static User LoadData()
-    {
+    public static User LoadData() {
         string path = Application.persistentDataPath + "/" + FileName;
-        if (File.Exists(path))
-        {
+        if (File.Exists(path)) {
             BinaryFormatter formatter = new BinaryFormatter();
             FileStream stream = new FileStream(path, FileMode.Open);
 
@@ -33,9 +30,7 @@ public class SaveSystem
             stream.Close();
 
             return user;
-        }
-        else
-        {
+        } else {
             Debug.LogError("Save file not found in" + path);
             return null;
         }

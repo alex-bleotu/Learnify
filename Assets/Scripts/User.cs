@@ -8,6 +8,8 @@ public class User {
     private int age;
     private int level = 1;
     private float experience = 0f;
+    
+    private bool sound = true;
 
     public User(string username, int age) {
         this.username = username;
@@ -25,4 +27,8 @@ public class User {
     public void SetLevel(int level) { this.level = level; }
 
     public void SetExperience(float experience) { this.experience = experience; }
+
+    public bool GetSound() { return sound; }
+
+    public void SetSound(bool sound) { this.sound = sound;}
 }

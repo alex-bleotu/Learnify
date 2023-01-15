@@ -12,9 +12,11 @@ public class MainPageHandler : MonoBehaviour
     private User user;
 
     private LevelSystem levelSystem;
+    private AudioButtonHandler audioButtonHandler;
+    private AudioListener audioListener;
+    private RecomendedGamesHandler recomendedGamesHandler;
 
-    void Start()
-    {
+    private void Start() {
         user = SaveSystem.LoadData();
         
         usernameText = GameObject.Find("UsernameText (TMP)").GetComponent<TMP_Text>();
@@ -24,6 +26,9 @@ public class MainPageHandler : MonoBehaviour
         levelText.text = "Level " + user.GetLevel();
 
         levelSystem = GameObject.Find("ScriptsComponent").GetComponent<LevelSystem>();
+        audioButtonHandler = GameObject.Find("ScriptsComponent").GetComponent<AudioButtonHandler>();
+        audioListener = GameObject.Find("Main Camera").GetComponent<AudioListener>();
+        recomendedGamesHandler = GameObject.Find("ScriptsComponent").GetComponent<RecomendedGamesHandler>();
     }
 
     public void AddExp() {
@@ -33,5 +38,13 @@ public class MainPageHandler : MonoBehaviour
 
         if (user.GetLevel() != currentLevel)
             levelText.text = "Level " + user.GetLevel();
+    }
+
+    public void ToggleMuteButton() {
+        audioButtonHandler.ToggleMuteButton(user);
+    }
+
+    private void Update() {
+        audioListener.enabled = user.GetSound();
     }
 }
