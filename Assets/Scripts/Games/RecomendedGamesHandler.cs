@@ -22,26 +22,35 @@ public class RecomendedGamesHandler : MonoBehaviour
         return randomValues;
     }
 
-    private void buttonClick() {
-        Debug.Log("lol");
-    }
+    // private void buttonClick() {
+    //     Debug.Log("lol");
+    // }
 
-    void Start()
+    private void Start()
     {
         System.Random random = new System.Random();
 
         int[] randomValues = GetRandomValues();
 
-        Debug.Log(randomValues[0] + ", " + randomValues[1] + ", " + randomValues[2]);
+        // Debug.Log(randomValues[0] + ", " + randomValues[1] + ", " + randomValues[2]);
 
+        int index = 0;
+        GameObject buttonParent = GameObject.Find("RecommendedGames");
+        
+        foreach (Transform child in buttonParent.transform) {
+            if (child.name == "TitleText (TMP)")
+                continue;
 
-        Button[] games = new Button[3];
-        for (int i = 0; i < 3; i++) {
-            games[i] = GameObject.Find("Game" + (i + 1)).GetComponent<Button>();
-            games[i].onClick.AddListener(buttonClick);
+            GameObject game = child.gameObject;
 
-            TMP_Text buttonText = games[i].transform.GetChild(0).GetComponent<TMP_Text>();
-            buttonText.text = "Game " + (randomValues[i] + 1).ToString();
+            game.name = "RecommendedGame" + randomValues[index]; 
+
+            // games[i].onClick.AddListener(buttonClick);
+
+            TMP_Text buttonText = game.transform.GetChild(0).GetComponent<TMP_Text>();
+            buttonText.text = GameList.gameList[randomValues[index]].GetTitle();
+            
+            index++;
         }
     }
 }

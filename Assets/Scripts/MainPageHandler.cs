@@ -15,6 +15,7 @@ public class MainPageHandler : MonoBehaviour
     private AudioButtonHandler audioButtonHandler;
     private AudioListener audioListener;
     private RecomendedGamesHandler recomendedGamesHandler;
+    private Slider audioSlider;
 
     private void Start() {
         user = SaveSystem.LoadData();
@@ -29,6 +30,7 @@ public class MainPageHandler : MonoBehaviour
         audioButtonHandler = GameObject.Find("ScriptsComponent").GetComponent<AudioButtonHandler>();
         audioListener = GameObject.Find("Main Camera").GetComponent<AudioListener>();
         recomendedGamesHandler = GameObject.Find("ScriptsComponent").GetComponent<RecomendedGamesHandler>();
+        audioSlider = GameObject.Find("Slider").GetComponent<Slider>();
     }
 
     public void AddExp() {
@@ -41,7 +43,7 @@ public class MainPageHandler : MonoBehaviour
     }
 
     public void ToggleMuteButton() {
-        audioButtonHandler.ToggleMuteButton(user);
+        audioButtonHandler.MuteButton(user, audioSlider);
     }
 
     private void Update() {

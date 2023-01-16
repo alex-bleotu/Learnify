@@ -4,8 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class AudioButtonHandler : MonoBehaviour
-{
-    public void ToggleMuteButton(User user) {
+{   
+
+    public void MuteButton(User user, Slider audioSlider) {
         bool currentStateOfButton = user.GetSound();
         user.SetSound(!currentStateOfButton);
 
@@ -13,5 +14,10 @@ public class AudioButtonHandler : MonoBehaviour
         buttonImage.sprite = !currentStateOfButton ? 
             Resources.Load<Sprite>("Icons/sound") : 
             Resources.Load<Sprite>("Icons/mute");
+
+        if (currentStateOfButton == true)
+            audioSlider.value = audioSlider.minValue;
+        else
+            audioSlider.value = audioSlider.maxValue;
     }
 }
