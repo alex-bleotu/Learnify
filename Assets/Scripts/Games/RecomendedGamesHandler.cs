@@ -47,8 +47,10 @@ public class RecomendedGamesHandler : MonoBehaviour
 
             // games[i].onClick.AddListener(buttonClick);
 
-            TMP_Text buttonText = game.transform.GetChild(0).GetComponent<TMP_Text>();
-            buttonText.text = GameList.gameList[randomValues[index]].GetTitle();
+            // TMP_Text buttonText = game.transform.GetChild(1).GetComponent<TMP_Text>();
+            // buttonText.text = GameList.gameList[randomValues[index]].GetTitle();
+
+            game.transform.GetChild(0).GetComponent<Image>().sprite = GameList.gameList[randomValues[index]].GetIcon();
             
             index++;
         }
