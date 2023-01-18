@@ -73,6 +73,9 @@ public class GameHandler : MonoBehaviour
 
         titleText.text = GameList.gameList[index].GetTitle();
         descriptionText.text = GameList.gameList[index].GetDescription();
+
+        Debug.Log(setSubjectText(index));
+
         subjectText.text = setSubjectText(index);
 
         SetDifficultyImages(index);

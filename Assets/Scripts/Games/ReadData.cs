@@ -31,7 +31,7 @@ public class ReadData
             answers.Add(data[i].answers);
             correctAnswers.Add(data[i].correct);
 
-            Debug.Log(data[i].correct);
+            // Debug.Log(data[i].correct);
         }
     }
 }
