@@ -30,6 +30,8 @@ public class Game
     private List<List<string>> answers;
     private List<int> correctAnswers;
 
+    private string leason;
+
     private int questionsCount;
 
     public Game(string title, string description, int recommendedLevel, int experience, Difficulty currentDifficulty, Subject subject, int id) {
@@ -45,7 +47,7 @@ public class Game
         answers = new List<List<string>>();
         correctAnswers = new List<int>();
 
-        ReadData.Read(ref questions, ref answers, ref correctAnswers, Application.dataPath + "/Resources/Games/" + id + "/data.json");
+        ReadData.Read(ref questions, ref answers, ref correctAnswers, ref leason, Application.dataPath + "/Resources/Games/" + id + "/data.json", Application.dataPath + "/Resources/Games/" + id + "/leason.json");
 
         questionsCount = questions.Count;
 
@@ -75,4 +77,5 @@ public class Game
     public List<List<string>> GetAnwers() { return answers; }
     public List<int> GetCorrectAnswers() { return correctAnswers; }
     public int GetQuestionsCount() { return questionsCount; }
+    public string GetLeason() { return leason; }
 }

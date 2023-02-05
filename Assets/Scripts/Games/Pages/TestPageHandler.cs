@@ -25,6 +25,9 @@ public class TestPageHandler : MonoBehaviour
     private TMP_Text wrongAnswersText;
     private TMP_Text scoreText;
 
+    private TMP_Text leasonText;
+    private TMP_Text leasonTitleText;
+
     private int correctAnswers;
 
     public void OpenTestInterface() {
@@ -34,6 +37,9 @@ public class TestPageHandler : MonoBehaviour
     public void OpenLeasonInterface() {
         leasonPage.SetActive(true);
         gamePage.SetActive(false);
+
+        leasonTitleText.text = GameList.gameList[index].GetTitle();
+        leasonText.text = GameList.gameList[index].GetLeason();
     }
 
     private void updateTest() {
@@ -157,6 +163,9 @@ public class TestPageHandler : MonoBehaviour
 
         nextButton = GameObject.Find("NextButton");
         previuosButton = GameObject.Find("PreviousButton");
+
+        leasonText = GameObject.Find("LeasonText (TMP)").GetComponent<TMP_Text>();
+        leasonTitleText = GameObject.Find("LeasonTitleText (TMP)").GetComponent<TMP_Text>();
 
         correctAnswersText = GameObject.Find("CorrectText (TMP)").GetComponent<TMP_Text>();
         wrongAnswersText = GameObject.Find("WrongText (TMP)").GetComponent<TMP_Text>();

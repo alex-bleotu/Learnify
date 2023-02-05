@@ -19,7 +19,7 @@ public class GameList
     }
 
     public static Game[] gameList = new Game[] {
-        new Game("Adunare", "", 1, 1, Game.Difficulty.easy, Game.Subject.math, 0),
+        new Game("Adunare", "Adunarea este o operație aritmetică elementară care totalizează două sau mai multe mărimi", 1, 1, Game.Difficulty.easy, Game.Subject.math, 0),
         new Game("Scădere", "", 1, 1, Game.Difficulty.easy, Game.Subject.math, 1),
         new Game("Înmulțire", "", 1, 1, Game.Difficulty.medium, Game.Subject.math, 2),
         new Game("Împărțire", "", 1, 1, Game.Difficulty.medium, Game.Subject.math, 3),

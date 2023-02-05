@@ -818,7 +818,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Save
+  m_text: "Salveaz\u0103"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8499924c0cf75b84bbf1246f5606fc86, type: 2}
   m_sharedMaterial: {fileID: -4900446557887658867, guid: 8499924c0cf75b84bbf1246f5606fc86, type: 2}
@@ -1373,8 +1373,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -100, y: -115}
-  m_SizeDelta: {x: 295, y: 70}
+  m_AnchoredPosition: {x: -65, y: -115}
+  m_SizeDelta: {x: 400, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &829782791
 MonoBehaviour:
@@ -1396,7 +1396,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: What's your age?
+  m_text: "Care este v\xE2rsta ta?"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8499924c0cf75b84bbf1246f5606fc86, type: 2}
   m_sharedMaterial: {fileID: -4900446557887658867, guid: 8499924c0cf75b84bbf1246f5606fc86, type: 2}
@@ -1645,7 +1645,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Customize Your Profile
+  m_text: "Creaz\u0103 Profilul"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8499924c0cf75b84bbf1246f5606fc86, type: 2}
   m_sharedMaterial: {fileID: -4900446557887658867, guid: 8499924c0cf75b84bbf1246f5606fc86, type: 2}
@@ -1877,7 +1877,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Username
+  m_text: Nume Utilizator
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8499924c0cf75b84bbf1246f5606fc86, type: 2}
   m_sharedMaterial: {fileID: -4900446557887658867, guid: 8499924c0cf75b84bbf1246f5606fc86, type: 2}
@@ -2271,7 +2271,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 0, y: 120}
-  m_SizeDelta: {x: 240, y: 70}
+  m_SizeDelta: {x: 250, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1717700031
 MonoBehaviour:
@@ -2446,7 +2446,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Age
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8499924c0cf75b84bbf1246f5606fc86, type: 2}
   m_sharedMaterial: {fileID: -4900446557887658867, guid: 8499924c0cf75b84bbf1246f5606fc86, type: 2}
@@ -2733,7 +2733,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Choose
+  m_text: Alege
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8499924c0cf75b84bbf1246f5606fc86, type: 2}
   m_sharedMaterial: {fileID: -4900446557887658867, guid: 8499924c0cf75b84bbf1246f5606fc86, type: 2}
