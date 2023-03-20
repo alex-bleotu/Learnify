@@ -140,7 +140,10 @@ public class TestPageHandler : MonoBehaviour
         else
             OpenTestInterface();
 
+
         gamePage.SetActive(false);
+        
+        resetTest();
 
         updateTest();
 
