@@ -65,7 +65,7 @@ public class GameHandler : MonoBehaviour
 
     public void OpenGameInterface(GameObject thisGameObject) {
         mainPage.SetActive(false);
-        gamePage.SetActive(true); 
+        gamePage.SetActive(true);
 
         int index = GameList.GetIndex(thisGameObject.name);
 

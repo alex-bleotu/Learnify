@@ -1,13 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 using UnityEngine.UI;
 
 public class TestPageHandler : MonoBehaviour
 {
     private GameObject testPage;
-    private GameObject leasonPage;
     private GameObject gamePage;
     private GameObject mainPage;
     private GameObject winPage;
@@ -25,21 +25,12 @@ public class TestPageHandler : MonoBehaviour
     private TMP_Text wrongAnswersText;
     private TMP_Text scoreText;
 
-    private TMP_Text leasonText;
-    private TMP_Text leasonTitleText;
+    private LeasonPageHandler leasonPage;
 
     private int correctAnswers;
 
     public void OpenTestInterface() {
         testPage.SetActive(true);
-    }
-
-    public void OpenLeasonInterface() {
-        leasonPage.SetActive(true);
-        gamePage.SetActive(false);
-
-        leasonTitleText.text = GameList.gameList[index].GetTitle();
-        leasonText.text = GameList.gameList[index].GetLeason();
     }
 
     private void updateTest() {
@@ -124,6 +115,10 @@ public class TestPageHandler : MonoBehaviour
         nextButton.GetComponent<Button>().interactable = true;
     }
 
+    public void OpenLeasonInterface() {
+        leasonPage.OpenInterface(index);
+    }
+
     public void OpenInterface(GameObject thisGameObject) {
         correctAnswers = 0;
 
@@ -135,11 +130,12 @@ public class TestPageHandler : MonoBehaviour
 
         if (!GameList.gameList[index].GetLeasonState()) {
             GameList.gameList[index].SetLeasonState(true);
+
             OpenLeasonInterface();
         }
-        else
+        else {
             OpenTestInterface();
-
+        }
 
         gamePage.SetActive(false);
         
@@ -154,21 +150,18 @@ public class TestPageHandler : MonoBehaviour
     public void CloseInterface() {
         testPage.SetActive(false);
         gamePage.SetActive(false);
-        leasonPage.SetActive(false);
         mainPage.SetActive(true);
     }
     
     void Start() {
         mainPage = GameObject.Find("MainPage");
         testPage = GameObject.Find("TestPage");
-        leasonPage = GameObject.Find("LeasonPage");
         winPage = GameObject.Find("WinPage");
+
+        leasonPage = GameObject.Find("ScriptsComponent").GetComponent<LeasonPageHandler>();
 
         nextButton = GameObject.Find("NextButton");
         previuosButton = GameObject.Find("PreviousButton");
-
-        leasonText = GameObject.Find("LeasonText (TMP)").GetComponent<TMP_Text>();
-        leasonTitleText = GameObject.Find("LeasonTitleText (TMP)").GetComponent<TMP_Text>();
 
         correctAnswersText = GameObject.Find("CorrectText (TMP)").GetComponent<TMP_Text>();
         wrongAnswersText = GameObject.Find("WrongText (TMP)").GetComponent<TMP_Text>();
@@ -181,7 +174,6 @@ public class TestPageHandler : MonoBehaviour
             answerButtons[i] = GameObject.Find("Answer" + i);
 
         testPage.SetActive(false);
-        leasonPage.SetActive(false);
         winPage.SetActive(false);
     }
 }

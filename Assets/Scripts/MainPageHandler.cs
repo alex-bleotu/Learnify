@@ -11,7 +11,6 @@ public class MainPageHandler : MonoBehaviour
 
     private User user;
 
-    private LevelSystem levelSystem;
     private AudioButtonHandler audioButtonHandler;
     private AudioListener audioListener;
     private RecomendedGamesHandler recomendedGamesHandler;
@@ -26,20 +25,10 @@ public class MainPageHandler : MonoBehaviour
         levelText = GameObject.Find("LevelText (TMP)").GetComponent<TMP_Text>();
         levelText.text = "Level " + user.GetLevel();
 
-        levelSystem = GameObject.Find("ScriptsComponent").GetComponent<LevelSystem>();
         audioButtonHandler = GameObject.Find("ScriptsComponent").GetComponent<AudioButtonHandler>();
         audioListener = GameObject.Find("Main Camera").GetComponent<AudioListener>();
         recomendedGamesHandler = GameObject.Find("ScriptsComponent").GetComponent<RecomendedGamesHandler>();
         audioSlider = GameObject.Find("Slider").GetComponent<Slider>();
-    }
-
-    public void AddExp() {
-        int currentLevel = user.GetLevel();
-
-        levelSystem.AddExperience(user, 50f);
-
-        if (user.GetLevel() != currentLevel)
-            levelText.text = "Level " + user.GetLevel();
     }
 
     public void ToggleMuteButton() {
