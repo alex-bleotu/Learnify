@@ -9,36 +9,32 @@ public class LeasonPageHandler : MonoBehaviour
     private TMP_Text leasonText;
     private TMP_Text leasonTitleText;
 
-    IEnumerator LoadScene(int index) {
-        while (SceneManager.GetActiveScene().buildIndex != index)
-            yield return null;
-
-        if (SceneManager.GetActiveScene().buildIndex == index)
-            UpdateText(index);
-            
-        Debug.Log(SceneManager.GetActiveScene().buildIndex == index);
-    }
+    private int index = 0;
 
     private void UpdateText(int index) {
-        Debug.Log(GameObject.Find("LeasonText (TMP)").GetComponent<TMP_Text>());
+        if (SceneManager.GetActiveScene().name == "LeasonPage") {
+            leasonText = GameObject.Find("LeasonText (TMP)").GetComponent<TMP_Text>();
+            leasonTitleText = GameObject.Find("LeasonTitleText (TMP)").GetComponent<TMP_Text>();
 
-        leasonText = GameObject.Find("LeasonText (TMP)").GetComponent<TMP_Text>();
-        leasonTitleText = GameObject.Find("LeasonTitleText (TMP)").GetComponent<TMP_Text>();
+            leasonTitleText.text = GameList.gameList[index].GetTitle();
+            leasonText.text = GameList.gameList[index].GetLeason();
+        }
+    }
 
-        leasonTitleText.text = GameList.gameList[index].GetTitle();
-        leasonText.text = GameList.gameList[index].GetLeason();
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        Debug.Log("Scene loaded :)");
+        UpdateText(index);
     }
 
     public void OpenInterface(int index) {
-        SceneManager.LoadScene(3);
+        this.index = index;
 
-        // while (SceneManager.GetActiveScene().buildIndex != index);
-
-        // UpdateText(index);
-            // StartCoroutine("LoadScene", 3);
+        SceneManager.sceneLoaded += OnSceneLoaded;
+        SceneManager.LoadScene("LeasonPage");
     }
 
     public void CloseInterface() {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("MainPage");
     }
 }

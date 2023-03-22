@@ -9,7 +9,16 @@ public class InfoPageHandler : MonoBehaviour
     private TMP_Text infoTitleText;
     private TMP_Text infoDescriptionText;
 
+    private void LoadComponents() {
+        infoPage = GameObject.Find("InfoPage");
+
+        infoTitleText = GameObject.Find("InfoTitleText (TMP)").GetComponent<TMP_Text>();
+        infoDescriptionText = GameObject.Find("InfoDescriptionText (TMP)").GetComponent<TMP_Text>();
+    }
+
     public void OpenInterface(GameObject thisGameObject) {
+        LoadComponents();
+
         infoPage.SetActive(true);
 
         int index = GameList.GetIndex(thisGameObject.name);
@@ -20,14 +29,4 @@ public class InfoPageHandler : MonoBehaviour
     public void CloseInterface() {
         infoPage.SetActive(false);
     }
-
-    private void Start() {
-        infoPage = GameObject.Find("InfoPage");
-        // gamePage = GameObject.Find("GamePage");
-
-        infoTitleText = GameObject.Find("InfoTitleText (TMP)").GetComponent<TMP_Text>();
-        infoDescriptionText = GameObject.Find("InfoDescriptionText (TMP)").GetComponent<TMP_Text>();
-
-        infoPage.SetActive(false);
-    } 
 }

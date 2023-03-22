@@ -18,6 +18,11 @@ public class GameHandler : MonoBehaviour
     private Image icon;
     private Image banner;
 
+    private TestPageHandler testPage;
+    private LeasonPageHandler leasonPage;
+
+    int index;
+
     private string setSubjectText(int index) {
         Game.Subject subject = GameList.gameList[index].GetSubject();
         if (subject == Game.Subject.math)
@@ -74,8 +79,6 @@ public class GameHandler : MonoBehaviour
         titleText.text = GameList.gameList[index].GetTitle();
         descriptionText.text = GameList.gameList[index].GetDescription();
 
-        Debug.Log(setSubjectText(index));
-
         subjectText.text = setSubjectText(index);
 
         SetDifficultyImages(index);
@@ -93,7 +96,34 @@ public class GameHandler : MonoBehaviour
         gamePage.SetActive(false);
     }
 
+    public void OpenLeasonInterface() {
+        leasonPage.OpenInterface(index);
+    }
+
+    public void OpenTestInterface() {
+        testPage.OpenInterface(index);
+    }
+
+    public void OpenPlayInterface(GameObject thisGameObject) {
+        index = GameList.GetIndex(thisGameObject.name);
+        
+        gamePage = GameObject.Find(thisGameObject.name);
+
+        if (!GameList.gameList[index].GetLeasonState()) {
+            GameList.gameList[index].SetLeasonState(true);
+
+            OpenLeasonInterface();
+        }
+        else
+            OpenTestInterface();
+
+        gamePage.SetActive(false);
+    }
+
     private void Start() {
+        leasonPage = GameObject.Find("ScriptsComponent").GetComponent<LeasonPageHandler>();
+        testPage = GameObject.Find("ScriptsComponent").GetComponent<TestPageHandler>();
+
         titleText = GameObject.Find("GameTitleText (TMP)").GetComponent<TMP_Text>();
         descriptionText = GameObject.Find("GameDescriptionText (TMP)").GetComponent<TMP_Text>();
         subjectText = GameObject.Find("SubjectText (TMP)").GetComponent<TMP_Text>();

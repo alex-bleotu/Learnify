@@ -8,9 +8,8 @@ using UnityEngine.UI;
 public class TestPageHandler : MonoBehaviour
 {
     private GameObject testPage;
-    private GameObject gamePage;
-    private GameObject mainPage;
     private GameObject winPage;
+    private GameObject infoPage;
 
     private GameObject nextButton;
     private GameObject previuosButton;
@@ -25,15 +24,9 @@ public class TestPageHandler : MonoBehaviour
     private TMP_Text wrongAnswersText;
     private TMP_Text scoreText;
 
-    private LeasonPageHandler leasonPage;
-
     private int correctAnswers;
 
-    public void OpenTestInterface() {
-        testPage.SetActive(true);
-    }
-
-    private void updateTest() {
+    private void UpdateTest() {
         if (GameList.gameList[index].GetQuestionsCount() == 0)
             return;
 
@@ -41,6 +34,16 @@ public class TestPageHandler : MonoBehaviour
 
         for (int i = 0; i < 4; i++)
             answerButtons[i].transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text = GameList.gameList[index].GetAnwers()[currentIndex][i];
+    }
+
+    private void ResetTest() {
+        for (int i = 0; i < 4; i++) {
+            answerButtons[i].GetComponent<Button>().interactable = true;
+            answerButtons[i].GetComponent<Image>().color = Color.white;
+            answerButtons[i].transform.GetChild(0).gameObject.GetComponent<TMP_Text>().color = new Color32(42, 47, 104, 255);
+        }
+
+        UpdateTest();
     }
 
     private void OpenWinInterface() {
@@ -56,18 +59,9 @@ public class TestPageHandler : MonoBehaviour
     }
 
     public void CloseWinInterface() {
-        winPage.SetActive(false);
-        mainPage.SetActive(true);
-    }
+        testPage.SetActive(true);
 
-    private void resetTest() {
-        for (int i = 0; i < 4; i++) {
-            answerButtons[i].GetComponent<Button>().interactable = true;
-            answerButtons[i].GetComponent<Image>().color = Color.white;
-            answerButtons[i].transform.GetChild(0).gameObject.GetComponent<TMP_Text>().color = new Color32(42, 47, 104, 255);
-        }
-
-        updateTest();
+        SceneManager.LoadScene("MainPage");
     }
 
     public void OnNextClick() {
@@ -77,7 +71,7 @@ public class TestPageHandler : MonoBehaviour
         previuosButton.SetActive(true);
 
         if (currentIndex < GameList.gameList[index].GetQuestionsCount())
-            resetTest();
+            ResetTest();
         else OpenWinInterface();
     }
 
@@ -85,7 +79,7 @@ public class TestPageHandler : MonoBehaviour
         currentIndex = currentIndex == 0 ? 0 : currentIndex - 1;
 
         if (currentIndex < GameList.gameList[index].GetQuestionsCount())
-            resetTest();
+            ResetTest();
     }
 
     public void OnAnswerClick(GameObject thisGameObject) {
@@ -115,50 +109,37 @@ public class TestPageHandler : MonoBehaviour
         nextButton.GetComponent<Button>().interactable = true;
     }
 
-    public void OpenLeasonInterface() {
-        leasonPage.OpenInterface(index);
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        Debug.Log("Scene loaded 2 :)");
+
+        if (SceneManager.GetActiveScene().name == "TestPage") { 
+            LoadComponents();
+
+            ResetTest();
+            UpdateTest();
+
+            previuosButton.SetActive(false);
+            nextButton.GetComponent<Button>().interactable = false;
+        }
     }
 
-    public void OpenInterface(GameObject thisGameObject) {
+    public void OpenInterface(int index) {
         correctAnswers = 0;
-
         currentIndex = 0;
 
-        index = GameList.GetIndex(thisGameObject.name);
-        
-        gamePage = GameObject.Find(thisGameObject.name);
-
-        if (!GameList.gameList[index].GetLeasonState()) {
-            GameList.gameList[index].SetLeasonState(true);
-
-            OpenLeasonInterface();
-        }
-        else {
-            OpenTestInterface();
-        }
-
-        gamePage.SetActive(false);
-        
-        resetTest();
-
-        updateTest();
-
-        previuosButton.SetActive(false);
-        nextButton.GetComponent<Button>().interactable = false;
+        SceneManager.sceneLoaded += OnSceneLoaded;
+        SceneManager.LoadScene("TestPage");
     }
 
     public void CloseInterface() {
-        testPage.SetActive(false);
-        gamePage.SetActive(false);
-        mainPage.SetActive(true);
+        SceneManager.LoadScene("MainPage");
     }
     
-    void Start() {
-        mainPage = GameObject.Find("MainPage");
+    private void LoadComponents() {
         testPage = GameObject.Find("TestPage");
         winPage = GameObject.Find("WinPage");
-
-        leasonPage = GameObject.Find("ScriptsComponent").GetComponent<LeasonPageHandler>();
+        infoPage = GameObject.Find("InfoPage");
 
         nextButton = GameObject.Find("NextButton");
         previuosButton = GameObject.Find("PreviousButton");
@@ -173,7 +154,7 @@ public class TestPageHandler : MonoBehaviour
         for (int i = 0; i < 4; i++)
             answerButtons[i] = GameObject.Find("Answer" + i);
 
-        testPage.SetActive(false);
         winPage.SetActive(false);
+        infoPage.SetActive(false);
     }
 }

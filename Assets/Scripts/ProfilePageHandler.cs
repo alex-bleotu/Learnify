@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class CreateProfileHandler : MonoBehaviour {
+public class ProfilePageHandler : MonoBehaviour {
     private User user;
     private string username;
     private int age;
@@ -19,7 +19,7 @@ public class CreateProfileHandler : MonoBehaviour {
         if (username != null && age != 0) {
             User user = new User(username, age);
             SaveSystem.SaveData(user);
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene("MainPage");
         }
     }
 }
