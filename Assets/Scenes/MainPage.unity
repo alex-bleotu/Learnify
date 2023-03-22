@@ -6492,9 +6492,7 @@ GameObject:
   - component: {fileID: 830554546}
   - component: {fileID: 830554548}
   - component: {fileID: 830554549}
-  - component: {fileID: 830554551}
   - component: {fileID: 830554553}
-  - component: {fileID: 830554552}
   m_Layer: 0
   m_Name: ScriptsComponent
   m_TagString: Untagged
@@ -6592,8 +6590,8 @@ MonoBehaviour:
   subjectText: {fileID: 1308353674}
   icon: {fileID: 1581596418}
   banner: {fileID: 127185409}
-  testPage: {fileID: 830554551}
-  leasonPage: {fileID: 830554552}
+  testPage: {fileID: 0}
+  leasonPage: {fileID: 0}
 --- !u!114 &830554546
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6636,42 +6634,6 @@ MonoBehaviour:
   infoPage: {fileID: 0}
   infoTitleText: {fileID: 0}
   infoDescriptionText: {fileID: 0}
---- !u!114 &830554551
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 830554538}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 266fcee50b9d4804ead5433c4a9aa28f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  testPage: {fileID: 0}
-  winPage: {fileID: 0}
-  infoPage: {fileID: 0}
-  nextButton: {fileID: 0}
-  previuosButton: {fileID: 0}
-  questionText: {fileID: 0}
-  answerButtons: []
-  correctAnswersText: {fileID: 0}
-  wrongAnswersText: {fileID: 0}
-  scoreText: {fileID: 0}
---- !u!114 &830554552
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 830554538}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f841e6b052c4d84cb4b2c879362d153, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  leasonText: {fileID: 1893608925}
-  leasonTitleText: {fileID: 1893608925}
 --- !u!114 &830554553
 MonoBehaviour:
   m_ObjectHideFlags: 0
