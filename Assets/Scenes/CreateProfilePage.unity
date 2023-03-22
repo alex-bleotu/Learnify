@@ -400,9 +400,6 @@ RectTransform:
   m_Children:
   - {fileID: 1550049071}
   - {fileID: 953775966}
-  - {fileID: 1002874060}
-  - {fileID: 1717700030}
-  - {fileID: 1975232517}
   - {fileID: 1378180935}
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -532,10 +529,10 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 704239616}
-        m_TargetAssemblyTypeName: CreateProfile, Assembly-CSharp
+      - m_Target: {fileID: 704239618}
+        m_TargetAssemblyTypeName: CreateProfilePageHandler, Assembly-CSharp
         m_MethodName: ReadUsernameInput
-        m_Mode: 0
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1115,7 +1112,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 704239617}
-  - component: {fileID: 704239616}
+  - component: {fileID: 704239618}
   m_Layer: 0
   m_Name: ScriptsComponent
   m_TagString: Untagged
@@ -1123,18 +1120,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &704239616
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 704239615}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de0e72a8ecfe3084bb53f8266de626f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &704239617
 Transform:
   m_ObjectHideFlags: 0
@@ -1150,6 +1135,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &704239618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 704239615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f38284b061e1294ca32231044b580a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  usernameInput: {fileID: 453707798}
+  ageInput: {fileID: 754530024}
 --- !u!1 &754530024
 GameObject:
   m_ObjectHideFlags: 0
@@ -1270,10 +1269,10 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 704239616}
-        m_TargetAssemblyTypeName: CreateProfile, Assembly-CSharp
+      - m_Target: {fileID: 704239618}
+        m_TargetAssemblyTypeName: CreateProfilePageHandler, Assembly-CSharp
         m_MethodName: ReadAgeInput
-        m_Mode: 0
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1523,7 +1522,7 @@ GameObject:
   - component: {fileID: 953775968}
   - component: {fileID: 953775967}
   m_Layer: 5
-  m_Name: PageBackground
+  m_Name: CreateProfilePage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1540,7 +1539,10 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1002874060}
+  - {fileID: 1717700030}
+  - {fileID: 1975232517}
   m_Father: {fileID: 291228321}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1612,17 +1614,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1002874059}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 291228321}
-  m_RootOrder: 2
+  m_Father: {fileID: 953775966}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -130}
+  m_AnchoredPosition: {x: 0, y: -70}
   m_SizeDelta: {x: 550, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1002874061
@@ -2020,7 +2022,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 291228321}
-  m_RootOrder: 5
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1428998464
 GameObject:
@@ -2259,19 +2261,19 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1717700029}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 636154543}
-  m_Father: {fileID: 291228321}
-  m_RootOrder: 3
+  m_Father: {fileID: 953775966}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 120}
-  m_SizeDelta: {x: 250, y: 70}
+  m_AnchoredPosition: {x: 0, y: 80}
+  m_SizeDelta: {x: 250, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1717700031
 MonoBehaviour:
@@ -2317,8 +2319,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 704239616}
-        m_TargetAssemblyTypeName: CreateProfile, Assembly-CSharp
+      - m_Target: {fileID: 704239618}
+        m_TargetAssemblyTypeName: CreateProfilePageHandler, Assembly-CSharp
         m_MethodName: OnSubmit
         m_Mode: 1
         m_Arguments:
@@ -3031,7 +3033,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1975232516}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3039,8 +3041,8 @@ RectTransform:
   - {fileID: 1132702584}
   - {fileID: 942261135}
   - {fileID: 1030433694}
-  m_Father: {fileID: 291228321}
-  m_RootOrder: 4
+  m_Father: {fileID: 953775966}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}

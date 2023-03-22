@@ -9,11 +9,13 @@ public class LeasonPageHandler : MonoBehaviour
     public TMP_Text leasonText;
     public TMP_Text leasonTitleText;
 
-    private int index = 0;
+    private int gameIndex;
 
     private void Start() {
-        leasonTitleText.text = GameList.gameList[index].GetTitle();
-        leasonText.text = GameList.gameList[index].GetLeason();
+        gameIndex = TemporaryData.currentGameIndex;
+
+        leasonTitleText.text = TemporaryData.gameList[gameIndex].GetTitle();
+        leasonText.text = TemporaryData.gameList[gameIndex].GetLeason();
     }
 
     public void CloseInterface() {

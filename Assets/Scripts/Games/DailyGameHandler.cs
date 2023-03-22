@@ -18,10 +18,10 @@ public class DailyGameHandler : MonoBehaviour
             (59 - localTime.Minute + (localTime.Minute == 0 ? 0 : 1));
     }
 
-    public void StartClock(User user) {
+    public void StartClock() {
         timeText.text = Time();
 
-        dayText.text = user.GetDailyStreak() + " zile";
+        dayText.text = TemporaryData.user.GetDailyStreak() + " zile";
     }
 
     private void Update() {

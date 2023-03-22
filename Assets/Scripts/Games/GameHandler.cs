@@ -25,7 +25,7 @@ public class GameHandler : MonoBehaviour
     int index;
 
     private string setSubjectText(int index) {
-        Game.Subject subject = GameList.gameList[index].GetSubject();
+        Game.Subject subject = TemporaryData.gameList[index].GetSubject();
         if (subject == Game.Subject.math)
             return "Matematică";
         else if (subject == Game.Subject.romanian)
@@ -42,7 +42,7 @@ public class GameHandler : MonoBehaviour
         Image image2 = GameObject.Find("Image2").GetComponent<Image>();
         Image image3 = GameObject.Find("Image3").GetComponent<Image>();
 
-        Game.Difficulty difficulty = GameList.gameList[index].GetDifficulty();
+        Game.Difficulty difficulty = TemporaryData.gameList[index].GetDifficulty();
 
         Color32 green = new Color32(50, 205, 50, 255);
         Color32 orange = new Color32(255, 140, 0, 255);
@@ -73,21 +73,23 @@ public class GameHandler : MonoBehaviour
         mainPage.SetActive(false);
         gamePage.SetActive(true);
 
-        int index = GameList.GetIndex(thisGameObject.name);
+        int index = Game.GetIndex(thisGameObject.name);
 
         gamePage.name = "GamePage" + index;
 
-        titleText.text = GameList.gameList[index].GetTitle();
-        descriptionText.text = GameList.gameList[index].GetDescription();
+        titleText.text = TemporaryData.gameList[index].GetTitle();
+        descriptionText.text = TemporaryData.gameList[index].GetDescription();
 
         subjectText.text = setSubjectText(index);
 
         SetDifficultyImages(index);
 
-        leasonButton.SetActive(GameList.gameList[index].GetLeasonState());
+        leasonButton.SetActive(TemporaryData.gameList[index].GetLeasonState());
 
-        icon.sprite = GameList.gameList[index].GetIcon();
-        banner.sprite = GameList.gameList[index].GetBanner();
+        icon.sprite = TemporaryData.gameList[index].GetIcon();
+        banner.sprite = TemporaryData.gameList[index].GetBanner();
+
+        TemporaryData.currentGameIndex = index;
     }
 
     public void CloseGameInterface() {
@@ -106,12 +108,12 @@ public class GameHandler : MonoBehaviour
     }
 
     public void OpenPlayInterface(GameObject thisGameObject) {
-        index = GameList.GetIndex(thisGameObject.name);
+        index = Game.GetIndex(thisGameObject.name);
         
         gamePage = GameObject.Find(thisGameObject.name);
 
-        if (!GameList.gameList[index].GetLeasonState()) {
-            GameList.gameList[index].SetLeasonState(true);
+        if (!TemporaryData.gameList[index].GetLeasonState()) {
+            TemporaryData.gameList[index].SetLeasonState(true);
 
             OpenLeasonInterface();
         }

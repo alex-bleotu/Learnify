@@ -20,33 +20,20 @@ public class User {
     } 
 
     public string GetUsername() { return username; }
-
     public int GetAge() { return age; }
-
     public int GetLevel() { return level; }
-
     public float GetExperience() { return experience; }
-    
     public float GetSound() { return sound; }
-    
     public bool GetMute() { return mute; }
-
     public int GetDailyStreak() { return dailyStreak; }
-
     public float GetExperienceMultiplier() { return experienceMultiplier; }
-
     public void SetLevel(int level) { this.level = level; }
-
     public void SetExperience(float experience) { this.experience = experience; }
-
     public void SetSound(float sound) { this.sound = sound; }
-
     public void SetMute(bool mute) { this.mute = mute; }
-
     public void SetExperienceMultiplier(float experienceMultiplier) { this.experienceMultiplier = experienceMultiplier; }
-
     public void SetDailyStreak(int dailyStreak) { this.dailyStreak = dailyStreak; }
-
+    
     public void AddExperience(float exp) {
         experience += exp;
 

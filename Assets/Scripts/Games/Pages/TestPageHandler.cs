@@ -14,9 +14,6 @@ public class TestPageHandler : MonoBehaviour
     public GameObject nextButton;
     public GameObject previuosButton;
 
-    private int currentIndex;
-    private int index;
-
     public TMP_Text questionText;
     public GameObject[] answerButtons;
 
@@ -24,16 +21,24 @@ public class TestPageHandler : MonoBehaviour
     public TMP_Text wrongAnswersText;
     public TMP_Text scoreText;
 
+    private int[] choosenAnswers;
+
     private int correctAnswers;
 
+    private int questionIndex;
+    private int gameIndex;
+
+    Color32 green = new Color32(75, 180, 75, 255);
+    Color32 red = new Color32(180, 55, 75, 255);
+
     private void UpdateTest() {
-        if (GameList.gameList[index].GetQuestionsCount() == 0)
+        if (TemporaryData.gameList[gameIndex].GetQuestionsCount() == 0)
             return;
 
-        questionText.text = (currentIndex + 1) + ". " + GameList.gameList[index].GetQuestions()[currentIndex];
+        questionText.text = (questionIndex + 1) + ". " + TemporaryData.gameList[gameIndex].GetQuestions()[questionIndex].question;
 
         for (int i = 0; i < 4; i++)
-            answerButtons[i].transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text = GameList.gameList[index].GetAnwers()[currentIndex][i];
+            answerButtons[i].transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text = TemporaryData.gameList[gameIndex].GetQuestions()[questionIndex].answers[i];
     }
 
     private void ResetTest() {
@@ -49,50 +54,77 @@ public class TestPageHandler : MonoBehaviour
     private void OpenWinInterface() {
         Debug.Log(correctAnswers);
 
-        // correctAnswers.text = GameList.gameList[index]
-        correctAnswersText.text = "Răspunsuri corecte: " + correctAnswers;
-        wrongAnswersText.text = "Răspunsuri greşite: " + (GameList.gameList[index].GetQuestionsCount() - correctAnswers);
-        scoreText.text = "Scor total: " + ((1.0 * correctAnswers / GameList.gameList[index].GetQuestionsCount()) * 100) + "%";
+        // correctAnswers.text = GameList.gameList[gameIndex]
+        correctAnswersText.text = correctAnswers.ToString();
+        wrongAnswersText.text = (TemporaryData.gameList[gameIndex].GetQuestionsCount() - correctAnswers).ToString();
 
-        winPage.SetActive(true);
+        int score = correctAnswers  * 100 / TemporaryData.gameList[gameIndex].GetQuestionsCount();
+
+        scoreText.text = score + "%";
+
+        TemporaryData.gameList[TemporaryData.currentGameIndex].SetHighestScore(score);
+
         testPage.SetActive(false);
+        winPage.SetActive(true);
     }
 
     public void CloseWinInterface() {
-        testPage.SetActive(true);
         winPage.SetActive(false);
-        infoPage.SetActive(false);
 
         SceneManager.LoadScene("MainPage");
     }
 
     public void OnNextClick() {
-        currentIndex++;
+        questionIndex++;
 
-        nextButton.GetComponent<Button>().interactable = false;
-        previuosButton.SetActive(true);
+        if (choosenAnswers[questionIndex] == -1) {
+            nextButton.GetComponent<Button>().interactable = false;
+            previuosButton.SetActive(true);
 
-        if (currentIndex < GameList.gameList[index].GetQuestionsCount())
-            ResetTest();
-        else OpenWinInterface();
+            if (questionIndex < TemporaryData.gameList[gameIndex].GetQuestionsCount()) {
+                ResetTest();
+            }
+            else OpenWinInterface();
+        } else
+            UpdateSavedAsnwers();
+    }
+
+    private void UpdateSavedAsnwers() {
+        ResetTest();
+
+        for (int i = 0; i < 4; i++)
+            answerButtons[i].GetComponent<Button>().interactable = false;
+
+        if (choosenAnswers[questionIndex] == TemporaryData.gameList[gameIndex].GetQuestions()[questionIndex].correct) {
+            answerButtons[choosenAnswers[questionIndex]].GetComponent<Image>().color = green;
+            answerButtons[choosenAnswers[questionIndex]].transform.GetChild(0).gameObject.GetComponent<TMP_Text>().color = Color.white;
+        }
+        else {
+            answerButtons[choosenAnswers[questionIndex]].GetComponent<Image>().color = red;
+            answerButtons[TemporaryData.gameList[gameIndex].GetQuestions()[questionIndex].correct].GetComponent<Image>().color = green;
+            answerButtons[choosenAnswers[questionIndex]].transform.GetChild(0).gameObject.GetComponent<TMP_Text>().color = Color.white;
+            answerButtons[TemporaryData.gameList[gameIndex].GetQuestions()[questionIndex].correct].transform.GetChild(0).gameObject.GetComponent<TMP_Text>().color = Color.white;
+        }
     }
 
     public void OnPreviousClick() {
-        currentIndex = currentIndex == 0 ? 0 : currentIndex - 1;
+        questionIndex = questionIndex == 0 ? 0 : questionIndex - 1;
 
-        if (currentIndex < GameList.gameList[index].GetQuestionsCount())
-            ResetTest();
+        nextButton.GetComponent<Button>().interactable = true;
+
+        if (questionIndex == 0)
+            previuosButton.SetActive(false);
+
+        if (questionIndex < TemporaryData.gameList[gameIndex].GetQuestionsCount())
+            UpdateSavedAsnwers();
     }
 
     public void OnAnswerClick(GameObject thisGameObject) {
-        if (GameList.gameList[index].GetQuestionsCount() == 0)
+        if (TemporaryData.gameList[gameIndex].GetQuestionsCount() == 0)
             return;
 
-        Color32 green = new Color32(75, 180, 75, 255);
-        Color32 red = new Color32(180, 55, 75, 255);
-
-        int buttonIndex = GameList.GetIndex(thisGameObject.name);
-        if (buttonIndex == GameList.gameList[index].GetCorrectAnswers()[currentIndex]) {
+        int buttonIndex = Game.GetIndex(thisGameObject.name);
+        if (buttonIndex == TemporaryData.gameList[gameIndex].GetQuestions()[questionIndex].correct) {
             answerButtons[buttonIndex].GetComponent<Image>().color = green;
             answerButtons[buttonIndex].transform.GetChild(0).gameObject.GetComponent<TMP_Text>().color = Color.white;
 
@@ -100,10 +132,12 @@ public class TestPageHandler : MonoBehaviour
         }
         else {
             answerButtons[buttonIndex].GetComponent<Image>().color = red;
-            answerButtons[GameList.gameList[index].GetCorrectAnswers()[currentIndex]].GetComponent<Image>().color = green;
+            answerButtons[TemporaryData.gameList[gameIndex].GetQuestions()[questionIndex].correct].GetComponent<Image>().color = green;
             answerButtons[buttonIndex].transform.GetChild(0).gameObject.GetComponent<TMP_Text>().color = Color.white;
-            answerButtons[GameList.gameList[index].GetCorrectAnswers()[currentIndex]].transform.GetChild(0).gameObject.GetComponent<TMP_Text>().color = Color.white;
+            answerButtons[TemporaryData.gameList[gameIndex].GetQuestions()[questionIndex].correct].transform.GetChild(0).gameObject.GetComponent<TMP_Text>().color = Color.white;
         }
+
+        choosenAnswers[questionIndex] = buttonIndex;
 
         for (int i = 0; i < 4; i++)
             answerButtons[i].GetComponent<Button>().interactable = false;
@@ -113,13 +147,22 @@ public class TestPageHandler : MonoBehaviour
 
     private void Start() {
         correctAnswers = 0;
-        currentIndex = 0;
+        questionIndex = 0;
+
+        choosenAnswers = new int[TemporaryData.gameList[gameIndex].GetQuestionsCount() + 1];
+
+        for (int i = 0; i <= TemporaryData.gameList[gameIndex].GetQuestionsCount(); i++)
+            choosenAnswers[i] = -1;
+
+        gameIndex = TemporaryData.currentGameIndex;
 
         ResetTest();
         UpdateTest();
 
         previuosButton.SetActive(false);
         nextButton.GetComponent<Button>().interactable = false;
+
+        testPage.SetActive(true);
     }
 
     public void CloseInterface() {

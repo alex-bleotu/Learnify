@@ -9,6 +9,19 @@ public class Game
 
     public enum Subject { math, romanian, science, english};
 
+    public struct Questions {
+        public string id;
+        public string question;
+        public List<string> answers;
+        public int correct;
+    }
+
+    [System.Serializable]
+    public struct Data {
+        public bool leasonState;
+        public int highestScore;
+    }
+
     private int id;
 
     private Sprite icon;
@@ -17,41 +30,31 @@ public class Game
     private string title;
     private string description;
 
-
     private int recommendedLevel;
     private int experience;
 
     private Difficulty currentDifficulty;
     private Subject subject;
 
-    private bool leasonState;
-
-    private List<string> questions;
-    private List<List<string>> answers;
-    private List<int> correctAnswers;
-
     private string leason;
+    private string info;
 
     private int questionsCount;
 
-    public Game(string title, string description, int recommendedLevel, int experience, Difficulty currentDifficulty, Subject subject, int id) {
-        this.title = title;
-        this.description = description;
-        this.recommendedLevel = recommendedLevel;
-        this.experience = experience;
-        this.currentDifficulty = currentDifficulty;
-        this.subject = subject;
-        this.id = id;
+    private List<Questions> questions;
 
-        questions = new List<string>();
-        answers = new List<List<string>>();
-        correctAnswers = new List<int>();
+    private Data data;
 
-        ReadData.Read(ref questions, ref answers, ref correctAnswers, ref leason, Application.dataPath + "/Resources/Games/" + id + "/data.json", Application.dataPath + "/Resources/Games/" + id + "/leason.json");
+    public Game(int id) {
+        questions = new List<Questions>();
+
+        ReadData.Read(ref title, ref description, ref recommendedLevel, ref experience, 
+            ref currentDifficulty, ref subject, ref questions, 
+            ref leason, ref info, Application.dataPath + "/Resources/Games/" + id + "/data.json");
 
         questionsCount = questions.Count;
 
-        leasonState = false;
+        data.leasonState = false;
 
         icon = Resources.Load<Sprite>("Games/" + id + "/icon");
         banner = Resources.Load<Sprite>("Games/" + id + "/banner");
@@ -60,8 +63,9 @@ public class Game
             icon = Resources.Load<Sprite>("Games/Default/icon");
         if (banner == null)
             banner = Resources.Load<Sprite>("Games/Default/banner");
-    } 
+    }
 
+    private int GetId() { return id; }
     public Sprite GetIcon() { return icon; }
     public Sprite GetBanner() { return banner; }
     public string GetTitle() { return title; }
@@ -71,11 +75,28 @@ public class Game
     public Difficulty GetDifficulty() { return currentDifficulty; }
     public void SetDifficulty(Difficulty currentDifficulty) { this.currentDifficulty = currentDifficulty; }
     public Subject GetSubject() { return subject; }
-    public bool GetLeasonState() { return leasonState; }
-    public void SetLeasonState(bool leasonState) { this.leasonState = leasonState; }
-    public List<string> GetQuestions() { return questions; }
-    public List<List<string>> GetAnwers() { return answers; }
-    public List<int> GetCorrectAnswers() { return correctAnswers; }
+    public bool GetLeasonState() { return data.leasonState; }
+    public void SetLeasonState(bool leasonState) { this.data.leasonState = leasonState; }
+    public List<Questions> GetQuestions() { return questions; }
     public int GetQuestionsCount() { return questionsCount; }
     public string GetLeason() { return leason; }
+    public string GetInfo() { return info; }
+    public Data GetData() { return data; }
+    public void SetData(Data data) { this.data = data; }
+    public int GetHighestScore() { return data.highestScore; }
+    public void SetHighestScore(int highestScore) { this.data.highestScore = highestScore; }
+
+    public static int GetIndex(string str) {
+        string aux = string.Empty;
+        int val = 0;
+
+        for (int i = 0; i < str.Length; i++)
+            if (char.IsDigit(str[i]))
+                aux += str[i];
+
+        if (aux.Length > 0)
+            val = int.Parse(aux);
+
+        return val;
+    }
 }

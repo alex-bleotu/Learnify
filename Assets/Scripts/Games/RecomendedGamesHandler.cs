@@ -11,13 +11,13 @@ public class RecomendedGamesHandler : MonoBehaviour
 
         int[] randomValues = new int[3];
 
-        randomValues[0] = random.Next(0, GameList.gameList.Length);
-        randomValues[1] = random.Next(0, GameList.gameList.Length);
+        randomValues[0] = random.Next(0, TemporaryData.gameList.Count);
+        randomValues[1] = random.Next(0, TemporaryData.gameList.Count);
         while (randomValues[1] == randomValues[0])
-            randomValues[1] = random.Next(0, GameList.gameList.Length);
-        randomValues[2] = random.Next(0, GameList.gameList.Length);
+            randomValues[1] = random.Next(0, TemporaryData.gameList.Count);
+        randomValues[2] = random.Next(0, TemporaryData.gameList.Count);
         while (randomValues[2] == randomValues[0] || randomValues[2] == randomValues[1])
-            randomValues[2] = random.Next(0, GameList.gameList.Length);
+            randomValues[2] = random.Next(0, TemporaryData.gameList.Count);
 
         return randomValues;
     }
@@ -50,7 +50,7 @@ public class RecomendedGamesHandler : MonoBehaviour
             // TMP_Text buttonText = game.transform.GetChild(1).GetComponent<TMP_Text>();
             // buttonText.text = GameList.gameList[randomValues[index]].GetTitle();
 
-            game.transform.GetChild(0).GetComponent<Image>().sprite = GameList.gameList[randomValues[index]].GetIcon();
+            game.transform.GetChild(0).GetComponent<Image>().sprite = TemporaryData.gameList[randomValues[index]].GetIcon();
             
             index++;
         }
