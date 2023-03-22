@@ -4,27 +4,16 @@ using UnityEngine;
 
 public class SettingsButtonHandler : MonoBehaviour
 {
-    private bool showSettingsInterface = false;
+    public GameObject mainPage;
+    public GameObject settingsPage;
 
-    private GameObject menuPage;
-    private GameObject settingsPage;
-
-    private void Start() {
-        menuPage = GameObject.Find("MainPage");
-        settingsPage = GameObject.Find("SettingsPage");
-
-        menuPage.SetActive(!showSettingsInterface);
-        settingsPage.SetActive(showSettingsInterface);
+    public void OpenInterface() {
+        mainPage.SetActive(false);
+        settingsPage.SetActive(true);
     }
 
-    public void SettingsButton() {
-        showSettingsInterface = !showSettingsInterface;
-
-        changeView();
-    }
-
-    private void changeView() {
-        menuPage.SetActive(!showSettingsInterface);
-        settingsPage.SetActive(showSettingsInterface);
+    public void CloseInterface() {
+        mainPage.SetActive(true);
+        settingsPage.SetActive(false);
     }
 }

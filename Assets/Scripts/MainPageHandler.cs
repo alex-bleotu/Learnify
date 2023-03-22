@@ -6,36 +6,39 @@ using TMPro;
 
 public class MainPageHandler : MonoBehaviour
 {
-    private TMP_Text usernameText;
-    private TMP_Text levelText;
+    public TMP_Text usernameText;
+    public TMP_Text levelText;
 
     private User user;
 
-    private AudioButtonHandler audioButtonHandler;
-    private AudioListener audioListener;
-    private RecomendedGamesHandler recomendedGamesHandler;
-    private Slider audioSlider;
+    public AudioListener audioListener;
+    public Slider audioSlider;
+
+    public RecomendedGamesHandler recomendedGamesHandler;
+    public AudioButtonHandler audioButtonHandler;
+    public DailyGameHandler dailyGameHandler;
 
     private void Start() {
         user = SaveSystem.LoadData();
-        
-        usernameText = GameObject.Find("UsernameText (TMP)").GetComponent<TMP_Text>();
+
         usernameText.text = user.GetUsername();
+        levelText.text = "Nivel " + user.GetLevel();
 
-        levelText = GameObject.Find("LevelText (TMP)").GetComponent<TMP_Text>();
-        levelText.text = "Level " + user.GetLevel();
+        audioSlider.value = user.GetSound();
 
-        audioButtonHandler = GameObject.Find("ScriptsComponent").GetComponent<AudioButtonHandler>();
-        audioListener = GameObject.Find("Main Camera").GetComponent<AudioListener>();
-        recomendedGamesHandler = GameObject.Find("ScriptsComponent").GetComponent<RecomendedGamesHandler>();
-        audioSlider = GameObject.Find("Slider").GetComponent<Slider>();
+        dailyGameHandler.StartClock(user);
     }
 
     public void ToggleMuteButton() {
         audioButtonHandler.MuteButton(user, audioSlider);
     }
 
+    public void UpdateSound() {
+        if (GameObject.Find("SettingsPage") != null)
+        user.SetSound(audioSlider.value);
+    }
+
     private void Update() {
-        audioListener.enabled = user.GetSound();
+        audioListener.enabled = user.GetMute();
     }
 }

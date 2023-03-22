@@ -5,20 +5,11 @@ using TMPro;
 
 public class InfoPageHandler : MonoBehaviour
 {
-    private GameObject infoPage;
-    private TMP_Text infoTitleText;
-    private TMP_Text infoDescriptionText;
-
-    private void LoadComponents() {
-        infoPage = GameObject.Find("InfoPage");
-
-        infoTitleText = GameObject.Find("InfoTitleText (TMP)").GetComponent<TMP_Text>();
-        infoDescriptionText = GameObject.Find("InfoDescriptionText (TMP)").GetComponent<TMP_Text>();
-    }
+    public GameObject infoPage;
+    public TMP_Text infoTitleText;
+    public TMP_Text infoDescriptionText;
 
     public void OpenInterface(GameObject thisGameObject) {
-        LoadComponents();
-
         infoPage.SetActive(true);
 
         int index = GameList.GetIndex(thisGameObject.name);

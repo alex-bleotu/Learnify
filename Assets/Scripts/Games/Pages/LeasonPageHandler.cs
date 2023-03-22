@@ -6,32 +6,14 @@ using TMPro;
 
 public class LeasonPageHandler : MonoBehaviour
 {
-    private TMP_Text leasonText;
-    private TMP_Text leasonTitleText;
+    public TMP_Text leasonText;
+    public TMP_Text leasonTitleText;
 
     private int index = 0;
 
-    private void UpdateText(int index) {
-        if (SceneManager.GetActiveScene().name == "LeasonPage") {
-            leasonText = GameObject.Find("LeasonText (TMP)").GetComponent<TMP_Text>();
-            leasonTitleText = GameObject.Find("LeasonTitleText (TMP)").GetComponent<TMP_Text>();
-
-            leasonTitleText.text = GameList.gameList[index].GetTitle();
-            leasonText.text = GameList.gameList[index].GetLeason();
-        }
-    }
-
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        Debug.Log("Scene loaded :)");
-        UpdateText(index);
-    }
-
-    public void OpenInterface(int index) {
-        this.index = index;
-
-        SceneManager.sceneLoaded += OnSceneLoaded;
-        SceneManager.LoadScene("LeasonPage");
+    private void Start() {
+        leasonTitleText.text = GameList.gameList[index].GetTitle();
+        leasonText.text = GameList.gameList[index].GetLeason();
     }
 
     public void CloseInterface() {

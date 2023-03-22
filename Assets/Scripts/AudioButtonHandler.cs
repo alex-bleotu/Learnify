@@ -5,19 +5,17 @@ using UnityEngine.UI;
 
 public class AudioButtonHandler : MonoBehaviour
 {   
-
     public void MuteButton(User user, Slider audioSlider) {
-        bool currentStateOfButton = user.GetSound();
-        user.SetSound(!currentStateOfButton);
+        user.SetMute(!user.GetMute());
 
         Image buttonImage = GameObject.Find("SoundButton").transform.GetChild(0).GetComponent<Image>();
-        buttonImage.sprite = !currentStateOfButton ? 
+        buttonImage.sprite = !user.GetMute() ? 
             Resources.Load<Sprite>("Icons/sound") : 
             Resources.Load<Sprite>("Icons/mute");
 
-        if (currentStateOfButton == true)
+        if (user.GetMute() == true)
             audioSlider.value = audioSlider.minValue;
         else
-            audioSlider.value = audioSlider.maxValue;
+            audioSlider.value = user.GetSound();
     }
 }

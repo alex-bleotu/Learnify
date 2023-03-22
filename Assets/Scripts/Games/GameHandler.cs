@@ -2,24 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class GameHandler : MonoBehaviour
 {
-    private GameObject mainPage;
-    private GameObject gamePage;
+    public GameObject mainPage;
+    public GameObject gamePage;
 
-    private GameObject leasonButton;
+    public GameObject leasonButton;
 
-    private TMP_Text titleText;
-    private TMP_Text descriptionText;
-    private TMP_Text subjectText;
+    public TMP_Text titleText;
+    public TMP_Text descriptionText;
+    public TMP_Text subjectText;
 
-    private Image icon;
-    private Image banner;
+    public Image icon;
+    public Image banner;
 
-    private TestPageHandler testPage;
-    private LeasonPageHandler leasonPage;
+    public TestPageHandler testPage;
+    public LeasonPageHandler leasonPage;
 
     int index;
 
@@ -97,11 +98,11 @@ public class GameHandler : MonoBehaviour
     }
 
     public void OpenLeasonInterface() {
-        leasonPage.OpenInterface(index);
+        SceneManager.LoadScene("LeasonPage");
     }
 
     public void OpenTestInterface() {
-        testPage.OpenInterface(index);
+        SceneManager.LoadScene("TestPage");
     }
 
     public void OpenPlayInterface(GameObject thisGameObject) {
@@ -116,25 +117,6 @@ public class GameHandler : MonoBehaviour
         }
         else
             OpenTestInterface();
-
-        gamePage.SetActive(false);
-    }
-
-    private void Start() {
-        leasonPage = GameObject.Find("ScriptsComponent").GetComponent<LeasonPageHandler>();
-        testPage = GameObject.Find("ScriptsComponent").GetComponent<TestPageHandler>();
-
-        titleText = GameObject.Find("GameTitleText (TMP)").GetComponent<TMP_Text>();
-        descriptionText = GameObject.Find("GameDescriptionText (TMP)").GetComponent<TMP_Text>();
-        subjectText = GameObject.Find("SubjectText (TMP)").GetComponent<TMP_Text>();
-
-        leasonButton = GameObject.Find("LeasonButton");
-
-        icon = GameObject.Find("IconImage").GetComponent<Image>();
-        banner = GameObject.Find("BannerImage").GetComponent<Image>();
-
-        mainPage = GameObject.Find("MainPage");
-        gamePage = GameObject.Find("GamePage");
 
         gamePage.SetActive(false);
     }

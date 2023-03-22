@@ -7,22 +7,22 @@ using UnityEngine.UI;
 
 public class TestPageHandler : MonoBehaviour
 {
-    private GameObject testPage;
-    private GameObject winPage;
-    private GameObject infoPage;
+    public GameObject testPage;
+    public GameObject winPage;
+    public GameObject infoPage;
 
-    private GameObject nextButton;
-    private GameObject previuosButton;
+    public GameObject nextButton;
+    public GameObject previuosButton;
 
     private int currentIndex;
     private int index;
 
-    private TMP_Text questionText;
-    private GameObject[] answerButtons;
+    public TMP_Text questionText;
+    public GameObject[] answerButtons;
 
-    private TMP_Text correctAnswersText;
-    private TMP_Text wrongAnswersText;
-    private TMP_Text scoreText;
+    public TMP_Text correctAnswersText;
+    public TMP_Text wrongAnswersText;
+    public TMP_Text scoreText;
 
     private int correctAnswers;
 
@@ -60,6 +60,8 @@ public class TestPageHandler : MonoBehaviour
 
     public void CloseWinInterface() {
         testPage.SetActive(true);
+        winPage.SetActive(false);
+        infoPage.SetActive(false);
 
         SceneManager.LoadScene("MainPage");
     }
@@ -109,52 +111,18 @@ public class TestPageHandler : MonoBehaviour
         nextButton.GetComponent<Button>().interactable = true;
     }
 
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        Debug.Log("Scene loaded 2 :)");
-
-        if (SceneManager.GetActiveScene().name == "TestPage") { 
-            LoadComponents();
-
-            ResetTest();
-            UpdateTest();
-
-            previuosButton.SetActive(false);
-            nextButton.GetComponent<Button>().interactable = false;
-        }
-    }
-
-    public void OpenInterface(int index) {
+    private void Start() {
         correctAnswers = 0;
         currentIndex = 0;
 
-        SceneManager.sceneLoaded += OnSceneLoaded;
-        SceneManager.LoadScene("TestPage");
+        ResetTest();
+        UpdateTest();
+
+        previuosButton.SetActive(false);
+        nextButton.GetComponent<Button>().interactable = false;
     }
 
     public void CloseInterface() {
         SceneManager.LoadScene("MainPage");
-    }
-    
-    private void LoadComponents() {
-        testPage = GameObject.Find("TestPage");
-        winPage = GameObject.Find("WinPage");
-        infoPage = GameObject.Find("InfoPage");
-
-        nextButton = GameObject.Find("NextButton");
-        previuosButton = GameObject.Find("PreviousButton");
-
-        correctAnswersText = GameObject.Find("CorrectText (TMP)").GetComponent<TMP_Text>();
-        wrongAnswersText = GameObject.Find("WrongText (TMP)").GetComponent<TMP_Text>();
-        scoreText = GameObject.Find("ScoreText (TMP)").GetComponent<TMP_Text>();
-
-        questionText = GameObject.Find("QuestionText (TMP)").GetComponent<TMP_Text>();
-
-        answerButtons = new GameObject[4];
-        for (int i = 0; i < 4; i++)
-            answerButtons[i] = GameObject.Find("Answer" + i);
-
-        winPage.SetActive(false);
-        infoPage.SetActive(false);
     }
 }

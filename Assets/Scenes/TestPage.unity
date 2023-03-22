@@ -1591,7 +1591,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 546597371}
-  - component: {fileID: 546597373}
   - component: {fileID: 546597372}
   - component: {fileID: 546597374}
   m_Layer: 0
@@ -1628,18 +1627,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 266fcee50b9d4804ead5433c4a9aa28f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &546597373
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 546597370}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f841e6b052c4d84cb4b2c879362d153, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  testPage: {fileID: 1728294965}
+  winPage: {fileID: 926314787}
+  infoPage: {fileID: 1606144985}
+  nextButton: {fileID: 1843883483}
+  previuosButton: {fileID: 914749742}
+  questionText: {fileID: 504478664}
+  answerButtons:
+  - {fileID: 1691158136}
+  - {fileID: 1931657573}
+  - {fileID: 1464154691}
+  - {fileID: 1420973748}
+  correctAnswersText: {fileID: 2013824778}
+  wrongAnswersText: {fileID: 279004441}
+  scoreText: {fileID: 1312345535}
 --- !u!114 &546597374
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1652,6 +1653,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb6675cc8ea20234c83912f196bf415c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  infoPage: {fileID: 1606144985}
+  infoTitleText: {fileID: 1076630311}
+  infoDescriptionText: {fileID: 647936932}
 --- !u!1 &575230218
 GameObject:
   m_ObjectHideFlags: 0
@@ -2254,7 +2258,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &926314788
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3709,7 +3713,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1606144986
 MonoBehaviour:
   m_ObjectHideFlags: 0

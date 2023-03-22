@@ -363,6 +363,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f841e6b052c4d84cb4b2c879362d153, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  leasonText: {fileID: 139958687}
+  leasonTitleText: {fileID: 1031438568}
 --- !u!4 &423307958
 Transform:
   m_ObjectHideFlags: 0
