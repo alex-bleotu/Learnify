@@ -20,13 +20,12 @@ public class SettingsPageHandler : MonoBehaviour
     }
 
     public void UpdateSlider() {
-        if (audioSlider.value != 0f) {
+        if (audioSlider.value != 0f)
             TemporaryData.user.SetSound(audioSlider.value);
 
-            if (audioSlider.value == 0f)
-                TemporaryData.user.SetMute(true);
-            else
-                TemporaryData.user.SetMute(false);
-        }
+        if (audioSlider.value == 0f)
+            TemporaryData.user.SetMute(true);
+        else
+            TemporaryData.user.SetMute(false);
     }
 }

@@ -57,7 +57,7 @@ public class User {
             this.gems = 0;
     }
 
-    public void AddCorwns(int crowns) { 
+    public void AddCrowns(int crowns) { 
         this.crowns += crowns;
         if (this.crowns > maxCrowns)
             this.crowns = maxCrowns; 
