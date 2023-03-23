@@ -20,6 +20,7 @@ public class TestPageHandler : MonoBehaviour
     public TMP_Text correctAnswersText;
     public TMP_Text wrongAnswersText;
     public TMP_Text scoreText;
+    public TMP_Text timeText;
 
     private int[] choosenAnswers;
 
@@ -27,6 +28,9 @@ public class TestPageHandler : MonoBehaviour
 
     private int questionIndex;
     private int gameIndex;
+
+    private float time;
+    private bool stopTimer;
 
     Color32 green = new Color32(75, 180, 75, 255);
     Color32 red = new Color32(180, 55, 75, 255);
@@ -52,8 +56,6 @@ public class TestPageHandler : MonoBehaviour
     }
 
     private void OpenWinInterface() {
-        Debug.Log(correctAnswers);
-
         // correctAnswers.text = GameList.gameList[gameIndex]
         correctAnswersText.text = correctAnswers.ToString();
         wrongAnswersText.text = (TemporaryData.gameList[gameIndex].GetQuestionsCount() - correctAnswers).ToString();
@@ -61,6 +63,13 @@ public class TestPageHandler : MonoBehaviour
         int score = correctAnswers  * 100 / TemporaryData.gameList[gameIndex].GetQuestionsCount();
 
         scoreText.text = score + "%";
+
+        int minutes = (int)time / 60;
+        int seconds = (int)time - 60 * minutes;
+        if (seconds >= 10)
+            timeText.text = minutes + ":" + seconds;
+        else
+            timeText.text = minutes + ":0" + seconds;
 
         TemporaryData.gameList[TemporaryData.currentGameIndex].SetHighestScore(score);
 
@@ -120,6 +129,9 @@ public class TestPageHandler : MonoBehaviour
     }
 
     public void OnAnswerClick(GameObject thisGameObject) {
+        if (questionIndex == TemporaryData.gameList[gameIndex].GetQuestionsCount() - 1)
+            stopTimer = true;
+
         if (TemporaryData.gameList[gameIndex].GetQuestionsCount() == 0)
             return;
 
@@ -145,9 +157,16 @@ public class TestPageHandler : MonoBehaviour
         nextButton.GetComponent<Button>().interactable = true;
     }
 
+    public void CloseInterface() {
+        SceneManager.LoadScene("MainPage");
+    }
+
     private void Start() {
         correctAnswers = 0;
         questionIndex = 0;
+
+        time = 0f;
+        stopTimer = false;
 
         choosenAnswers = new int[TemporaryData.gameList[gameIndex].GetQuestionsCount() + 1];
 
@@ -165,7 +184,10 @@ public class TestPageHandler : MonoBehaviour
         testPage.SetActive(true);
     }
 
-    public void CloseInterface() {
-        SceneManager.LoadScene("MainPage");
+    private void Update() {
+        if (!stopTimer) {
+            time += Time.deltaTime;
+            Debug.Log(time);
+        }
     }
 }

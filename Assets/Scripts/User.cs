@@ -10,6 +10,11 @@ public class User {
     private float experience = 0f;
     private float experienceMultiplier = 1f;
 
+    private int gems = 0;
+    private const int maxGems = 100000;
+    private int crowns = 0;
+    private const int maxCrowns = 100000;
+
     private int dailyStreak = 1;
     private float sound = 10f;
     public bool mute = false;
@@ -17,6 +22,9 @@ public class User {
     public User(string username, int age) {
         this.username = username;
         this.age = age;
+
+        gems = 100;
+        crowns = 0;
     } 
 
     public string GetUsername() { return username; }
@@ -27,12 +35,38 @@ public class User {
     public bool GetMute() { return mute; }
     public int GetDailyStreak() { return dailyStreak; }
     public float GetExperienceMultiplier() { return experienceMultiplier; }
+    public int GetGems() { return gems; }
+    public int GetCorwns() { return crowns; }
     public void SetLevel(int level) { this.level = level; }
     public void SetExperience(float experience) { this.experience = experience; }
     public void SetSound(float sound) { this.sound = sound; }
     public void SetMute(bool mute) { this.mute = mute; }
     public void SetExperienceMultiplier(float experienceMultiplier) { this.experienceMultiplier = experienceMultiplier; }
     public void SetDailyStreak(int dailyStreak) { this.dailyStreak = dailyStreak; }
+    public void SetGems(int gems) { this.gems = (gems < maxGems) ? gems : maxGems; }
+    public void SetCrowns(int crowns) { this.crowns = (crowns < maxCrowns) ? crowns : maxCrowns; }
+
+    public void AddGems(int gems) { 
+        this.gems += gems;
+        if (this.gems > maxGems)
+            this.gems = maxGems;
+    }
+    public void SubstractGems(int gems) { 
+        this.gems -= gems;
+        if (this.gems < 0)
+            this.gems = 0;
+    }
+
+    public void AddCorwns(int crowns) { 
+        this.crowns += crowns;
+        if (this.crowns > maxCrowns)
+            this.crowns = maxCrowns; 
+    }
+    public void SubstractCrowns(int crowns) { 
+        this.crowns -= crowns; 
+        if (this.crowns < 0)
+            this.crowns = 0;
+    }
     
     public void AddExperience(float exp) {
         experience += exp;

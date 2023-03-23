@@ -8,6 +8,9 @@ public class LoadingPage : MonoBehaviour
     void Start() {
         SaveSystem.LoadData();
 
-        SceneManager.LoadScene("MainPage");
+        if (TemporaryData.user != null)
+            SceneManager.LoadScene("MainPage");
+        else
+            SceneManager.LoadScene("CreateProfilePage");
     }
 }

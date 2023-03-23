@@ -15,6 +15,9 @@ public class MainPageHandler : MonoBehaviour
     public MuteButtonHandler muteButtonHandler;
     public DailyGameHandler dailyGameHandler;
 
+    public TMP_Text gemsText;
+    public TMP_Text crownsText;
+
     private void Start() {
         usernameText.text = TemporaryData.user.GetUsername();
         levelText.text = "Nivel " + TemporaryData.user.GetLevel();
@@ -22,6 +25,9 @@ public class MainPageHandler : MonoBehaviour
         dailyGameHandler.StartClock();
 
         muteButtonHandler.UpdateButtonIcon();
+
+        gemsText.text = TemporaryData.user.GetGems().ToString();
+        crownsText.text = TemporaryData.user.GetCorwns().ToString();
     }
 
     public void ToggleMuteButton() {

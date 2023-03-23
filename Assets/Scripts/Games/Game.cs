@@ -55,6 +55,7 @@ public class Game
         questionsCount = questions.Count;
 
         data.leasonState = false;
+        data.highestScore = 0;
 
         icon = Resources.Load<Sprite>("Games/" + id + "/icon");
         banner = Resources.Load<Sprite>("Games/" + id + "/banner");
