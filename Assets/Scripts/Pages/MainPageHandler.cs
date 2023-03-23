@@ -15,6 +15,8 @@ public class MainPageHandler : MonoBehaviour
     public MuteButtonHandler muteButtonHandler;
     public DailyGameHandler dailyGameHandler;
 
+    public Animator animator;
+
     public TMP_Text gemsText;
     public TMP_Text crownsText;
 
@@ -28,6 +30,12 @@ public class MainPageHandler : MonoBehaviour
 
         gemsText.text = TemporaryData.user.GetGems().ToString();
         crownsText.text = TemporaryData.user.GetCorwns().ToString();
+
+        animator.SetInteger("Gems", TemporaryData.rewardedGems);
+        animator.SetInteger("Crowns", TemporaryData.rewardedCrowns);
+
+        TemporaryData.rewardedCrowns = 0;
+        TemporaryData.rewardedGems = 0;
     }
 
     public void ToggleMuteButton() {

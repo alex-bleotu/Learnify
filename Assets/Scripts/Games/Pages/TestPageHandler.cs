@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEditor.Animations;
 using TMPro;
 using UnityEngine.UI;
 
@@ -28,6 +29,10 @@ public class TestPageHandler : MonoBehaviour
 
     public GameObject[] crowns;
 
+    public AnimationClip[] crownAnimations;
+
+    public Animator animator;
+
     private int[] choosenAnswers;
 
     private int correctAnswers;
@@ -37,12 +42,15 @@ public class TestPageHandler : MonoBehaviour
 
     private float time;
     private bool stopTimer;
-    private bool startAnimation = false;
+    private bool startTimer;
 
     private int addedCrowns;
     private int addedGems;
 
     private int score;
+    private float auxScore;
+
+    private bool gameOver;
 
     Color32 green = new Color32(75, 180, 75, 255);
     Color32 red = new Color32(180, 55, 75, 255);
@@ -72,7 +80,7 @@ public class TestPageHandler : MonoBehaviour
         correctAnswersText.text = correctAnswers.ToString();
         wrongAnswersText.text = (TemporaryData.gameList[gameIndex].GetQuestionsCount() - correctAnswers).ToString();
 
-         score = correctAnswers  * 100 / TemporaryData.gameList[gameIndex].GetQuestionsCount();
+        score = correctAnswers  * 100 / TemporaryData.gameList[gameIndex].GetQuestionsCount();
 
         if (score < 50)
             titleText.text = "Test picat";
@@ -81,30 +89,25 @@ public class TestPageHandler : MonoBehaviour
 
         addedCrowns = 0;
         addedGems = 0;
-        crowns[0].SetActive(false);
-        crowns[1].SetActive(false);
-        crowns[2].SetActive(false);
         if (score >= 50) {
-            crowns[0].SetActive(true);
             addedCrowns++;
             addedGems += 5;
 
             if (score >= 75) {
-                crowns[1].SetActive(true);
+                addedCrowns++;
                 addedGems += 5;
 
                 if (score >= 90) {
-                    crowns[2].SetActive(true);
                     addedGems += 5;
                     addedCrowns++;
                 }
             }
         }
 
-        if (addedGems == 0)
-            gemsLabel.SetActive(false);
-        else
-            gemsLabel.SetActive(true);
+        // if (addedGems == 0)
+        //     gemsLabel.SetActive(false);
+        // else
+        //     gemsLabel.SetActive(true);
 
         gemsText.text = "+" + addedGems;
 
@@ -117,12 +120,18 @@ public class TestPageHandler : MonoBehaviour
 
         TemporaryData.gameList[TemporaryData.currentGameIndex].SetHighestScore(score);
 
+        scoreText.text = score + "%";
+
         testPage.SetActive(false);
         winPage.SetActive(true);
 
+        TemporaryData.rewardedCrowns = addedCrowns;
+        TemporaryData.rewardedGems = addedGems;
+
+        animator.SetInteger("Score", score);
+
         time = 0;
-        stopTimer = false;
-        startAnimation = true;
+        startTimer = true;
     }
 
     public void CloseWinInterface() {
@@ -240,16 +249,25 @@ public class TestPageHandler : MonoBehaviour
     }
 
     private void Update() {
-        if (!stopTimer) {
+        if (!stopTimer)
             time += Time.deltaTime;
+        if (startTimer) {
+            time += Time.deltaTime;
+            if (time > 0.5) {
+                startTimer = false;
 
-            if (startAnimation)
-                scoreText.text = (int)(score / (4 - time)) + "%";
-
-            if (time > 4) {
-                startAnimation = false;
-                scoreText.text = score + "%";
+                auxScore = 0;
+                gameOver = true;
             }
+        }
+
+        if (gameOver && auxScore < score) {
+            auxScore += (1f * score / (0.5f * (1f / Time.deltaTime)));
+
+            if (auxScore > score)
+                auxScore = score;
+
+            scoreText.text = (int)auxScore + "%";
         }
     }
 }
