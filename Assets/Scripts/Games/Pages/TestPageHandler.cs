@@ -8,9 +8,10 @@ using UnityEngine.UI;
 
 public class TestPageHandler : MonoBehaviour
 {
+    public PowerUpsHandler powerUpsHandler;
+
     public GameObject testPage;
     public GameObject winPage;
-    public GameObject infoPage;
 
     public GameObject nextButton;
     public GameObject previuosButton;
@@ -20,6 +21,10 @@ public class TestPageHandler : MonoBehaviour
     public TMP_Text questionText;
     public GameObject[] answerButtons;
 
+    public GameObject hintPowerUp;
+    public GameObject timePowerUp;
+    public GameObject gemPowerUp;
+
     public TMP_Text correctAnswersText;
     public TMP_Text wrongAnswersText;
     public TMP_Text scoreText;
@@ -27,30 +32,28 @@ public class TestPageHandler : MonoBehaviour
     public TMP_Text titleText;
     public TMP_Text gemsText;
 
-    public GameObject[] crowns;
-
-    public AnimationClip[] crownAnimations;
-
     public Animator animator;
 
     private int[] choosenAnswers;
 
     private int correctAnswers;
 
-    private int questionIndex;
-    private int gameIndex;
+    public int questionIndex;
+    public int gameIndex;
 
     private float time;
     private bool stopTimer;
     private bool startTimer;
 
-    private int addedCrowns;
-    private int addedGems;
+    private int rewardedCrowns;
+    private int rewardedGems;
 
     private int score;
     private float auxScore;
 
     private bool gameOver;
+
+    public float timer;
 
     Color32 green = new Color32(75, 180, 75, 255);
     Color32 red = new Color32(180, 55, 75, 255);
@@ -87,19 +90,19 @@ public class TestPageHandler : MonoBehaviour
         else
             titleText.text = "Test trecut";
 
-        addedCrowns = 0;
-        addedGems = 0;
+        rewardedCrowns = 0;
+        rewardedGems = 0;
         if (score >= 50) {
-            addedCrowns++;
-            addedGems += 5;
+            rewardedCrowns++;
+            rewardedGems += 5;
 
             if (score >= 75) {
-                addedCrowns++;
-                addedGems += 5;
+                rewardedCrowns++;
+                rewardedGems += 5;
 
                 if (score >= 90) {
-                    addedGems += 5;
-                    addedCrowns++;
+                    rewardedGems += 5;
+                    rewardedCrowns++;
                 }
             }
         }
@@ -109,7 +112,7 @@ public class TestPageHandler : MonoBehaviour
         // else
         //     gemsLabel.SetActive(true);
 
-        gemsText.text = "+" + addedGems;
+        gemsText.text = "+" + rewardedGems;
 
         int minutes = (int)time / 60;
         int seconds = (int)time - 60 * minutes;
@@ -125,8 +128,8 @@ public class TestPageHandler : MonoBehaviour
         testPage.SetActive(false);
         winPage.SetActive(true);
 
-        TemporaryData.rewardedCrowns = addedCrowns;
-        TemporaryData.rewardedGems = addedGems;
+        TemporaryData.rewardedCrowns = rewardedCrowns;
+        TemporaryData.rewardedGems = rewardedGems;
 
         animator.SetInteger("Score", score);
 
@@ -137,9 +140,9 @@ public class TestPageHandler : MonoBehaviour
     public void CloseWinInterface() {
         winPage.SetActive(false);
 
-        TemporaryData.user.AddCrowns(addedCrowns);
+        TemporaryData.user.AddCrowns(rewardedCrowns);
         TemporaryData.user.AddExperience(TemporaryData.gameList[TemporaryData.currentGameIndex].GetExperience());
-        TemporaryData.user.AddGems(addedGems);
+        TemporaryData.user.AddGems(rewardedGems);
 
 
         SceneManager.LoadScene("MainPage");
@@ -148,6 +151,8 @@ public class TestPageHandler : MonoBehaviour
     }
 
     public void OnNextClick() {
+        hintPowerUp.GetComponent<Button>().interactable = true;
+
         questionIndex++;
 
         if (choosenAnswers[questionIndex] == -1) {
@@ -193,6 +198,8 @@ public class TestPageHandler : MonoBehaviour
     }
 
     public void OnAnswerClick(GameObject thisGameObject) {
+        hintPowerUp.GetComponent<Button>().interactable = false;
+
         if (questionIndex == TemporaryData.gameList[gameIndex].GetQuestionsCount() - 1)
             stopTimer = true;
 
@@ -205,6 +212,9 @@ public class TestPageHandler : MonoBehaviour
             answerButtons[buttonIndex].transform.GetChild(0).gameObject.GetComponent<TMP_Text>().color = Color.white;
 
             correctAnswers++;
+
+            if (powerUpsHandler.gemRush)
+                rewardedGems += powerUpsHandler.gemRushReward;
         }
         else {
             answerButtons[buttonIndex].GetComponent<Image>().color = red;
@@ -239,6 +249,8 @@ public class TestPageHandler : MonoBehaviour
 
         gameIndex = TemporaryData.currentGameIndex;
 
+        // timer = TemporaryData.gameList[gameIndex].GetTimer();
+
         ResetTest();
         UpdateTest();
 
@@ -269,5 +281,17 @@ public class TestPageHandler : MonoBehaviour
 
             scoreText.text = (int)auxScore + "%";
         }
+
+        // if (!powerUpsHandler.timeOut) {
+        //     timer -= Time.deltaTime;
+
+        //     if (timer < 0) {
+        //         stopTimer = true;
+
+        //         OpenWinInterface();
+        //     }
+        // }
+
+        Debug.Log(rewardedGems);
     }
 }

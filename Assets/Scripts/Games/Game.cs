@@ -22,6 +22,16 @@ public class Game
         public int highestScore;
     }
 
+    public struct Level {
+        public int levelIndex;
+        public int timer;
+        public int gemReward;
+        public int experience;
+        public List<Questions> questions;
+        public Difficulty difficulty;
+        public int questionsCount;
+    }
+
     private int id;
 
     private Sprite icon;
@@ -30,29 +40,28 @@ public class Game
     private string title;
     private string description;
 
-    private int recommendedLevel;
-    private int experience;
-
-    private Difficulty currentDifficulty;
     private Subject subject;
 
     private string leason;
     private string info;
 
-    private int questionsCount;
-
-    private List<Questions> questions;
+    private List<Level> levels;
+    private int levelCount;
 
     private Data data;
 
     public Game(int id) {
-        questions = new List<Questions>();
+        // levels = new List<Level>();
+        // levels.questions = new List<Questions>();
 
-        ReadData.Read(ref title, ref description, ref recommendedLevel, ref experience, 
-            ref currentDifficulty, ref subject, ref questions, 
+        ReadData.Read(ref title, ref description, ref subject, ref levels, 
             ref leason, ref info, Application.dataPath + "/Resources/Games/" + id + "/data.json");
 
-        questionsCount = questions.Count;
+        for (int i = 0; i < levels.Count; i++)
+            levels[i].questionsCount = 1;
+        //     levels[i].questionsCount = levels[i].questions.Count;
+
+        levelCount = levels.Count;
 
         data.leasonState = false;
         data.highestScore = 0;
@@ -71,21 +80,21 @@ public class Game
     public Sprite GetBanner() { return banner; }
     public string GetTitle() { return title; }
     public string GetDescription() { return description; }
-    public int GetRecommendedLevel() { return recommendedLevel; }
-    public int GetExperience() { return experience; }
-    public Difficulty GetDifficulty() { return currentDifficulty; }
-    public void SetDifficulty(Difficulty currentDifficulty) { this.currentDifficulty = currentDifficulty; }
+    public int GetExperience(int index) { return levels[index].experience; }
+    public int GetGemReward(int index) { return levels[index].gemReward; }
+    public Difficulty GetDifficulty(int index) { return levels[index].difficulty; }
     public Subject GetSubject() { return subject; }
     public bool GetLeasonState() { return data.leasonState; }
     public void SetLeasonState(bool leasonState) { this.data.leasonState = leasonState; }
-    public List<Questions> GetQuestions() { return questions; }
-    public int GetQuestionsCount() { return questionsCount; }
+    public List<Questions> GetQuestions(int index) { return levels[index].questions; }
+    public int GetQuestionsCount(int index) { return levels[index].questionsCount; }
     public string GetLeason() { return leason; }
     public string GetInfo() { return info; }
     public Data GetData() { return data; }
     public void SetData(Data data) { this.data = data; }
     public int GetHighestScore() { return data.highestScore; }
     public void SetHighestScore(int highestScore) { this.data.highestScore = highestScore; }
+    public int GetLevelCount() { return levelCount; }
 
     public static int GetIndex(string str) {
         string aux = string.Empty;
