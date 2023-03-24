@@ -153,7 +153,7 @@ public class TestPageHandler : MonoBehaviour
     }
 
     public void OnNextClick() {
-        hintPowerUp.GetComponent<Button>().interactable = true;
+        hintPowerUp.GetComponent<Button>().interactable = TemporaryData.user.GetHintToken() > 0;
 
         questionIndex++;
 
@@ -216,7 +216,7 @@ public class TestPageHandler : MonoBehaviour
             correctAnswers++;
 
             if (powerUpsHandler.gemRush)
-                rewardedGems += powerUpsHandler.gemRushReward;
+                rewardedGems += TemporaryData.user.GetGemRushReward();
         }
         else {
             answerButtons[buttonIndex].GetComponent<Image>().color = red;
