@@ -4834,7 +4834,7 @@ RectTransform:
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &763521749
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -4851,7 +4851,8 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &765967275
 GameObject:
   m_ObjectHideFlags: 0
@@ -5322,7 +5323,6 @@ GameObject:
   m_Component:
   - component: {fileID: 830554539}
   - component: {fileID: 830554540}
-  - component: {fileID: 830554541}
   - component: {fileID: 830554544}
   - component: {fileID: 830554545}
   - component: {fileID: 830554548}
@@ -5370,18 +5370,6 @@ MonoBehaviour:
   animator: {fileID: 763521749}
   gemsText: {fileID: 856591678}
   crownsText: {fileID: 574045322}
---- !u!114 &830554541
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 830554538}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ab277e7aef89d14ab5ba0c8792e8d5f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &830554544
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5408,14 +5396,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainPage: {fileID: 294551515}
   gamePage: {fileID: 2030774021}
+  playButton: {fileID: 854667155}
   leasonButton: {fileID: 402755859}
   titleText: {fileID: 1893608925}
   descriptionText: {fileID: 1408226408}
   subjectText: {fileID: 1308353674}
   icon: {fileID: 1581596418}
   banner: {fileID: 127185409}
-  testPage: {fileID: 0}
-  leasonPage: {fileID: 0}
 --- !u!114 &830554548
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5771,7 +5758,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 1000
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8499924c0cf75b84bbf1246f5606fc86, type: 2}
   m_sharedMaterial: {fileID: -4900446557887658867, guid: 8499924c0cf75b84bbf1246f5606fc86, type: 2}
@@ -10042,7 +10029,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1523861330
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10559,7 +10546,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 60, y: 60}
+  m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1581942556
 MonoBehaviour:
@@ -10770,7 +10757,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 60, y: 60}
+  m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1644373912
 MonoBehaviour:

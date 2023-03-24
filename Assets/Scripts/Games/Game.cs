@@ -23,12 +23,12 @@ public class Game
     }
 
     public struct Level {
-        public int levelIndex;
+        public int id;
         public int timer;
-        public int gemReward;
+        public int gems;
         public int experience;
-        public List<Questions> questions;
         public Difficulty difficulty;
+        public List<Questions> questions;
         public int questionsCount;
     }
 
@@ -48,23 +48,23 @@ public class Game
     private List<Level> levels;
     private int levelCount;
 
+    private int currentLevel;
+
     private Data data;
 
     public Game(int id) {
-        // levels = new List<Level>();
+        levels = new List<Level>();
         // levels.questions = new List<Questions>();
 
         ReadData.Read(ref title, ref description, ref subject, ref levels, 
             ref leason, ref info, Application.dataPath + "/Resources/Games/" + id + "/data.json");
 
-        for (int i = 0; i < levels.Count; i++)
-            levels[i].questionsCount = 1;
-        //     levels[i].questionsCount = levels[i].questions.Count;
-
         levelCount = levels.Count;
 
         data.leasonState = false;
         data.highestScore = 0;
+
+        currentLevel = 0;
 
         icon = Resources.Load<Sprite>("Games/" + id + "/icon");
         banner = Resources.Load<Sprite>("Games/" + id + "/banner");
@@ -81,7 +81,7 @@ public class Game
     public string GetTitle() { return title; }
     public string GetDescription() { return description; }
     public int GetExperience(int index) { return levels[index].experience; }
-    public int GetGemReward(int index) { return levels[index].gemReward; }
+    public int GetGemReward(int index) { return levels[index].gems; }
     public Difficulty GetDifficulty(int index) { return levels[index].difficulty; }
     public Subject GetSubject() { return subject; }
     public bool GetLeasonState() { return data.leasonState; }
@@ -95,6 +95,8 @@ public class Game
     public int GetHighestScore() { return data.highestScore; }
     public void SetHighestScore(int highestScore) { this.data.highestScore = highestScore; }
     public int GetLevelCount() { return levelCount; }
+    public int GetCurrentLevel() { return currentLevel; }
+    public void SetCurrentLevel(int currentLevel) { this.currentLevel = (currentLevel >= levelCount) ? levelCount - 1 : currentLevel;}
 
     public static int GetIndex(string str) {
         string aux = string.Empty;

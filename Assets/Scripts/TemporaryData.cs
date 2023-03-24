@@ -10,6 +10,7 @@ public class TemporaryData
 
     public static User user;
 
+    // public static List<Game> gameList;
     public static List<Game> gameList = new List<Game>() {
         new Game(0),
         new Game(1),

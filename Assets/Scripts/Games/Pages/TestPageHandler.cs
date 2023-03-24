@@ -55,17 +55,19 @@ public class TestPageHandler : MonoBehaviour
 
     public float timer;
 
+    public int currentLevel;
+
     Color32 green = new Color32(75, 180, 75, 255);
     Color32 red = new Color32(180, 55, 75, 255);
 
     private void UpdateTest() {
-        if (TemporaryData.gameList[gameIndex].GetQuestionsCount() == 0)
+        if (TemporaryData.gameList[gameIndex].GetQuestionsCount(currentLevel) == 0)
             return;
 
-        questionText.text = (questionIndex + 1) + ". " + TemporaryData.gameList[gameIndex].GetQuestions()[questionIndex].question;
+        questionText.text = (questionIndex + 1) + ". " + TemporaryData.gameList[gameIndex].GetQuestions(currentLevel)[questionIndex].question;
 
         for (int i = 0; i < 4; i++)
-            answerButtons[i].transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text = TemporaryData.gameList[gameIndex].GetQuestions()[questionIndex].answers[i];
+            answerButtons[i].transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text = TemporaryData.gameList[gameIndex].GetQuestions(currentLevel)[questionIndex].answers[i];
     }
 
     private void ResetTest() {
@@ -81,9 +83,9 @@ public class TestPageHandler : MonoBehaviour
     private void OpenWinInterface() {
         // correctAnswers.text = GameList.gameList[gameIndex]
         correctAnswersText.text = correctAnswers.ToString();
-        wrongAnswersText.text = (TemporaryData.gameList[gameIndex].GetQuestionsCount() - correctAnswers).ToString();
+        wrongAnswersText.text = (TemporaryData.gameList[gameIndex].GetQuestionsCount(currentLevel) - correctAnswers).ToString();
 
-        score = correctAnswers  * 100 / TemporaryData.gameList[gameIndex].GetQuestionsCount();
+        score = correctAnswers  * 100 / TemporaryData.gameList[gameIndex].GetQuestionsCount(currentLevel);
 
         if (score < 50)
             titleText.text = "Test picat";
@@ -91,7 +93,7 @@ public class TestPageHandler : MonoBehaviour
             titleText.text = "Test trecut";
 
         rewardedCrowns = 0;
-        rewardedGems = 0;
+        rewardedGems = TemporaryData.gameList[gameIndex].GetGemReward(currentLevel);
         if (score >= 50) {
             rewardedCrowns++;
             rewardedGems += 5;
@@ -123,8 +125,6 @@ public class TestPageHandler : MonoBehaviour
 
         TemporaryData.gameList[TemporaryData.currentGameIndex].SetHighestScore(score);
 
-        scoreText.text = score + "%";
-
         testPage.SetActive(false);
         winPage.SetActive(true);
 
@@ -132,6 +132,8 @@ public class TestPageHandler : MonoBehaviour
         TemporaryData.rewardedGems = rewardedGems;
 
         animator.SetInteger("Score", score);
+
+        TemporaryData.gameList[TemporaryData.currentGameIndex].SetCurrentLevel(currentLevel + 1);
 
         time = 0;
         startTimer = true;
@@ -141,7 +143,7 @@ public class TestPageHandler : MonoBehaviour
         winPage.SetActive(false);
 
         TemporaryData.user.AddCrowns(rewardedCrowns);
-        TemporaryData.user.AddExperience(TemporaryData.gameList[TemporaryData.currentGameIndex].GetExperience());
+        TemporaryData.user.AddExperience(TemporaryData.gameList[TemporaryData.currentGameIndex].GetExperience(currentLevel));
         TemporaryData.user.AddGems(rewardedGems);
 
 
@@ -159,7 +161,7 @@ public class TestPageHandler : MonoBehaviour
             nextButton.GetComponent<Button>().interactable = false;
             previuosButton.SetActive(true);
 
-            if (questionIndex < TemporaryData.gameList[gameIndex].GetQuestionsCount()) {
+            if (questionIndex < TemporaryData.gameList[gameIndex].GetQuestionsCount(currentLevel)) {
                 ResetTest();
             }
             else OpenWinInterface();
@@ -173,15 +175,15 @@ public class TestPageHandler : MonoBehaviour
         for (int i = 0; i < 4; i++)
             answerButtons[i].GetComponent<Button>().interactable = false;
 
-        if (choosenAnswers[questionIndex] == TemporaryData.gameList[gameIndex].GetQuestions()[questionIndex].correct) {
+        if (choosenAnswers[questionIndex] == TemporaryData.gameList[gameIndex].GetQuestions(currentLevel)[questionIndex].correct) {
             answerButtons[choosenAnswers[questionIndex]].GetComponent<Image>().color = green;
             answerButtons[choosenAnswers[questionIndex]].transform.GetChild(0).gameObject.GetComponent<TMP_Text>().color = Color.white;
         }
         else {
             answerButtons[choosenAnswers[questionIndex]].GetComponent<Image>().color = red;
-            answerButtons[TemporaryData.gameList[gameIndex].GetQuestions()[questionIndex].correct].GetComponent<Image>().color = green;
+            answerButtons[TemporaryData.gameList[gameIndex].GetQuestions(currentLevel)[questionIndex].correct].GetComponent<Image>().color = green;
             answerButtons[choosenAnswers[questionIndex]].transform.GetChild(0).gameObject.GetComponent<TMP_Text>().color = Color.white;
-            answerButtons[TemporaryData.gameList[gameIndex].GetQuestions()[questionIndex].correct].transform.GetChild(0).gameObject.GetComponent<TMP_Text>().color = Color.white;
+            answerButtons[TemporaryData.gameList[gameIndex].GetQuestions(currentLevel)[questionIndex].correct].transform.GetChild(0).gameObject.GetComponent<TMP_Text>().color = Color.white;
         }
     }
 
@@ -193,21 +195,21 @@ public class TestPageHandler : MonoBehaviour
         if (questionIndex == 0)
             previuosButton.SetActive(false);
 
-        if (questionIndex < TemporaryData.gameList[gameIndex].GetQuestionsCount())
+        if (questionIndex < TemporaryData.gameList[gameIndex].GetQuestionsCount(currentLevel))
             UpdateSavedAsnwers();
     }
 
     public void OnAnswerClick(GameObject thisGameObject) {
         hintPowerUp.GetComponent<Button>().interactable = false;
 
-        if (questionIndex == TemporaryData.gameList[gameIndex].GetQuestionsCount() - 1)
+        if (questionIndex == TemporaryData.gameList[gameIndex].GetQuestionsCount(currentLevel) - 1)
             stopTimer = true;
 
-        if (TemporaryData.gameList[gameIndex].GetQuestionsCount() == 0)
+        if (TemporaryData.gameList[gameIndex].GetQuestionsCount(currentLevel) == 0)
             return;
 
         int buttonIndex = Game.GetIndex(thisGameObject.name);
-        if (buttonIndex == TemporaryData.gameList[gameIndex].GetQuestions()[questionIndex].correct) {
+        if (buttonIndex == TemporaryData.gameList[gameIndex].GetQuestions(currentLevel)[questionIndex].correct) {
             answerButtons[buttonIndex].GetComponent<Image>().color = green;
             answerButtons[buttonIndex].transform.GetChild(0).gameObject.GetComponent<TMP_Text>().color = Color.white;
 
@@ -218,9 +220,9 @@ public class TestPageHandler : MonoBehaviour
         }
         else {
             answerButtons[buttonIndex].GetComponent<Image>().color = red;
-            answerButtons[TemporaryData.gameList[gameIndex].GetQuestions()[questionIndex].correct].GetComponent<Image>().color = green;
+            answerButtons[TemporaryData.gameList[gameIndex].GetQuestions(currentLevel)[questionIndex].correct].GetComponent<Image>().color = green;
             answerButtons[buttonIndex].transform.GetChild(0).gameObject.GetComponent<TMP_Text>().color = Color.white;
-            answerButtons[TemporaryData.gameList[gameIndex].GetQuestions()[questionIndex].correct].transform.GetChild(0).gameObject.GetComponent<TMP_Text>().color = Color.white;
+            answerButtons[TemporaryData.gameList[gameIndex].GetQuestions(currentLevel)[questionIndex].correct].transform.GetChild(0).gameObject.GetComponent<TMP_Text>().color = Color.white;
         }
 
         choosenAnswers[questionIndex] = buttonIndex;
@@ -242,9 +244,9 @@ public class TestPageHandler : MonoBehaviour
         time = 0f;
         stopTimer = false;
 
-        choosenAnswers = new int[TemporaryData.gameList[gameIndex].GetQuestionsCount() + 1];
+        choosenAnswers = new int[TemporaryData.gameList[gameIndex].GetQuestionsCount(currentLevel) + 1];
 
-        for (int i = 0; i <= TemporaryData.gameList[gameIndex].GetQuestionsCount(); i++)
+        for (int i = 0; i <= TemporaryData.gameList[gameIndex].GetQuestionsCount(currentLevel); i++)
             choosenAnswers[i] = -1;
 
         gameIndex = TemporaryData.currentGameIndex;
@@ -253,6 +255,8 @@ public class TestPageHandler : MonoBehaviour
 
         ResetTest();
         UpdateTest();
+
+        currentLevel = TemporaryData.gameList[gameIndex].GetCurrentLevel();
 
         previuosButton.SetActive(false);
         nextButton.GetComponent<Button>().interactable = false;

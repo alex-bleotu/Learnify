@@ -1,72 +1,99 @@
 {
     "title": "Adunarea",
-    "level": 1,
-    "experience": 10,
-    "difficulty": "easy",
     "subject": "math",
     "description": "Adunarea este o operație aritmetică elementară care totalizează două sau mai multe mărimi",
     "leason": "Adunarea este o operație aritmetică elementară care totalizează două sau mai multe mărimi, numite „termenii adunării” într-o singură valoare, numită suma sau „totalul” mărimilor respective. Operației de adunare îi corespunde operația de reuniune a două mulțimi disjuncte de obiecte într-o mulțime cu număr cardinal mai mare, exact suma numerelor cardinale ale mulțimilor reunite.",
     "info": "",
-    "questions": [
+    "levels": [
         {
             "id": 0,
-            "question": "Cât face 1 + 1?",
-            "answers": ["1", "2", "3", "4"],
-            "correct": 1
+            "timer": 0,
+            "gems": 15,
+            "experience": 10,
+            "difficulty": "easy",
+            "questions": [        
+                {
+                    "id": 0,
+                    "question": "Cât face 1 + 1?",
+                    "answers": ["1", "2", "3", "4"],
+                    "correct": 1
+                },
+                {
+                    "id": 1,
+                    "question": "Cât face 2 + 2?",
+                    "answers": ["1", "2", "4", "3"],
+                    "correct": 2
+                },
+                {
+                    "id": 2,
+                    "question": "Care este rezultatul calculului 41 + 12?",
+                    "answers": ["53", "50", "63", "49"],
+                    "correct": 0
+                },
+                {
+                    "id": 3,
+                    "question": "Care este rezultatul calculului 59 + 38?",
+                    "answers": ["89", "93", "69", "97"],
+                    "correct": 3
+                },
+                {
+                    "id": 4,
+                    "question": "Cât face 104 + 59?",
+                    "answers": ["169", "170", "163", "161"],
+                    "correct": 2
+                },
+                {
+                    "id": 5,
+                    "question": "Cât face 174 + 16?",
+                    "answers": ["181", "187", "190", "193"],
+                    "correct": 2
+                },
+                {
+                    "id": 6,
+                    "question": "Cât face 147 + 299?",
+                    "answers": ["446", "441", "439", "450"],
+                    "correct": 0
+                },
+                {
+                    "id": 7,
+                    "question": "Cât face 239 + 245?",
+                    "answers": ["481", "484", "485", "487"],
+                    "correct": 1
+                },
+                {
+                    "id": 8,
+                    "question": "Cât face 519 + 231?",
+                    "answers": ["755", "748", "750", "751"],
+                    "correct": 2
+                },
+                {
+                    "id": 9,
+                    "question": "Cât face 1024 + 571?",
+                    "answers": ["1780", "1576", "1495", "1595"],
+                    "correct": 3
+                }
+            ]
         },
         {
             "id": 1,
-            "question": "Cât face 2 + 2?",
-            "answers": ["1", "2", "4", "3"],
-            "correct": 2
-        },
-        {
-            "id": 2,
-            "question": "Care este rezultatul calculului 41 + 12?",
-            "answers": ["53", "50", "63", "49"],
-            "correct": 0
-        },
-        {
-            "id": 3,
-            "question": "Care este rezultatul calculului 59 + 38?",
-            "answers": ["89", "93", "69", "97"],
-            "correct": 3
-        },
-        {
-            "id": 4,
-            "question": "Cât face 104 + 59?",
-            "answers": ["169", "170", "163", "161"],
-            "correct": 2
-        },
-        {
-            "id": 5,
-            "question": "Cât face 174 + 16?",
-            "answers": ["181", "187", "190", "193"],
-            "correct": 2
-        },
-        {
-            "id": 6,
-            "question": "Cât face 147 + 299?",
-            "answers": ["446", "441", "439", "450"],
-            "correct": 0
-        },
-        {
-            "id": 7,
-            "question": "Cât face 239 + 245?",
-            "answers": ["481", "484", "485", "487"],
-            "correct": 1
-        },
-        {
-            "id": 8,
-            "question": "Cât face 519 + 231?",
-            "answers": ["755", "748", "750", "751"],
-            "correct": 2
-        },
-        {
-            "id": 9,
-            "question": "Cât face 1024 + 571?",
-            "answers": ["1780", "1576", "1495", "1595"],
-            "correct": 3
+            "timer": 0,
+            "gems": 15,
+            "experience": 10,
+            "difficulty": "medium",
+            "questions": [        
+                {
+                    "id": 0,
+                    "question": "Cât face 1 + 1?",
+                    "answers": ["1", "2", "3", "4"],
+                    "correct": 1
+                },
+                {
+                    "id": 1,
+                    "question": "Cât face 2 + 2?",
+                    "answers": ["1", "2", "4", "3"],
+                    "correct": 2
+                }
+            ]
         }
     ]
 }

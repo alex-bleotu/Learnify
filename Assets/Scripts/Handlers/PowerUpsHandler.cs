@@ -22,7 +22,7 @@ public class PowerUpsHandler : MonoBehaviour
 
     public void OnHintPowerUp() {
         testPageHandler.answerButtons[TemporaryData.gameList[testPageHandler.gameIndex]
-            .GetQuestions()[testPageHandler.questionIndex].correct].GetComponent<Image>().color = yellow;
+            .GetQuestions(testPageHandler.currentLevel)[testPageHandler.questionIndex].correct].GetComponent<Image>().color = yellow;
         hintPowerUp.GetComponent<Button>().interactable = false;
     }
 

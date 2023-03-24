@@ -10,6 +10,8 @@ public class GameHandler : MonoBehaviour
     public GameObject mainPage;
     public GameObject gamePage;
 
+    public GameObject playButton;
+
     public GameObject leasonButton;
 
     public TMP_Text titleText;
@@ -18,9 +20,6 @@ public class GameHandler : MonoBehaviour
 
     public Image icon;
     public Image banner;
-
-    public TestPageHandler testPage;
-    public LeasonPageHandler leasonPage;
 
     int index;
 
@@ -42,7 +41,7 @@ public class GameHandler : MonoBehaviour
         Image image2 = GameObject.Find("Image2").GetComponent<Image>();
         Image image3 = GameObject.Find("Image3").GetComponent<Image>();
 
-        Game.Difficulty difficulty = TemporaryData.gameList[index].GetDifficulty();
+        Game.Difficulty difficulty = TemporaryData.gameList[index].GetDifficulty(TemporaryData.gameList[index].GetCurrentLevel());
 
         Color32 green = new Color32(50, 205, 50, 255);
         Color32 orange = new Color32(255, 140, 0, 255);
@@ -77,19 +76,26 @@ public class GameHandler : MonoBehaviour
 
         gamePage.name = "GamePage" + index;
 
-        titleText.text = TemporaryData.gameList[index].GetTitle();
-        descriptionText.text = TemporaryData.gameList[index].GetDescription();
+        if (TemporaryData.gameList[index].GetTitle() != null) {
+            titleText.text = TemporaryData.gameList[index].GetTitle();
+            descriptionText.text = TemporaryData.gameList[index].GetDescription();
+            
+            subjectText.text = setSubjectText(index);
 
-        subjectText.text = setSubjectText(index);
+            SetDifficultyImages(index);
 
-        SetDifficultyImages(index);
+            leasonButton.SetActive(TemporaryData.gameList[index].GetLeasonState());
 
-        leasonButton.SetActive(TemporaryData.gameList[index].GetLeasonState());
+            icon.sprite = TemporaryData.gameList[index].GetIcon();
+            banner.sprite = TemporaryData.gameList[index].GetBanner();
 
-        icon.sprite = TemporaryData.gameList[index].GetIcon();
-        banner.sprite = TemporaryData.gameList[index].GetBanner();
-
-        TemporaryData.currentGameIndex = index;
+            TemporaryData.currentGameIndex = index;
+            
+            playButton.SetActive(true);
+        } else {
+            titleText.text = "Not Found :(";
+            playButton.SetActive(false);
+        }
     }
 
     public void CloseGameInterface() {

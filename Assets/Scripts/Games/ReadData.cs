@@ -12,7 +12,16 @@ public class ReadData
         public string description;
         public string leason;
         public string info;
-        public List<Game.Level> levels;
+        public List<Level> levels;
+    }
+
+    private struct Level {
+        public int id;
+        public int timer;
+        public int gems;
+        public int experience;
+        public string difficulty;
+        public List<Game.Questions> questions;
     }
 
     public static void Read(ref string title, ref string description, 
@@ -21,7 +30,6 @@ public class ReadData
     
         if (!File.Exists(fileData))
             return;
-
 
         // List<Data> data = new List<Data>();
         Data data = new Data();
@@ -37,24 +45,32 @@ public class ReadData
         leason = data.leason;
         info = data.info;
 
-        levels = data.levels;
+        for (int i = 0; i < data.levels.Count; i++) {
+            Game.Level aux = new Game.Level();
+            aux.id = data.levels[i].id;
+            aux.questionsCount = data.levels[i].questions.Count;
+            aux.timer = data.levels[i].timer;
+            aux.gems = data.levels[i].gems;
+            aux.experience = data.levels[i].experience;
+            aux.questions = data.levels[i].questions;
 
-        // for (int i = 0; i < data.levels.Count; i++) {
-        //     switch(data.levels[i].difficulty) {
-        //         case Game.Difficulty.easy:
-        //             levels[i].difficulty = Game.Difficulty.easy;
-        //             break;
-        //         case "medium":
-        //             levels[i].difficulty = Game.Difficulty.medium;
-        //             break;
-        //         case "hard":
-        //             levels[i].difficulty = Game.Difficulty.hard;
-        //             break;
-        //         case "veryHard":
-        //             levels[i].difficulty = Game.Difficulty.veryHard;
-        //             break;
-        //     }
-        // }
+            switch(data.levels[i].difficulty) {
+                case "easy":
+                    aux.difficulty = Game.Difficulty.easy;
+                    break;
+                case "medium":
+                    aux.difficulty = Game.Difficulty.medium;
+                    break;
+                case "hard":
+                    aux.difficulty = Game.Difficulty.hard;
+                    break;
+                case "veryHard":
+                    aux.difficulty = Game.Difficulty.veryHard;
+                    break;
+            }
+
+            levels.Add(aux);
+        }
 
         switch(data.subject) {
             case "math":
