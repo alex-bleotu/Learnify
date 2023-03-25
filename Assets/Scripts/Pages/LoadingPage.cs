@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 
@@ -23,6 +24,8 @@ public class LoadingPage : MonoBehaviour
 
         for (int i = 0; i < gameCount; i++)
             TemporaryData.gameList.Add(new Game(i));
+
+       TemporaryData.gameList.OrderBy(x => x.GetId());
             
         SaveSystem.LoadData();
 

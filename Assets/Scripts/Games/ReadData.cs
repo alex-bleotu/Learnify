@@ -7,6 +7,7 @@ using UnityEngine;
 public class ReadData
 {
     private struct Data {
+        public int id;
         public string title;
         public string type;
         public string subject;
@@ -25,7 +26,7 @@ public class ReadData
         public List<Game.Questions> questions;
     }
 
-    public static void Read(ref string title, ref Game.GameType type, ref string description, 
+    public static void Read(ref int id, ref string title, ref Game.GameType type, ref string description, 
         ref Game.Subject subject, ref List<Game.Level> levels, ref string leason, ref string info, 
         string fileData) {
     
@@ -40,6 +41,7 @@ public class ReadData
             data = JsonConvert.DeserializeObject<Data>(json);
         }
 
+        id = data.id;
         title = data.title;
         description = data.description;
 
@@ -50,8 +52,6 @@ public class ReadData
             Game.Level aux = new Game.Level();
             aux.id = data.levels[i].id;
             aux.questionsCount = data.levels[i].questions.Count;
-            aux.timer = data.levels[i].timer;
-            aux.gems = data.levels[i].gems;
             aux.experience = data.levels[i].experience;
             aux.questions = data.levels[i].questions;
 

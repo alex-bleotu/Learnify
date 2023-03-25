@@ -26,8 +26,6 @@ public class Game
 
     public struct Level {
         public int id;
-        public int timer;
-        public int gems;
         public int experience;
         public Difficulty difficulty;
         public List<Questions> questions;
@@ -59,7 +57,7 @@ public class Game
         levels = new List<Level>();
         // levels.questions = new List<Questions>();
 
-        ReadData.Read(ref title, ref gameType, ref description, ref subject, ref levels, 
+        ReadData.Read(ref id, ref title, ref gameType, ref description, ref subject, ref levels, 
             ref leason, ref info, Application.dataPath + "/Resources/Games/" + id + "/data.json");
 
         levelCount = levels.Count;
@@ -78,13 +76,11 @@ public class Game
             banner = Resources.Load<Sprite>("Games/Default/banner");
     }
 
-    private int GetId() { return id; }
+    public int GetId() { return id; }
     public Sprite GetIcon() { return icon; }
     public Sprite GetBanner() { return banner; }
     public string GetTitle() { return title; }
     public string GetDescription() { return description; }
-    public int GetExperience(int index) { return levels[index].experience; }
-    public int GetGemReward(int index) { return levels[index].gems; }
     public Difficulty GetDifficulty(int index) { return levels[index].difficulty; }
     public Subject GetSubject() { return subject; }
     public bool GetLeasonState() { return data.leasonState; }
@@ -102,6 +98,30 @@ public class Game
     public void SetCurrentLevel(int currentLevel) { this.currentLevel = (currentLevel >= levelCount) ? levelCount - 1 : currentLevel;}
     public GameType GetGameType() { return gameType; }
     public void SetGameType(GameType type) { this.gameType = type; }
+
+    public int GetGemReward(int index) {
+        if (levels[index].difficulty == Difficulty.easy)
+            return 1;
+        else if (levels[index].difficulty == Difficulty.medium)
+            return 2;
+        else if (levels[index].difficulty == Difficulty.hard)
+            return 3;
+        else if (levels[index].difficulty == Difficulty.veryHard)
+            return 4;
+        return 0;
+    }
+
+    public int GetExperience(int index) {
+        if (levels[index].difficulty == Difficulty.easy)
+            return 1;
+        else if (levels[index].difficulty == Difficulty.medium)
+            return 2;
+        else if (levels[index].difficulty == Difficulty.hard)
+            return 3;
+        else if (levels[index].difficulty == Difficulty.veryHard)
+            return 4;
+        return 0;
+    }
 
     public static int GetIndex(string str) {
         string aux = string.Empty;
