@@ -30,29 +30,31 @@ public class RecomendedGamesHandler : MonoBehaviour
     {
         System.Random random = new System.Random();
 
-        int[] randomValues = GetRandomValues();
+        if (TemporaryData.gameList.Count >= 3) {
+            int[] randomValues = GetRandomValues();
 
-        // Debug.Log(randomValues[0] + ", " + randomValues[1] + ", " + randomValues[2]);
+            // Debug.Log(randomValues[0] + ", " + randomValues[1] + ", " + randomValues[2]);
 
-        int index = 0;
-        GameObject buttonParent = GameObject.Find("RecommendedGames");
-        
-        foreach (Transform child in buttonParent.transform) {
-            if (child.name == "TitleText (TMP)")
-                continue;
-
-            GameObject game = child.gameObject;
-
-            game.name = "RecommendedGame" + randomValues[index]; 
-
-            // games[i].onClick.AddListener(buttonClick);
-
-            // TMP_Text buttonText = game.transform.GetChild(1).GetComponent<TMP_Text>();
-            // buttonText.text = GameList.gameList[randomValues[index]].GetTitle();
-
-            game.transform.GetChild(0).GetComponent<Image>().sprite = TemporaryData.gameList[randomValues[index]].GetIcon();
+            int index = 0;
+            GameObject buttonParent = GameObject.Find("RecommendedGames");
             
-            index++;
+            foreach (Transform child in buttonParent.transform) {
+                if (child.name == "TitleText (TMP)")
+                    continue;
+
+                GameObject game = child.gameObject;
+
+                game.name = "RecommendedGame" + randomValues[index]; 
+
+                // games[i].onClick.AddListener(buttonClick);
+
+                // TMP_Text buttonText = game.transform.GetChild(1).GetComponent<TMP_Text>();
+                // buttonText.text = GameList.gameList[randomValues[index]].GetTitle();
+
+                game.transform.GetChild(0).GetComponent<Image>().sprite = TemporaryData.gameList[randomValues[index]].GetIcon();
+                
+                index++;
+            }
         }
     }
 }

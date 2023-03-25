@@ -47,6 +47,6 @@ public class MainPageHandler : MonoBehaviour
     }
 
     private void Update() {
-        audioListener.enabled = TemporaryData.user.GetMute();
+        // audioListener.enabled = TemporaryData.user.GetMute();
     }
 }

@@ -95,6 +95,12 @@ public class GameHandler : MonoBehaviour
         } else {
             titleText.text = "Not Found :(";
             playButton.SetActive(false);
+            descriptionText.text = "";
+            subjectText.text = "";
+            leasonButton.SetActive(false);
+
+            icon.sprite = null;
+            banner.sprite = null;
         }
     }
 

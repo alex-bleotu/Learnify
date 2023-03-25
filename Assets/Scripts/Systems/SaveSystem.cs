@@ -35,13 +35,15 @@ public class SaveSystem
             FileStream stream = new FileStream(path, FileMode.Open);
 
             User user = formatter.Deserialize(stream) as User;
+
             List<Game.Data> gameData = formatter.Deserialize(stream) as List<Game.Data>;
             stream.Close();
 
             TemporaryData.user = user;
 
-            for (int i = 0; i < TemporaryData.gameList.Count; i++)
-                TemporaryData.gameList[i].SetData(gameData[i]);
+            if (gameData.Count != 0)
+                for (int i = 0; i < TemporaryData.gameList.Count; i++)
+                    TemporaryData.gameList[i].SetData(gameData[i]);
         } else
             Debug.LogError("Save file not found in" + path);
     }

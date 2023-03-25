@@ -8,6 +8,7 @@ public class ReadData
 {
     private struct Data {
         public string title;
+        public string type;
         public string subject;
         public string description;
         public string leason;
@@ -24,7 +25,7 @@ public class ReadData
         public List<Game.Questions> questions;
     }
 
-    public static void Read(ref string title, ref string description, 
+    public static void Read(ref string title, ref Game.GameType type, ref string description, 
         ref Game.Subject subject, ref List<Game.Level> levels, ref string leason, ref string info, 
         string fileData) {
     
@@ -84,6 +85,12 @@ public class ReadData
                 break;
             case "english":
                 subject = Game.Subject.science;
+                break;
+        }
+
+        switch(data.type) {
+            case "quiz":
+                type = Game.GameType.quiz;
                 break;
         }
     }

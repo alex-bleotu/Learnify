@@ -22,6 +22,8 @@ public class Game
         public int highestScore;
     }
 
+    public enum GameType { quiz };
+
     public struct Level {
         public int id;
         public int timer;
@@ -41,6 +43,7 @@ public class Game
     private string description;
 
     private Subject subject;
+    private GameType gameType;
 
     private string leason;
     private string info;
@@ -56,7 +59,7 @@ public class Game
         levels = new List<Level>();
         // levels.questions = new List<Questions>();
 
-        ReadData.Read(ref title, ref description, ref subject, ref levels, 
+        ReadData.Read(ref title, ref gameType, ref description, ref subject, ref levels, 
             ref leason, ref info, Application.dataPath + "/Resources/Games/" + id + "/data.json");
 
         levelCount = levels.Count;
@@ -97,6 +100,8 @@ public class Game
     public int GetLevelCount() { return levelCount; }
     public int GetCurrentLevel() { return currentLevel; }
     public void SetCurrentLevel(int currentLevel) { this.currentLevel = (currentLevel >= levelCount) ? levelCount - 1 : currentLevel;}
+    public GameType GetGameType() { return gameType; }
+    public void SetGameType(GameType type) { this.gameType = type; }
 
     public static int GetIndex(string str) {
         string aux = string.Empty;
