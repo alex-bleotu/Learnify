@@ -149,8 +149,6 @@ public class TestPageHandler : MonoBehaviour
 
 
         SceneManager.LoadScene("MainPage");
-
-        // do the magic
     }
 
     public void OnNextClick() {
@@ -242,10 +240,14 @@ public class TestPageHandler : MonoBehaviour
         correctAnswers = 0;
         questionIndex = 0;
 
+        currentLevel = TemporaryData.gameList[gameIndex].GetCurrentLevel();
+
         time = 0f;
         stopTimer = false;
 
         choosenAnswers = new int[TemporaryData.gameList[gameIndex].GetQuestionsCount(currentLevel) + 1];
+
+        Debug.Log(currentLevel);
 
         for (int i = 0; i <= TemporaryData.gameList[gameIndex].GetQuestionsCount(currentLevel); i++)
             choosenAnswers[i] = -1;
@@ -256,8 +258,6 @@ public class TestPageHandler : MonoBehaviour
 
         ResetTest();
         UpdateTest();
-
-        currentLevel = TemporaryData.gameList[gameIndex].GetCurrentLevel();
 
         previuosButton.SetActive(false);
         nextButton.GetComponent<Button>().interactable = false;
@@ -286,17 +286,5 @@ public class TestPageHandler : MonoBehaviour
 
             scoreText.text = (int)auxScore + "%";
         }
-
-        // if (!powerUpsHandler.timeOut) {
-        //     timer -= Time.deltaTime;
-
-        //     if (timer < 0) {
-        //         stopTimer = true;
-
-        //         OpenWinInterface();
-        //     }
-        // }
-
-        Debug.Log(rewardedGems);
     }
 }

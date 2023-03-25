@@ -20,8 +20,6 @@ public class ReadData
     private struct Level {
         public int id;
         public int timer;
-        public int gems;
-        public int experience;
         public string difficulty;
         public List<Game.Questions> questions;
     }
@@ -52,7 +50,6 @@ public class ReadData
             Game.Level aux = new Game.Level();
             aux.id = data.levels[i].id;
             aux.questionsCount = data.levels[i].questions.Count;
-            aux.experience = data.levels[i].experience;
             aux.questions = data.levels[i].questions;
 
             switch(data.levels[i].difficulty) {
