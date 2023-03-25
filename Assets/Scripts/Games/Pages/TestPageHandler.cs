@@ -87,18 +87,18 @@ public class TestPageHandler : MonoBehaviour
 
         score = correctAnswers  * 100 / TemporaryData.gameList[gameIndex].GetQuestionsCount(currentLevel);
 
-        if (score < 50)
+        if (score < 70)
             titleText.text = "Test picat";
         else
             titleText.text = "Test trecut";
 
         rewardedCrowns = 0;
         rewardedGems = TemporaryData.gameList[gameIndex].GetGemReward(currentLevel);
-        if (score >= 50) {
+        if (score >= 70) {
             rewardedCrowns++;
             rewardedGems += 5;
 
-            if (score >= 75) {
+            if (score >= 80) {
                 rewardedCrowns++;
                 rewardedGems += 5;
 
@@ -133,7 +133,8 @@ public class TestPageHandler : MonoBehaviour
 
         animator.SetInteger("Score", score);
 
-        TemporaryData.gameList[TemporaryData.currentGameIndex].SetCurrentLevel(currentLevel + 1);
+        if (score >= 70)
+            TemporaryData.gameList[TemporaryData.currentGameIndex].SetCurrentLevel(currentLevel + 1);
 
         time = 0;
         startTimer = true;

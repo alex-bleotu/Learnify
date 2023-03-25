@@ -9,8 +9,6 @@ public class LoadingPage : MonoBehaviour
 {
     void Start() {
         string path = Application.dataPath + "/Resources/Games/";
-        
-        int gameCount = 0;
 
         string[] directories = Directory.GetDirectories(path);
         foreach (string directory in directories) {
@@ -18,14 +16,11 @@ public class LoadingPage : MonoBehaviour
                 string filePath = directory + "/data.json";
 
                 if (File.Exists(filePath))
-                    gameCount++;
+                    TemporaryData.gameList.Add(new Game(filePath, directory.Split('/').Last()));
             }
         }
 
-        for (int i = 0; i < gameCount; i++)
-            TemporaryData.gameList.Add(new Game(i));
-
-       TemporaryData.gameList.OrderBy(x => x.GetId());
+        TemporaryData.gameList = TemporaryData.gameList.OrderBy(x => x.GetId()).ToList();
             
         SaveSystem.LoadData();
 

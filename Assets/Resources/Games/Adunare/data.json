@@ -8,6 +8,25 @@
     "info": "",
     "levels": [
         {
+            "id": 1,
+            "timer": 0,
+            "difficulty": "medium",
+            "questions": [
+                {
+                    "id": 0,
+                    "question": "Cât face 1 + 1?",
+                    "answers": ["1", "2", "3", "4"],
+                    "correct": 1
+                },
+                {
+                    "id": 1,
+                    "question": "Cât face 2 + 2?",
+                    "answers": ["1", "2", "4", "3"],
+                    "correct": 2
+                }
+            ]
+        },
+        {
             "id": 0,
             "timer": 0,
             "difficulty": "easy",
@@ -71,25 +90,6 @@
                     "question": "Cât face 1024 + 571?",
                     "answers": ["1780", "1576", "1495", "1595"],
                     "correct": 3
-                }
-            ]
-        },
-        {
-            "id": 1,
-            "timer": 0,
-            "difficulty": "medium",
-            "questions": [
-                {
-                    "id": 0,
-                    "question": "Cât face 1 + 1?",
-                    "answers": ["1", "2", "3", "4"],
-                    "correct": 1
-                },
-                {
-                    "id": 1,
-                    "question": "Cât face 2 + 2?",
-                    "answers": ["1", "2", "4", "3"],
-                    "correct": 2
                 }
             ]
         }

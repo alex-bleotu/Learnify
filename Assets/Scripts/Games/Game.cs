@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Linq;
 
 public class Game
 {
     public enum Difficulty { easy, medium, hard, veryHard };
 
     public enum Subject { math, romanian, science, english};
+
+    public enum GameType { quiz };
 
     public struct Questions {
         public string id;
@@ -21,8 +24,6 @@ public class Game
         public bool leasonState;
         public int highestScore;
     }
-
-    public enum GameType { quiz };
 
     public struct Level {
         public int id;
@@ -53,22 +54,24 @@ public class Game
 
     private Data data;
 
-    public Game(int id) {
+    public Game(string path, string directory) {
         levels = new List<Level>();
         // levels.questions = new List<Questions>();
 
         ReadData.Read(ref id, ref title, ref gameType, ref description, ref subject, ref levels, 
-            ref leason, ref info, Application.dataPath + "/Resources/Games/" + id + "/data.json");
+            ref leason, ref info, path);
 
         levelCount = levels.Count;
 
         data.leasonState = false;
         data.highestScore = 0;
 
+        levels = levels.OrderBy(x => x.id).ToList();
+
         currentLevel = 0;
 
-        icon = Resources.Load<Sprite>("Games/" + id + "/icon");
-        banner = Resources.Load<Sprite>("Games/" + id + "/banner");
+        icon = Resources.Load<Sprite>("Games/" + directory + "/icon");
+        banner = Resources.Load<Sprite>("Games/" + directory + "/banner");
 
         if (icon == null)
             icon = Resources.Load<Sprite>("Games/Default/icon");
@@ -98,6 +101,7 @@ public class Game
     public void SetCurrentLevel(int currentLevel) { this.currentLevel = (currentLevel >= levelCount) ? levelCount - 1 : currentLevel;}
     public GameType GetGameType() { return gameType; }
     public void SetGameType(GameType type) { this.gameType = type; }
+    public List<Level> GetLevels(int index) { return levels; }
 
     public int GetGemReward(int index) {
         if (levels[index].difficulty == Difficulty.easy)

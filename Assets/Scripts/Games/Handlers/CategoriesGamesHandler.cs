@@ -15,7 +15,7 @@ public class CategoriesGamesHandler : MonoBehaviour
 
     public GameObject gameTemplate;
 
-    private int coordX = -475;
+    private int coordX = 165;
     private int coordY = 0;
     private int spacingCoord = 175;
 
@@ -28,15 +28,19 @@ public class CategoriesGamesHandler : MonoBehaviour
                 copyGame.transform.GetChild(1).gameObject.GetComponent<TMP_Text>().text = TemporaryData.gameList[i].GetTitle();
                 copyGame.transform.GetChild(0).gameObject.GetComponent<Image>().sprite = TemporaryData.gameList[i].GetIcon();
                 copyGame.transform.parent = category.transform;
-                copyGame.transform.position = new Vector3(copyGame.transform.parent.position.x + coordX + spacingCoord * index, copyGame.transform.parent.position.y + coordY, 0);
+
+                copyGame.transform.position = new Vector3(coordX + spacingCoord * index, copyGame.transform.parent.position.y + coordY, 0);
                 copyGame.name = "Game" + i;
                 copyGame.SetActive(true);
 
                 index++;
             }
 
-        if (index <= 6)
+        if (index <= 6) 
             category.transform.parent.GetComponent<ScrollRect>().enabled = false;
+
+        category.GetComponent<RectTransform>().sizeDelta = new Vector2(index * 175 - 25, category.GetComponent<RectTransform>().sizeDelta.y);
+        category.transform.position = new Vector3(category.GetComponent<RectTransform>().sizeDelta.x / 2 + 80, 40, 0);
     }
 
     void Start() {
