@@ -10,6 +10,8 @@ public class MainPageHandler : MonoBehaviour
     public TMP_Text usernameText;
     public TMP_Text levelText;
 
+    public Image expBar;
+
     public AudioListener audioListener;
 
     public MuteButtonHandler muteButtonHandler;
@@ -36,6 +38,8 @@ public class MainPageHandler : MonoBehaviour
 
         TemporaryData.rewardedCrowns = 0;
         TemporaryData.rewardedGems = 0;
+
+        expBar.fillAmount = (float)TemporaryData.user.GetExperience() / (TemporaryData.user.GetLevel() * 100);
     }
 
     public void ToggleMuteButton() {

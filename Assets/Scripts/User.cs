@@ -9,6 +9,7 @@ public class User {
     private int level = 1;
     private const int maxLevel = 100;
     private float experience = 0f;
+    private const float experiencePerLevel = 100f;
     private float experienceMultiplier = 1f;
 
     private int gems = 0;
@@ -84,6 +85,7 @@ public class User {
         if (this.crowns > maxCrowns)
             this.crowns = maxCrowns; 
     }
+
     public void SubstractCrowns(int crowns) { 
         this.crowns -= crowns; 
         if (this.crowns < 0)
@@ -93,9 +95,9 @@ public class User {
     public void AddExperience(float exp) {
         experience += exp;
 
-        while (experience >= level * experienceMultiplier) {
+        while (experience >= level * experiencePerLevel) {
             Debug.Log("Level Up");
-            experience -= level * experienceMultiplier;
+            experience -= level * experiencePerLevel;
             level++;
         }
     }

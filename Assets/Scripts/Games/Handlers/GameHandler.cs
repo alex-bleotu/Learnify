@@ -47,7 +47,7 @@ public class GameHandler : MonoBehaviour
         Color32 orange = new Color32(255, 140, 0, 255);
         Color32 red = new Color32(211, 26, 56, 255);
         Color32 purple = new Color32(138, 43, 226, 255);
-        Color32 grey = new Color32(242, 242, 242, 255);
+        Color32 grey = new Color32(0, 0, 0, 30);
 
         if (difficulty == Game.Difficulty.easy) {
             image1.color = green;
@@ -77,7 +77,12 @@ public class GameHandler : MonoBehaviour
         gamePage.name = "GamePage" + index;
 
         if (TemporaryData.gameList[index].GetTitle() != null) {
-            titleText.text = TemporaryData.gameList[index].GetTitle();
+            if (TemporaryData.gameList[TemporaryData.currentGameIndex].GetLeasonState() == false)
+                titleText.text = TemporaryData.gameList[index].GetTitle();
+            else
+                titleText.text = TemporaryData.gameList[index].GetTitle() + " (" +  
+                    (TemporaryData.gameList[index].GetCurrentLevel() + 1) + "/" + TemporaryData.gameList[index].GetLevelCount() + ") ";
+                    
             descriptionText.text = TemporaryData.gameList[index].GetDescription();
             
             subjectText.text = setSubjectText(index);

@@ -112,19 +112,19 @@ public class Game
         else if (levels[index].difficulty == Difficulty.hard)
             return 3;
         else if (levels[index].difficulty == Difficulty.veryHard)
-            return 4;
+            return 5;
         return 0;
     }
 
     public int GetExperience(int index) {
         if (levels[index].difficulty == Difficulty.easy)
-            return 1;
+            return 10;
         else if (levels[index].difficulty == Difficulty.medium)
-            return 2;
+            return 12;
         else if (levels[index].difficulty == Difficulty.hard)
-            return 3;
+            return 15;
         else if (levels[index].difficulty == Difficulty.veryHard)
-            return 4;
+            return 20;
         return 0;
     }
 

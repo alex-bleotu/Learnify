@@ -93,7 +93,7 @@ public class TestPageHandler : MonoBehaviour
             titleText.text = "Test trecut";
 
         rewardedCrowns = 0;
-        rewardedGems = TemporaryData.gameList[gameIndex].GetGemReward(currentLevel);
+        rewardedGems = (score >= 70) ? TemporaryData.gameList[gameIndex].GetGemReward(currentLevel) : 0;
         if (score >= 70) {
             rewardedCrowns++;
             rewardedGems += 5;
@@ -125,6 +125,9 @@ public class TestPageHandler : MonoBehaviour
 
         TemporaryData.gameList[TemporaryData.currentGameIndex].SetHighestScore(score);
 
+        if (score == 0)
+            scoreText.text = "0%";
+
         testPage.SetActive(false);
         winPage.SetActive(true);
 
@@ -133,18 +136,21 @@ public class TestPageHandler : MonoBehaviour
 
         animator.SetInteger("Score", score);
 
-        if (score >= 70)
+        if (score >= 70) {
             TemporaryData.gameList[TemporaryData.currentGameIndex].SetCurrentLevel(currentLevel + 1);
+            TemporaryData.user.AddExperience(TemporaryData.gameList[TemporaryData.currentGameIndex].GetExperience(currentLevel));
+        }
 
-        time = 0;
-        startTimer = true;
+        if (score != 0) {
+            time = 0;
+            startTimer = true;
+        }
     }
 
     public void CloseWinInterface() {
         winPage.SetActive(false);
 
         TemporaryData.user.AddCrowns(rewardedCrowns);
-        TemporaryData.user.AddExperience(TemporaryData.gameList[TemporaryData.currentGameIndex].GetExperience(currentLevel));
         TemporaryData.user.AddGems(rewardedGems);
 
 
@@ -152,13 +158,13 @@ public class TestPageHandler : MonoBehaviour
     }
 
     public void OnNextClick() {
-        hintPowerUp.GetComponent<Button>().interactable = TemporaryData.user.GetHintToken() > 0;
-
         questionIndex++;
 
         previuosButton.SetActive(true);
 
         if (choosenAnswers[questionIndex] == -1) {
+            hintPowerUp.GetComponent<Button>().interactable = TemporaryData.user.GetHintToken() > 0;
+
             nextButton.GetComponent<Button>().interactable = false;
             previuosButton.SetActive(true);
 
@@ -280,7 +286,7 @@ public class TestPageHandler : MonoBehaviour
             }
         }
 
-        if (gameOver && auxScore < score) {
+        if (gameOver && auxScore <= score) {
             auxScore += (1f * score / (0.5f * (1f / Time.deltaTime)));
 
             if (auxScore > score)
