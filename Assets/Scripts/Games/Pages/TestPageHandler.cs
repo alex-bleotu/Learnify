@@ -156,6 +156,8 @@ public class TestPageHandler : MonoBehaviour
 
         questionIndex++;
 
+        previuosButton.SetActive(true);
+
         if (choosenAnswers[questionIndex] == -1) {
             nextButton.GetComponent<Button>().interactable = false;
             previuosButton.SetActive(true);
@@ -190,6 +192,8 @@ public class TestPageHandler : MonoBehaviour
         questionIndex = questionIndex == 0 ? 0 : questionIndex - 1;
 
         nextButton.GetComponent<Button>().interactable = true;
+
+        powerUpsHandler.hintPowerUp.GetComponent<Button>().interactable = false;
 
         if (questionIndex == 0)
             previuosButton.SetActive(false);
@@ -246,8 +250,6 @@ public class TestPageHandler : MonoBehaviour
         stopTimer = false;
 
         choosenAnswers = new int[TemporaryData.gameList[gameIndex].GetQuestionsCount(currentLevel) + 1];
-
-        Debug.Log(currentLevel);
 
         for (int i = 0; i <= TemporaryData.gameList[gameIndex].GetQuestionsCount(currentLevel); i++)
             choosenAnswers[i] = -1;

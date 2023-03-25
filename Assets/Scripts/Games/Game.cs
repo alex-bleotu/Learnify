@@ -27,7 +27,7 @@ public class Game
 
     public struct Level {
         public int id;
-        public int experience;
+        public int timer;
         public Difficulty difficulty;
         public List<Questions> questions;
         public int questionsCount;
@@ -102,6 +102,7 @@ public class Game
     public GameType GetGameType() { return gameType; }
     public void SetGameType(GameType type) { this.gameType = type; }
     public List<Level> GetLevels(int index) { return levels; }
+    public int GetTimer(int index) { return levels[index].timer; }
 
     public int GetGemReward(int index) {
         if (levels[index].difficulty == Difficulty.easy)

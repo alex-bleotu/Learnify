@@ -58,7 +58,8 @@ public class PowerUpsHandler : MonoBehaviour
 
     private void Start() {
         hintPowerUp.GetComponent<Button>().interactable = TemporaryData.user.GetHintToken() > 0;
-        timePowerUp.GetComponent<Button>().interactable = TemporaryData.user.GetTimeToken() > 0;
+        timePowerUp.GetComponent<Button>().interactable = TemporaryData.user.GetTimeToken() > 0 && 
+            TemporaryData.gameList[TemporaryData.currentGameIndex].GetTimer(TemporaryData.gameList[TemporaryData.currentGameIndex].GetCurrentLevel()) > 0;
         gemPowerUp.GetComponent<Button>().interactable = TemporaryData.user.GetGemToken() > 0;
 
         hintText.text = TemporaryData.user.GetHintToken().ToString();
