@@ -22,12 +22,13 @@ public class Game
     [System.Serializable]
     public struct Data {
         public bool leasonState;
-        public int highestScore;
+        public int experience;
     }
 
     public struct Level {
         public int id;
         public int timer;
+        public int experience;
         public Difficulty difficulty;
         public List<Questions> questions;
         public int questionsCount;
@@ -52,6 +53,8 @@ public class Game
 
     private int currentLevel;
 
+    private int experience;
+
     private Data data;
 
     public Game(string path, string directory) {
@@ -64,19 +67,19 @@ public class Game
         levelCount = levels.Count;
 
         data.leasonState = false;
-        data.highestScore = 0;
+        data.experience = 0;
 
         levels = levels.OrderBy(x => x.id).ToList();
 
         currentLevel = 0;
 
         icon = Resources.Load<Sprite>("Games/" + directory + "/icon");
-        banner = Resources.Load<Sprite>("Games/" + directory + "/banner");
+        banner = Resources.Load<Sprite>("Images/Banners/" + subject.ToString());
 
         if (icon == null)
             icon = Resources.Load<Sprite>("Games/Default/icon");
         if (banner == null)
-            banner = Resources.Load<Sprite>("Games/Default/banner");
+            banner = Resources.Load<Sprite>("Images/Banners/default");
     }
 
     public int GetId() { return id; }
@@ -94,8 +97,7 @@ public class Game
     public string GetInfo() { return info; }
     public Data GetData() { return data; }
     public void SetData(Data data) { this.data = data; }
-    public int GetHighestScore() { return data.highestScore; }
-    public void SetHighestScore(int highestScore) { this.data.highestScore = highestScore; }
+    public int GetExperience() { return data.experience; }
     public int GetLevelCount() { return levelCount; }
     public int GetCurrentLevel() { return currentLevel; }
     public void SetCurrentLevel(int currentLevel) { this.currentLevel = (currentLevel >= levelCount) ? levelCount - 1 : currentLevel;}
@@ -103,6 +105,10 @@ public class Game
     public void SetGameType(GameType type) { this.gameType = type; }
     public List<Level> GetLevels(int index) { return levels; }
     public int GetTimer(int index) { return levels[index].timer; }
+
+    public void AddExperience(int experience) {
+        data.experience += experience;
+    }
 
     public int GetGemReward(int index) {
         if (levels[index].difficulty == Difficulty.easy)

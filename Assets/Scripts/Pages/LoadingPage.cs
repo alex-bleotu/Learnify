@@ -28,5 +28,8 @@ public class LoadingPage : MonoBehaviour
             SceneManager.LoadScene("MainPage");
         else
             SceneManager.LoadScene("CreateProfilePage");
+
+        FriendsPageHandler friendsPageHandler = new FriendsPageHandler();
+        friendsPageHandler.CreateList();
     }
 }

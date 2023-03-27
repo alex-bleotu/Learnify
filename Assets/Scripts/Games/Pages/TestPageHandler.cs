@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Timers;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEditor.Animations;
@@ -9,9 +10,11 @@ using UnityEngine.UI;
 public class TestPageHandler : MonoBehaviour
 {
     public PowerUpsHandler powerUpsHandler;
+    public FriendsPageHandler friendsPageHandler;
 
     public GameObject testPage;
     public GameObject winPage;
+    public GameObject friendsPage;
 
     public GameObject nextButton;
     public GameObject previuosButton;
@@ -41,19 +44,10 @@ public class TestPageHandler : MonoBehaviour
     public int questionIndex;
     public int gameIndex;
 
-    private float time;
-    private bool stopTimer;
-    private bool startTimer;
-
     private int rewardedCrowns;
     private int rewardedGems;
 
     private int score;
-    private float auxScore;
-
-    private bool gameOver;
-
-    public float timer;
 
     public int currentLevel;
 
@@ -89,8 +83,10 @@ public class TestPageHandler : MonoBehaviour
 
         if (score < 70)
             titleText.text = "Test picat";
-        else
+        else {
             titleText.text = "Test trecut";
+            TemporaryData.rewardedExperience = TemporaryData.gameList[TemporaryData.currentGameIndex].GetExperience(currentLevel);
+        }
 
         rewardedCrowns = 0;
         rewardedGems = (score >= 70) ? TemporaryData.gameList[gameIndex].GetGemReward(currentLevel) : 0;
@@ -114,45 +110,40 @@ public class TestPageHandler : MonoBehaviour
         // else
         //     gemsLabel.SetActive(true);
 
+        TemporaryData.user.AddXP(TemporaryData.rewardedExperience);
+        TemporaryData.gameList[TemporaryData.currentGameIndex].AddExperience(TemporaryData.rewardedExperience);
+        
+        friendsPageHandler.FriensListHandler();
+
         gemsText.text = "+" + rewardedGems;
 
-        int minutes = (int)time / 60;
-        int seconds = (int)time - 60 * minutes;
-        if (seconds >= 10)
-            timeText.text = minutes + ":" + seconds;
-        else
-            timeText.text = minutes + ":0" + seconds;
-
-        TemporaryData.gameList[TemporaryData.currentGameIndex].SetHighestScore(score);
+        timeText.text = TimerSystem.GetTime();
 
         if (score == 0)
             scoreText.text = "0%";
 
         testPage.SetActive(false);
         winPage.SetActive(true);
+        friendsPage.SetActive(true);
 
         TemporaryData.rewardedCrowns = rewardedCrowns;
         TemporaryData.rewardedGems = rewardedGems;
 
-        animator.SetInteger("Score", score);
+        TimerSystem.TimerStart(1000, () => { 
+            UnityMainThreadDispatcher.Instance().Enqueue(() => {animator.SetInteger("Score", score); });
+            UnityMainThreadDispatcher.Instance().Destroy(); 
+        });
 
-        if (score >= 70) {
+        if (score >= 70)
             TemporaryData.gameList[TemporaryData.currentGameIndex].SetCurrentLevel(currentLevel + 1);
-            TemporaryData.user.AddExperience(TemporaryData.gameList[TemporaryData.currentGameIndex].GetExperience(currentLevel));
-        }
 
-        if (score != 0) {
-            time = 0;
-            startTimer = true;
-        }
+        if (score != 0)
+            TimerSystem.TimerStart(250, () => {TimerSystem.CountUpText(0, score, 1000, scoreText, "{0}%");});
     }
 
     public void CloseWinInterface() {
         winPage.SetActive(false);
-
-        TemporaryData.user.AddCrowns(rewardedCrowns);
-        TemporaryData.user.AddGems(rewardedGems);
-
+        friendsPage.SetActive(false);
 
         SceneManager.LoadScene("MainPage");
     }
@@ -168,10 +159,10 @@ public class TestPageHandler : MonoBehaviour
             nextButton.GetComponent<Button>().interactable = false;
             previuosButton.SetActive(true);
 
-            if (questionIndex < TemporaryData.gameList[gameIndex].GetQuestionsCount(currentLevel)) {
+            if (questionIndex < TemporaryData.gameList[gameIndex].GetQuestionsCount(currentLevel))
                 ResetTest();
-            }
-            else OpenWinInterface();
+            else
+                OpenWinInterface();
         } else
             UpdateSavedAsnwers();
     }
@@ -212,7 +203,7 @@ public class TestPageHandler : MonoBehaviour
         hintPowerUp.GetComponent<Button>().interactable = false;
 
         if (questionIndex == TemporaryData.gameList[gameIndex].GetQuestionsCount(currentLevel) - 1)
-            stopTimer = true;
+            TimerSystem.StopStopWatch();
 
         if (TemporaryData.gameList[gameIndex].GetQuestionsCount(currentLevel) == 0)
             return;
@@ -252,8 +243,7 @@ public class TestPageHandler : MonoBehaviour
 
         currentLevel = TemporaryData.gameList[gameIndex].GetCurrentLevel();
 
-        time = 0f;
-        stopTimer = false;
+        TimerSystem.StartStopWatch();
 
         choosenAnswers = new int[TemporaryData.gameList[gameIndex].GetQuestionsCount(currentLevel) + 1];
 
@@ -271,28 +261,5 @@ public class TestPageHandler : MonoBehaviour
         nextButton.GetComponent<Button>().interactable = false;
 
         testPage.SetActive(true);
-    }
-
-    private void Update() {
-        if (!stopTimer)
-            time += Time.deltaTime;
-        if (startTimer) {
-            time += Time.deltaTime;
-            if (time > 0.5) {
-                startTimer = false;
-
-                auxScore = 0;
-                gameOver = true;
-            }
-        }
-
-        if (gameOver && auxScore <= score) {
-            auxScore += (1f * score / (0.5f * (1f / Time.deltaTime)));
-
-            if (auxScore > score)
-                auxScore = score;
-
-            scoreText.text = (int)auxScore + "%";
-        }
     }
 }

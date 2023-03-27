@@ -77,11 +77,11 @@ public class GameHandler : MonoBehaviour
         gamePage.name = "GamePage" + index;
 
         if (TemporaryData.gameList[index].GetTitle() != null) {
-            if (TemporaryData.gameList[TemporaryData.currentGameIndex].GetLeasonState() == false)
+            if (!TemporaryData.gameList[index].GetLeasonState())
                 titleText.text = TemporaryData.gameList[index].GetTitle();
             else
                 titleText.text = TemporaryData.gameList[index].GetTitle() + " (" +  
-                    (TemporaryData.gameList[index].GetCurrentLevel() + 1) + "/" + TemporaryData.gameList[index].GetLevelCount() + ") ";
+                    (TemporaryData.gameList[index].GetCurrentLevel() + 1) + "/" + TemporaryData.gameList[index].GetLevelCount() + ")";
                     
             descriptionText.text = TemporaryData.gameList[index].GetDescription();
             

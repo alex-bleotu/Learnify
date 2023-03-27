@@ -20,11 +20,13 @@ public class SaveSystem
         string path = Application.persistentDataPath + "/" + FileName;
         FileStream stream = new FileStream(path, FileMode.Create);
 
-        Debug.Log(path);
+        // Debug.Log(path);
 
         formatter.Serialize(stream, TemporaryData.user);
         formatter.Serialize(stream, gameData);
         stream.Close();
+
+        Debug.Log("Saved");
     }
     
     public static void LoadData() {
@@ -44,6 +46,10 @@ public class SaveSystem
             if (gameData.Count != 0)
                 for (int i = 0; i < TemporaryData.gameList.Count; i++)
                     TemporaryData.gameList[i].SetData(gameData[i]);
+
+            TemporaryData.avatar = Resources.Load<Sprite>(TemporaryData.user.GetAvatarPath());
+
+            Debug.Log("Loaded");
         } else
             Debug.LogError("Save file not found in" + path);
     }

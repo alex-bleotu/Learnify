@@ -15,11 +15,16 @@ public class CategoriesGamesHandler : MonoBehaviour
 
     public GameObject gameTemplate;
 
-    private int coordX = 165;
-    private int coordY = 0;
-    private int spacingCoord = 175;
+    private float coordX;
+    private float coordY;
+    private float spacingCoord;
+    private float spacing = 25;
 
     private void fillGames(GameObject category, Game.Subject subject) {
+        coordX = gameTemplate.transform.position.x + 10;
+        coordY = gameTemplate.transform.position.y;
+        spacingCoord = spacing + gameTemplate.GetComponent<RectTransform>().sizeDelta.x;
+
         int index = 0;
         for (int i = 0; i < TemporaryData.gameList.Count; i++)
             if (TemporaryData.gameList[i].GetSubject() == subject) {
@@ -27,9 +32,9 @@ public class CategoriesGamesHandler : MonoBehaviour
 
                 copyGame.transform.GetChild(1).gameObject.GetComponent<TMP_Text>().text = TemporaryData.gameList[i].GetTitle();
                 copyGame.transform.GetChild(0).gameObject.GetComponent<Image>().sprite = TemporaryData.gameList[i].GetIcon();
-                copyGame.transform.parent = category.transform;
+                copyGame.transform.SetParent(category.transform);
 
-                copyGame.transform.position = new Vector3(coordX + spacingCoord * index, copyGame.transform.parent.position.y + coordY, 0);
+                copyGame.transform.position = new Vector3(coordX + spacingCoord * index, category.transform.parent.position.y, 0);
                 copyGame.name = "Game" + i;
                 copyGame.SetActive(true);
 
@@ -39,20 +44,11 @@ public class CategoriesGamesHandler : MonoBehaviour
         if (index <= 6) 
             category.transform.parent.GetComponent<ScrollRect>().enabled = false;
 
-        category.GetComponent<RectTransform>().sizeDelta = new Vector2(index * 175 - 25, category.GetComponent<RectTransform>().sizeDelta.y);
-        category.transform.position = new Vector3(category.GetComponent<RectTransform>().sizeDelta.x / 2 + 80, 40, 0);
+        category.GetComponent<RectTransform>().sizeDelta = new Vector2(index * spacingCoord - spacing, category.GetComponent<RectTransform>().sizeDelta.y);
+        category.transform.position = new Vector3(category.GetComponent<RectTransform>().sizeDelta.x / 2 + gameTemplate.GetComponent<RectTransform>().sizeDelta.x / 2 + 10, category.transform.position.y, 0);
     }
 
     void Start() {
-        // int index = 0;
-        // foreach (Transform subject in categories.transform) {
-        //     foreach (Transform game in subject.GetChild(1)) {
-        //         game.GetChild(1).gameObject.GetComponent<TMP_Text>().text = TemporaryData.gameList[index].GetTitle();
-        //         game.GetChild(0).gameObject.GetComponent<Image>().sprite = TemporaryData.gameList[index].GetIcon();
-        //         index++;
-        //     }
-        // }
-        
         fillGames(mathCategory, Game.Subject.math);
         fillGames(scienceCategory, Game.Subject.science);
         fillGames(romanianCategory, Game.Subject.romanian);

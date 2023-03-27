@@ -15,10 +15,8 @@ public class PowerUpsHandler : MonoBehaviour
     public TMP_Text hintText;
     public TMP_Text timeText;
     public TMP_Text gemText;
-
+    
     public bool timeOut;
-    private int timeOutLength = 15;
-    private float time;
 
     public bool gemRush;
 
@@ -35,14 +33,15 @@ public class PowerUpsHandler : MonoBehaviour
     }
 
     public void OnTimePowerUp() {
-        timeOut = true;
-        time = 0;
-
         timePowerUp.GetComponent<Button>().interactable = false;
 
         TemporaryData.user.SetTimeToken(TemporaryData.user.GetTimeToken() - 1);
 
         timeText.text = TemporaryData.user.GetTimeToken().ToString();
+
+        TimerSystem.TimerStart(TemporaryData.user.GetTimePotionEffect(), () => {
+            UnityMainThreadDispatcher.Instance().Enqueue(() => { timePowerUp.GetComponent<Button>().interactable = TemporaryData.user.GetTimeToken() > 0; });
+        });
     }
 
     public void OnGemPowerUp() {
@@ -67,16 +66,5 @@ public class PowerUpsHandler : MonoBehaviour
         gemText.text = TemporaryData.user.GetGemToken().ToString();
         
         gemRush = false;
-    }
-
-    private void Update() {
-        if (timeOut) {
-            time += Time.deltaTime;
-
-            if (time > timeOutLength) {
-                timeOut = false;
-                timePowerUp.GetComponent<Button>().interactable = TemporaryData.user.GetTimeToken() > 0;
-            }
-        }
     }
 }

@@ -41,7 +41,7 @@ public class GenerateJson : MonoBehaviour
     }
 
     public static void Generate() {
-        int levelCount = 1, questionsCount = 1;
+        int levelCount = 1; // questionsCount = 1;
 
         List<Level> levels = new List<Level>();
 

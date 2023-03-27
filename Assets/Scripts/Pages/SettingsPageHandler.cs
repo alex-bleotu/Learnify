@@ -12,7 +12,7 @@ public class SettingsPageHandler : MonoBehaviour
         if (TemporaryData.user.GetMute())
             audioSlider.value = 0f;
         else
-            audioSlider.value = TemporaryData.user.GetSound();
+            audioSlider.value = TemporaryData.user.GetVolume();
     }
 
     public void CloseInterface() {
@@ -21,7 +21,7 @@ public class SettingsPageHandler : MonoBehaviour
 
     public void UpdateSlider() {
         if (audioSlider.value != 0f)
-            TemporaryData.user.SetSound(audioSlider.value);
+            TemporaryData.user.SetVolume(audioSlider.value);
 
         if (audioSlider.value == 0f)
             TemporaryData.user.SetMute(true);
