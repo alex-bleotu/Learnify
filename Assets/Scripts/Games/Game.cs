@@ -8,11 +8,12 @@ public class Game
 {
     public enum Difficulty { easy, medium, hard, veryHard };
 
-    public enum Subject { math, romanian, science, english};
+    public enum Subject { math, romanian, science, english };
 
     public enum GameType { quiz };
 
-    public struct Questions {
+    public struct Questions
+    {
         public string id;
         public string question;
         public List<string> answers;
@@ -20,12 +21,15 @@ public class Game
     }
 
     [System.Serializable]
-    public struct Data {
+    public struct Data
+    {
         public bool leasonState;
         public int experience;
+        public int currentLevel;
     }
 
-    public struct Level {
+    public struct Level
+    {
         public int id;
         public int timer;
         public int experience;
@@ -51,17 +55,16 @@ public class Game
     private List<Level> levels;
     private int levelCount;
 
-    private int currentLevel;
-
     private int experience;
 
     private Data data;
 
-    public Game(string path, string directory) {
+    public Game(string path, string directory)
+    {
         levels = new List<Level>();
         // levels.questions = new List<Questions>();
 
-        ReadData.Read(ref id, ref title, ref gameType, ref description, ref subject, ref levels, 
+        ReadData.Read(ref id, ref title, ref gameType, ref description, ref subject, ref levels,
             ref leason, ref info, path);
 
         levelCount = levels.Count;
@@ -71,7 +74,7 @@ public class Game
 
         levels = levels.OrderBy(x => x.id).ToList();
 
-        currentLevel = 0;
+        data.currentLevel = 0;
 
         icon = Resources.Load<Sprite>("Games/" + directory + "/icon");
         banner = Resources.Load<Sprite>("Images/Banners/" + subject.ToString());
@@ -99,30 +102,42 @@ public class Game
     public void SetData(Data data) { this.data = data; }
     public int GetExperience() { return data.experience; }
     public int GetLevelCount() { return levelCount; }
-    public int GetCurrentLevel() { return currentLevel; }
-    public void SetCurrentLevel(int currentLevel) { this.currentLevel = (currentLevel >= levelCount) ? levelCount - 1 : currentLevel;}
+    public int GetCurrentLevel() { return data.currentLevel; }
+    public void SetCurrentLevel(int currentLevel) { this.data.currentLevel = (currentLevel >= levelCount) ? levelCount - 1 : currentLevel; }
     public GameType GetGameType() { return gameType; }
     public void SetGameType(GameType type) { this.gameType = type; }
     public List<Level> GetLevels(int index) { return levels; }
     public int GetTimer(int index) { return levels[index].timer; }
+    public int GetLevelId(int index) { return levels[index].id; }
 
-    public void AddExperience(int experience) {
+    public void AddExperience(int experience)
+    {
         data.experience += experience;
     }
 
-    public int GetGemReward(int index) {
+    public int GetGemReward(int index, int score)
+    {
+        int multiplier = 0;
+        if (score >= 70)
+            multiplier = 1;
+        if (score >= 80)
+            multiplier = 2;
+        else if (score >= 90)
+            multiplier = 3;
+
         if (levels[index].difficulty == Difficulty.easy)
-            return 1;
+            return 1 * multiplier;
         else if (levels[index].difficulty == Difficulty.medium)
-            return 2;
+            return 2 * multiplier;
         else if (levels[index].difficulty == Difficulty.hard)
-            return 3;
+            return 3 * multiplier;
         else if (levels[index].difficulty == Difficulty.veryHard)
-            return 5;
+            return 5 * multiplier;
         return 0;
     }
 
-    public int GetExperience(int index) {
+    public int GetXP(int index)
+    {
         if (levels[index].difficulty == Difficulty.easy)
             return 10;
         else if (levels[index].difficulty == Difficulty.medium)
@@ -134,7 +149,8 @@ public class Game
         return 0;
     }
 
-    public static int GetIndex(string str) {
+    public static int GetIndex(string str)
+    {
         string aux = string.Empty;
         int val = 0;
 

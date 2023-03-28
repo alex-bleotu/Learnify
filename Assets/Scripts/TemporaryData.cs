@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class TemporaryData
 {
+    public static bool loading = true;
+
     public static int currentGameIndex;
 
     public static int rewardedGems, rewardedCrowns, rewardedExperience;

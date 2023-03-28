@@ -10,11 +10,11 @@
         {
             "id": 1,
             "timer": 0,
-            "difficulty": "easy",
+            "difficulty": "medium",
             "questions": [
                 {
                     "id": 0,
-                    "question": "Rezolvati ecuatia\n 1 + 1?",
+                    "question": "Rezolvați ecuația\n 1 + 1?",
                     "answers": ["1", "2", "3", "4"],
                     "correct": 1
                 },
@@ -81,13 +81,13 @@
             "questions": [
                 {
                     "id": 0,
-                    "question": "Rezolvati ecuatia\n 1 + 1?",
+                    "question": "Rezolvați ecuația\n 1 + 1?",
                     "answers": ["1", "2", "3", "4"],
                     "correct": 1
                 },
                 {
                     "id": 1,
-                    "question": "Rezolvati ecuatia\n 2 + 2?",
+                    "question": "Rezolvați ecuația\n 2 + 2?",
                     "answers": ["1", "2", "4", "3"],
                     "correct": 2
                 },

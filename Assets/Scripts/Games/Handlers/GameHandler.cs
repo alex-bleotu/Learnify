@@ -79,15 +79,15 @@ public class GameHandler : MonoBehaviour
         if (TemporaryData.gameList[index].GetTitle() != null) {
             if (!TemporaryData.gameList[index].GetLeasonState())
                 titleText.text = TemporaryData.gameList[index].GetTitle();
-            else
+            else 
                 titleText.text = TemporaryData.gameList[index].GetTitle() + " (" +  
                     (TemporaryData.gameList[index].GetCurrentLevel() + 1) + "/" + TemporaryData.gameList[index].GetLevelCount() + ")";
+
+            SetDifficultyImages(index);
                     
             descriptionText.text = TemporaryData.gameList[index].GetDescription();
             
             subjectText.text = setSubjectText(index);
-
-            SetDifficultyImages(index);
 
             leasonButton.SetActive(TemporaryData.gameList[index].GetLeasonState());
 

@@ -44,7 +44,6 @@ public class MainPageHandler : MonoBehaviour
 
         TemporaryData.user.AddCrowns(TemporaryData.rewardedCrowns);
         TemporaryData.user.AddGems(TemporaryData.rewardedGems);
-        TemporaryData.user.AddXP(TemporaryData.rewardedExperience);
 
         if (TemporaryData.rewardedGems != 0)
             TimerSystem.TimerStart(750, () => { TimerSystem.CountUpText(Int32.Parse(gemsText.text), TemporaryData.user.GetGems(), 1000, gemsText, "{0}"); });

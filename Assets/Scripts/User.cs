@@ -11,7 +11,7 @@ public class User {
     private string avatarPath;
     private int level = 1;
     private const int maxLevel = 100;
-    private int experience = 0;
+    private int xp = 0;
     private const int experiencePerLevel = 100;
     private int experienceMultiplier = 1;
 
@@ -52,7 +52,7 @@ public class User {
     public string GetUsername() { return username; }
     public int GetAge() { return age; }
     public int GetLevel() { return level; }
-    public int GetXP() { return experience; }
+    public int GetXP() { return xp; }
     public float GetVolume() { return volume; }
     public bool GetMute() { return mute; }
     public int GetDailyStreak() { return dailyStreak; }
@@ -60,7 +60,7 @@ public class User {
     public int GetGems() { return gems; }
     public int GetCorwns() { return crowns; }
     public void SetLevel(int level) { this.level = (level < maxLevel) ? level : maxLevel; }
-    public void SetExperience(int experience) { this.experience = experience; }
+    public void SetXP(int experience) { this.xp = experience; }
     public void SetVolume(float volume) { this.volume = volume; }
     public void SetMute(bool mute) { this.mute = mute; }
     public void SetExperienceMultiplier(int experienceMultiplier) { this.experienceMultiplier = experienceMultiplier; }
@@ -102,12 +102,12 @@ public class User {
     }
     
     public void AddXP(int exp) {
-        experience += exp;
+        xp += exp;
 
-        while (experience >= level * experiencePerLevel) {
-            Debug.Log("Level Up");
-            experience -= level * experiencePerLevel;
-            level++;
-        }
+        // while (xp >= level * experiencePerLevel) {
+        //     Debug.Log("Level Up");
+        //     xp -= level * experiencePerLevel;
+        //     level++;
+        // }
     }
 }

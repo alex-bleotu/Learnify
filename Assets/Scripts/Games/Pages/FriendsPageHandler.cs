@@ -140,6 +140,6 @@ public class FriendsPageHandler : MonoBehaviour
 
         if (userIndex > friendsCount - 4)
             friendslist.transform.position = new Vector3(friendslist.transform.position.x, (friendsCount - 4) * spacingCoord, 0);
-        else friendslist.transform.position = new Vector3(friendslist.transform.position.x, userIndex * spacingCoord, 0);
+        else friendslist.transform.position = new Vector3(friendslist.transform.position.x, userIndex * spacingCoord - 165, 0);
     }
 }
