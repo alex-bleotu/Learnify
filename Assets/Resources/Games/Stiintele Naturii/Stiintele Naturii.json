@@ -1,0 +1,206 @@
+            {
+                "id": 13,
+                "title": "Stiintele Naturii",
+                "type": "quiz",
+                "subject": "science",
+                "description": "Stiintele naturii",
+                "leason": "Introducere în științele naturii\nDragi copii, astăzi vom începe să explorăm lumea fascinantă a științelor naturii. Științele naturii ne ajută să înțelegem și să apreciem mediul înconjurător în care trăim. În această serie de lecții, vom învăța despre diverse subiecte, cum ar fi corpurile ceresti, Pământul și mediul înconjurător, plantele și animalele, precum și modul în care toate acestea interacționează și se influențează reciproc.\nCe sunt științele naturii?\nȘtiințele naturii se ocupă cu studiul mediului natural și al fenomenelor care se întâmplă în jurul nostru. Aceasta include subiecte precum biologia (studierea plantelor și animalelor), geologia (studierea Pământului și rocilor), astronomia (studierea spațiului cosmic și a obiectelor din univers), meteorologia (studierea vremii și climei) și ecologia (studierea ecosistemelor și relațiilor dintre organisme și mediul lor).\nImportanța studierii științelor naturii:\nStudierea științelor naturii este importantă pentru a ne dezvolta cunoștințele despre lumea în care trăim și se influențează reciproc.\nCe sunt științele naturii?\nȘtiințele naturii se ocupă cu studiul mediului natural și al fenomenelor care se întâmplă în jurul nostru. Aceasta include subiecte precum biologia (studierea plantelor și animalelor), geologia (studierea Pământului și rocilor), astronomia (studierea spațiului cosmic și a obiectelor din univers), meteorologia (studierea vremii și climei) și ecologia (studierea ecosistemelor și relațiilor dintre organisme și mediul lor).\nImportanța studierii științelor naturii:\nStudierea științelor naturii este importantă pentru a ne dezvolta cunoștințele despre lumea în care trăim și pentru a înțelege cum funcționează natura. Acest lucru ne permite să ne bucurăm de mediul înconjurător, să fim responsabili față de el și să îl protejăm pentru viitor.\nSubiectele pe care le vom explora:\nPe parcursul acestor lecții, vom explora diverseteme interesante și importante legate de științele naturii. Vom începe cu o călătorie în spațiu pentru a învăța despre corpurile ceresti, precum Soarele, Luna și planetele din sistemul nostru solar. Apoi ne vom întoarce pe Pământ pentru a descoperi structura și procesele care au loc în interiorul și la suprafața planetei noastre, precum formarea rocilor, cutremurele și vulcanii.\nÎn continuare, vom explora lumea plantelor și animalelor și vom învăța despre caracteristicile, structura și funcțiile lor. Vom studia, de asemenea, diferite tipuri de habitate și cum animalele și plantele se adaptează pentru a supraviețui în aceste medii.\nMai târziu, vom învăța despre lanțurile trofice și ecosisteme și cum diferite organisme interacționează și colaborează în mediu. Vom discuta despre importanța resurselor naturale și conservarea lor și despre cum putem contribui la protejarea mediului înconjurător prin acțiuni responsabile și sustenabile.\nSpre sfârșitul acestor lecții, vom explora cum fenomenele meteorologice, precum vremea și clima, afectează mediul și cum pot fi prezise și înțelese pentru a ne ajuta să ne adaptăm la schimbări.\nPentru a învăța toate aceste lucruri interesante, vom folosi activități, jocuri și experimente care să ne ajute să înțelegem și să ne amintim conceptele învățate.",
+                "info": "",
+                "levels": [
+                    {
+                        "id": 0,
+                        "timer": 0,
+                        "difficulty": "easy",
+                        "questions": [
+                        {
+                        "id": 0,
+                        "question": "Ce tip de animale sunt elefanții?",
+                        "answers": ["Mamifere", "Reptile", "Păsări", "Amfibieni"],
+                        "correct": 0
+                        },
+                        {
+                        "id": 1,
+                        "question": "Care dintre acestea este o plantă?",
+                        "answers": ["Măr", "Câine", "Delfin", "Vultur"],
+                        "correct": 0
+                        },
+                        {
+                        "id": 2,
+                        "question": "Ce animale trăiesc în apă?",
+                        "answers": ["Pești", "Maimuțe", "Lei", "Girafe"],
+                        "correct": 0
+                        },
+                        {
+                        "id": 3,
+                        "question": "Ce tip de animale sunt șerpii?",
+                        "answers": ["Mamifere", "Reptile", "Păsări", "Amfibieni"],
+                        "correct": 1
+                        },
+                        {
+                        "id": 4,
+                        "question": "Care dintre acestea este un obiect neînsuflețit?",
+                        "answers": ["Piatră", "Broască", "Om", "Pasăre"],
+                        "correct": 0
+                        },
+                        {
+                        "id": 5,
+                        "question": "Ce animale pot zbura?",
+                        "answers": ["Păsări", "Pisici", "Cai", "Elefanți"],
+                        "correct": 0
+                    },
+                    {
+                        "id": 6,
+                        "question": "Ce tip de animale sunt broaștele?",
+                        "answers": ["Mamifere", "Reptile", "Păsări", "Amfibieni"],
+                        "correct": 3
+                    },
+                    {
+                        "id": 7,
+                        "question": "Care dintre acestea este o sursă de energie pentru plante?",
+                        "answers": ["Soarele", "Luna", "Vântul", "Fulgerul"],
+                        "correct": 0
+                    },
+                    {
+                        "id": 8,
+                        "question": "Ce tip de animale sunt păsările?",
+                        "answers": ["Mamifere", "Reptile", "Păsări", "Amfibieni"],
+                        "correct": 2
+                    },
+                    {
+                        "id": 9,
+                        "question": "Ce parte a plantei este responsabilă pentru absorbția apei și a nutrienților?",
+                        "answers": ["Frunza", "Tulpina", "Floarea", "Rădăcina"],
+                        "correct": 3
+                    }
+                ]
+            } ,
+            {
+                "id": 1,
+                "timer": 0,
+                "difficulty": "medium",
+                "questions": [
+                {
+                "id": 0,
+                "question": "Care este procesul prin care plantele transformă energia luminii solare în energie chimică?",
+                "answers": ["Fotosinteza", "Respirația", "Fermentația", "Digestia"],
+                "correct": 0
+                },
+                {
+                "id": 1,
+                "question": "Care este numele ciclului de viață al plantelor cu flori, care implică alternanța între generații sexuate și asexuate?",
+                "answers": ["Metamorfoza", "Ciclul de viață al insectelor", "Ciclul celular", "Alternanța generațiilor"],
+                "correct": 3
+                },
+                {
+                "id": 2,
+                "question": "Care este rolul principal al frunzelor în cadrul unei plante?",
+                "answers": ["Absorbția apei", "Producerea de energie", "Susținerea plantei", "Reproducerea"],
+                "correct": 1
+            },
+            {
+                "id": 3,
+                "question": "Care este rolul polenizatorilor, precum albinelor, în ecosistem?",
+                "answers": ["Producerea de oxigen", "Transportul nutrienților", "Transportul polenului", "Producerea de miere"],
+                "correct": 2
+            },
+            {
+                "id": 4,
+                "question": "Ce grup de animale este format din animale cu sânge rece și solzi?",
+                "answers": ["Mamifere", "Reptile", "Păsări", "Amfibieni"],
+                "correct": 1
+            },
+            {
+                "id": 5,
+                "question": "Ce tip de habitat preferă amfibienii?",
+                "answers": ["Deșert", "Pădure tropicală", "Mediu umed", "Tundra"],
+                "correct": 2
+            },
+            {
+                "id": 6,
+                "question": "Care este numele structurilor celulare care conțin pigmenți ce absorb lumina în celulele vegetale?",
+                "answers": ["Mitochondria", "Cloroplaste", "Lizozomi", "Nucleu"],
+                "correct": 1
+            },
+            {
+                "id": 7,
+                "question": "Ce animale sunt cunoscute pentru că migrează în lungi călătorii în căutarea de hrană și condiții de viață mai bune?",
+                "answers": ["Păsări", "Reptile", "Amfibieni", "Pisici"],
+                "correct": 0
+            },
+            {
+                "id": 8,
+                "question": "Care parte a unei plante este responsabilă pentru susținerea acesteia și transportul apei și nutrienților?",
+                "answers": ["Frunza", "Tulpina", "Floarea", "Rădăcina"],
+                "correct": 1
+            },
+            {
+                "id": 9,
+                "question": "Care dintre următoarele este un grup de animale care trăiesc în colonii și au o structură socială complexă?",
+                "answers": ["Albinele", "Peștii", "Reptilele", "Păsările"],
+                "correct": 0
+            }
+            ]
+        },
+        {
+            "id": 10,
+            "timer": 0,
+            "difficulty": "veryHard",
+            "questions": [
+            {
+            "id": 0,
+            "question": "Care este teoria științifică care descrie formarea și dezvoltarea speciilor de-a lungul timpului prin procese precum selecția naturală și mutațiile genetice?",
+            "answers": ["Teoria evoluției", "Teoria relativității", "Teoria celulelor", "Teoria gravitației"],
+            "correct": 0
+            },
+            {
+            "id": 1,
+            "question": "Care este numele procesului prin care plantele pierd apă prin stomatele de pe suprafața frunzelor?",
+            "answers": ["Fotosinteza", "Transpirația", "Respirația", "Fermentația"],
+            "correct": 1
+            },
+            {
+            "id": 2,
+            "question": "Cum se numește tipul de simbioză în care ambele organisme implicate beneficiază?",
+            "answers": ["Comensalism", "Mutualism", "Parazitism", "Predație"],
+            "correct": 1
+            },
+        {
+            "id": 4,
+            "question": "Care este rolul bacteriilor fixatoare de azot în ecosistem?",
+            "answers": ["Producerea de oxigen", "Convertirea azotului din atmosferă în forme utilizabile pentru plante", "Descompunerea materiei organice", "Fotosinteza"],
+            "correct": 1
+        },
+        {
+            "id": 5,
+            "question": "Cum se numește procesul prin care celulele eucariote se divid pentru a forma două celule fiice identice?",
+            "answers": ["Mitotica", "Meiotica", "Fermentația", "Osmoza"],
+            "correct": 0
+        },
+        {
+            "id": 6,
+            "question": "Care este principala sursă de energie pentru majoritatea ecosistemelor de pe Pământ?",
+            "answers": ["Vântul", "Energia geotermală", "Lumina solară", "Energia nucleară"],
+            "correct": 2
+        },
+        {
+            "id": 7,
+            "question": "Care este termenul folosit pentru a descrie capacitatea unui ecosistem de a reveni la starea sa inițială după o perturbare?",
+            "answers": ["Adaptabilitate", "Resiliență", "Stabilitate", "Regenerare"],
+            "correct": 1
+        },
+        {
+            "id": 8,
+            "question": "Care este procesul prin care unele organisme pot produce energie în absența oxigenului?",
+            "answers": ["Fotosinteza", "Respirația anaerobă", "Fermentația", "Transpirația"],
+            "correct": 1
+        },
+        {
+            "id": 9,
+            "question": "Cum se numește procesul prin care organisme precum păsările se orientează pe baza poziției stelelor sau a câmpului magnetic al Pământului?",
+            "answers": ["Migrația", "Homare", "Hibernarea", "Navigația"],
+            "correct": 3
+        }
+    ]
+}
+    ]
+}    
