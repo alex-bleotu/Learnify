@@ -31,8 +31,6 @@ public class CreateProfilePageHandler : MonoBehaviour
 
             SaveSystem.SaveData();
 
-            TemporaryData.loading = false;
-
             SceneManager.LoadScene("LoadingPage");
         }
     }

@@ -59,7 +59,7 @@ public class Game
 
     private Data data;
 
-    public Game(string path, string directory)
+    public Game(string path)
     {
         levels = new List<Level>();
         // levels.questions = new List<Questions>();
@@ -76,7 +76,7 @@ public class Game
 
         data.currentLevel = 0;
 
-        icon = Resources.Load<Sprite>("Games/" + directory + "/icon");
+        icon = Resources.Load<Sprite>("Games/" + path + "/icon");
         banner = Resources.Load<Sprite>("Images/Banners/" + subject.ToString());
 
         if (icon == null)

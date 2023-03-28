@@ -223,12 +223,19 @@ public class TestPageHandler : MonoBehaviour
     {
         try
         {
-            string text = "Întrebarea numărul " + NumberToWord.Convert(questionIndex + 1) + ", " +
-                NumberToWord.ReplaceNumbers(TemporaryData.gameList[gameIndex].GetQuestions(currentLevel)[questionIndex].question) +
-                ". Răspunsul A, " + NumberToWord.Convert(Int32.Parse(TemporaryData.gameList[gameIndex].GetQuestions(currentLevel)[questionIndex].answers[0])) +
-                ". Răspunsul B, " + NumberToWord.Convert(Int32.Parse(TemporaryData.gameList[gameIndex].GetQuestions(currentLevel)[questionIndex].answers[1])) +
-                ". Răspunsul C, " + NumberToWord.Convert(Int32.Parse(TemporaryData.gameList[gameIndex].GetQuestions(currentLevel)[questionIndex].answers[2])) +
-                ". Răspunsul D, " + NumberToWord.Convert(Int32.Parse(TemporaryData.gameList[gameIndex].GetQuestions(currentLevel)[questionIndex].answers[3]));
+            // string text = "Întrebarea numărul " + NumberToWord.Convert(questionIndex + 1) + ", " +
+            //     NumberToWord.ReplaceNumbers(TemporaryData.gameList[gameIndex].GetQuestions(currentLevel)[questionIndex].question) +
+            //     ". Răspunsul A, " + NumberToWord.Convert(Int32.Parse(TemporaryData.gameList[gameIndex].GetQuestions(currentLevel)[questionIndex].answers[0])) +
+            //     ". Răspunsul B, " + NumberToWord.Convert(Int32.Parse(TemporaryData.gameList[gameIndex].GetQuestions(currentLevel)[questionIndex].answers[1])) +
+            //     ". Răspunsul C, " + NumberToWord.Convert(Int32.Parse(TemporaryData.gameList[gameIndex].GetQuestions(currentLevel)[questionIndex].answers[2])) +
+            //     ". Răspunsul D, " + NumberToWord.Convert(Int32.Parse(TemporaryData.gameList[gameIndex].GetQuestions(currentLevel)[questionIndex].answers[3]));
+
+            string text = "Întrebarea numărul " + (questionIndex + 1) + ". " +
+                TemporaryData.gameList[gameIndex].GetQuestions(currentLevel)[questionIndex].question +
+                ". Răspunsul A, " + TemporaryData.gameList[gameIndex].GetQuestions(currentLevel)[questionIndex].answers[0] +
+                ". Răspunsul B, " + TemporaryData.gameList[gameIndex].GetQuestions(currentLevel)[questionIndex].answers[1] +
+                ". Răspunsul C, " + TemporaryData.gameList[gameIndex].GetQuestions(currentLevel)[questionIndex].answers[2] +
+                ". Răspunsul D, " + TemporaryData.gameList[gameIndex].GetQuestions(currentLevel)[questionIndex].answers[3];
 
             ttsHandler.PlayTTS(text);
         }

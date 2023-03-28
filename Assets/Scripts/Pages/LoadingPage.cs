@@ -5,40 +5,37 @@ using System.Linq;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 using UnityEngine.UI;
-using System.Threading;
+using TMPro;
 
 public class LoadingPage : MonoBehaviour
 {
     public GameObject loadingPage;
     public Image loadingBar;
 
+    public GameObject errorText;
+
     void Start()
     {
+        errorText.SetActive(false);
+
         loadingPage.SetActive(false);
 
-        string path = Application.dataPath + "/Resources/Games/";
+        TemporaryData.gameList = new List<Game>();
 
-        string[] directories = Directory.GetDirectories(path);
-        foreach (string directory in directories)
-        {
-            if (!directory.EndsWith("Default"))
-            {
-                string filePath = directory + "/data.json";
+        TextAsset[] objectArray = Resources.LoadAll<TextAsset>("Games");
 
-                if (File.Exists(filePath))
-                    TemporaryData.gameList.Add(new Game(filePath, directory.Split('/').Last()));
-            }
-        }
+        foreach (TextAsset asset in objectArray)
+            TemporaryData.gameList.Add(new Game(asset.name));
 
         TemporaryData.gameList = TemporaryData.gameList.OrderBy(x => x.GetId()).ToList();
 
         SaveSystem.LoadData();
 
-        FriendsPageHandler friendsPageHandler = new FriendsPageHandler();
-        friendsPageHandler.CreateList();
-
-        if (TemporaryData.loading)
+        try
         {
+            FriendsPageHandler friendsPageHandler = new FriendsPageHandler();
+            friendsPageHandler.CreateList();
+
             loadingPage.SetActive(true);
 
             TimerSystem.TimerStart(250, LoadingBar);
@@ -57,12 +54,10 @@ public class LoadingPage : MonoBehaviour
                     });
             });
         }
-        else
+        catch (System.Exception e)
         {
-            if (TemporaryData.user != null && TemporaryData.gameList != null)
-                SceneManager.LoadScene("MainPage");
-            else
-                SceneManager.LoadScene("CreateProfilePage");
+            errorText.SetActive(true);
+            errorText.GetComponent<TMP_Text>().text = e.ToString();
         }
     }
 

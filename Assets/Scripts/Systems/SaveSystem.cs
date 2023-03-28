@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Runtime.Serialization.Formatters.Binary;
+using UnityEngine.SceneManagement;
 
 public class SaveSystem
 {
@@ -11,7 +12,8 @@ public class SaveSystem
 
     private List<Game.Data> gameData;
 
-    public static void SaveData() {
+    public static void SaveData()
+    {
         List<Game.Data> gameData = new List<Game.Data>();
         for (int i = 0; i < TemporaryData.gameList.Count; i++)
             gameData.Add(TemporaryData.gameList[i].GetData());
@@ -28,11 +30,15 @@ public class SaveSystem
 
         Debug.Log("Saved");
     }
-    
-    public static void LoadData() {
+
+    public static void LoadData()
+    {
         string path = Application.persistentDataPath + "/" + FileName;
 
-        if (File.Exists(path)) {
+        if (File.Exists(path))
+        {
+            // Debug.Log(path);
+
             BinaryFormatter formatter = new BinaryFormatter();
             FileStream stream = new FileStream(path, FileMode.Open);
 
@@ -50,7 +56,9 @@ public class SaveSystem
             TemporaryData.avatar = Resources.Load<Sprite>(TemporaryData.user.GetAvatarPath());
 
             Debug.Log("Loaded");
-        } else
-            Debug.LogError("Save file not found in" + path);
+        }
+        else
+            SceneManager.LoadScene("CreateProfilePage");
+        // Debug.LogError("Save file not found in" + path);
     }
 }

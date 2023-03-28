@@ -6,7 +6,8 @@ using UnityEngine;
 
 public class ReadData
 {
-    private struct Data {
+    private struct Data
+    {
         public int id;
         public string title;
         public string type;
@@ -17,27 +18,28 @@ public class ReadData
         public List<Level> levels;
     }
 
-    private struct Level {
+    private struct Level
+    {
         public int id;
         public int timer;
         public string difficulty;
         public List<Game.Questions> questions;
     }
 
-    public static void Read(ref int id, ref string title, ref Game.GameType type, ref string description, 
-        ref Game.Subject subject, ref List<Game.Level> levels, ref string leason, ref string info, 
-        string fileData) {
-    
-        if (!File.Exists(fileData))
-            return;
+    public static void Read(ref int id, ref string title, ref Game.GameType type, ref string description,
+        ref Game.Subject subject, ref List<Game.Level> levels, ref string leason, ref string info,
+        string filePath)
+    {
+        // if (!File.Exists(fileData))
+        //     return;
+
+        TextAsset jsonFile = Resources.LoadAll<TextAsset>("Games/" + filePath)[0];
 
         // List<Data> data = new List<Data>();
         Data data = new Data();
 
-        using (StreamReader r = new StreamReader(fileData)) {
-            string json = r.ReadToEnd();
-            data = JsonConvert.DeserializeObject<Data>(json);
-        }
+        string json = jsonFile.text;
+        data = JsonConvert.DeserializeObject<Data>(json);
 
         id = data.id;
         title = data.title;
@@ -46,13 +48,15 @@ public class ReadData
         leason = data.leason;
         info = data.info;
 
-        for (int i = 0; i < data.levels.Count; i++) {
+        for (int i = 0; i < data.levels.Count; i++)
+        {
             Game.Level aux = new Game.Level();
             aux.id = data.levels[i].id;
             aux.questionsCount = data.levels[i].questions.Count;
             aux.questions = data.levels[i].questions;
 
-            switch(data.levels[i].difficulty) {
+            switch (data.levels[i].difficulty)
+            {
                 case "easy":
                     aux.difficulty = Game.Difficulty.easy;
                     break;
@@ -70,7 +74,8 @@ public class ReadData
             levels.Add(aux);
         }
 
-        switch(data.subject) {
+        switch (data.subject)
+        {
             case "math":
                 subject = Game.Subject.math;
                 break;
@@ -85,7 +90,8 @@ public class ReadData
                 break;
         }
 
-        switch(data.type) {
+        switch (data.type)
+        {
             case "quiz":
                 type = Game.GameType.quiz;
                 break;

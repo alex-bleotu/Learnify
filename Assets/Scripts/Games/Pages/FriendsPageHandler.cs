@@ -10,19 +10,20 @@ public class FriendsPageHandler : MonoBehaviour
 {
     private int friendsCount = 19;
 
-    public struct Friend {
+    public struct Friend
+    {
         public string username;
         public int xp;
         public Sprite avatar;
     }
 
     private List<string> usernames = new List<string> {
-        "Mihai", "Robert", "Paul", "Vlad", "Mateo", "Ioana", "Julia", "Adelina", "Laura", 
-        "Raluca", "Iulia", "Andrei", "Marius", "Darius", "Luca", "Cristi", "Catalin", 
+        "Mihai", "Robert", "Paul", "Vlad", "Mateo", "Ioana", "Julia", "Adelina", "Laura",
+        "Raluca", "Iulia", "Andrei", "Marius", "Darius", "Luca", "Cristi", "Catalin",
         "Lavinia", "Antonia", "Denisa", "Cosmin", "Rafael", "Liviu", "Sofia", "Emilia"
     };
 
-    private List<string> avatars = new List<string>(); 
+    private List<string> avatars = new List<string>();
 
     public GameObject friendTemplate;
     public GameObject friendslist;
@@ -35,10 +36,12 @@ public class FriendsPageHandler : MonoBehaviour
 
     private Color32 highLight = new Color32(244, 144, 0, 255);
 
-    static void ShuffleList(List<string> list) {
+    static void ShuffleList(List<string> list)
+    {
         System.Random random = new System.Random();
 
-        for (int i = list.Count - 1; i > 0; i--) {
+        for (int i = list.Count - 1; i > 0; i--)
+        {
             int j = random.Next(i + 1);
             string temp = list[i];
             list[i] = list[j];
@@ -46,28 +49,29 @@ public class FriendsPageHandler : MonoBehaviour
         }
     }
 
-    private void FindUserIndex() {
+    private void FindUserIndex()
+    {
         for (int i = 0; i < friendsCount + 1; i++)
-            if (TemporaryData.friends[i].username == TemporaryData.user.GetUsername()) {
+            if (TemporaryData.friends[i].username == TemporaryData.user.GetUsername())
+            {
                 userIndex = i;
                 break;
             }
     }
 
-    public string GetRandomAvatar() {
-        DirectoryInfo directory = new DirectoryInfo(Application.dataPath + "/Resources/Avatars/");
-        FileInfo[] Files = directory.GetFiles("*.png");
+    public string GetRandomAvatar()
+    {
+        Object[] avatars = Resources.LoadAll("Avatars");
 
-        foreach (FileInfo file in Files)
-            avatars.Add(file.Name.Split('.').First());
-
-        return avatars[UnityEngine.Random.Range(0, avatars.Count)]; 
+        return avatars[UnityEngine.Random.Range(0, avatars.Length)].name;
     }
 
-    public void CreateList() {
+    public void CreateList()
+    {
         ShuffleList(usernames);
 
-        for (int i = 0; i < friendsCount; i++) {
+        for (int i = 0; i < friendsCount; i++)
+        {
             Friend aux = new Friend();
 
             aux.username = usernames[i];
@@ -87,11 +91,12 @@ public class FriendsPageHandler : MonoBehaviour
         TemporaryData.friends = TemporaryData.friends.OrderByDescending(x => x.xp).ToList();
     }
 
-    public void RefreshUserXP() {
+    public void RefreshUserXP()
+    {
         FindUserIndex();
 
         Friend aux = new Friend();
-        
+
         aux.username = TemporaryData.user.GetUsername();
         aux.xp = TemporaryData.user.GetXP();
         aux.avatar = TemporaryData.avatar;
@@ -103,14 +108,16 @@ public class FriendsPageHandler : MonoBehaviour
         FindUserIndex();
     }
 
-    public void FriensListHandler() {
+    public void FriensListHandler()
+    {
         RefreshUserXP();
 
         coordX = friendTemplate.transform.position.x;
         coordY = friendTemplate.transform.position.y;
         spacingCoord = friendTemplate.GetComponent<RectTransform>().rect.height;
 
-        for (int i = 0; i < friendsCount + 1; i++) {
+        for (int i = 0; i < friendsCount + 1; i++)
+        {
             GameObject copyFriend = Instantiate(friendTemplate, new Vector3(0, 0, 0), Quaternion.identity);
 
             copyFriend.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text = TemporaryData.friends[i].username;
@@ -118,11 +125,12 @@ public class FriendsPageHandler : MonoBehaviour
             copyFriend.transform.GetChild(2).gameObject.GetComponent<TMP_Text>().text = (i + 1) + ".";
             copyFriend.transform.GetChild(3).transform.GetChild(1).transform.GetChild(0).gameObject.GetComponent<Image>().sprite = TemporaryData.friends[i].avatar;
 
-            if (i == userIndex) {
+            if (i == userIndex)
+            {
                 copyFriend.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().color = highLight;
                 copyFriend.transform.GetChild(1).gameObject.GetComponent<TMP_Text>().color = highLight;
                 copyFriend.transform.GetChild(2).gameObject.GetComponent<TMP_Text>().color = highLight;
-                
+
                 copyFriend.transform.GetChild(3).transform.GetChild(0).gameObject.GetComponent<Image>().color = highLight;
             }
 
@@ -133,7 +141,7 @@ public class FriendsPageHandler : MonoBehaviour
             copyFriend.SetActive(true);
         }
 
-        if (friendsCount <= 5) 
+        if (friendsCount <= 5)
             friendslist.transform.parent.GetComponent<ScrollRect>().enabled = false;
 
         friendslist.GetComponent<RectTransform>().sizeDelta = new Vector2(350, (friendsCount + 1) * 70);
