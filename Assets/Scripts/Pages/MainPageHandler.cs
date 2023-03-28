@@ -18,6 +18,8 @@ public class MainPageHandler : MonoBehaviour
     public MuteButtonHandler muteButtonHandler;
     public DailyGameHandler dailyGameHandler;
 
+    public GameObject streakLabel;
+
     public Animator animator;
 
     public TMP_Text gemsText;
@@ -25,7 +27,8 @@ public class MainPageHandler : MonoBehaviour
 
     public Image avatar;
 
-    private void Start() {
+    private void Start()
+    {
         usernameText.text = TemporaryData.user.GetUsername();
         levelText.text = "Nivel " + TemporaryData.user.GetLevel();
 
@@ -34,6 +37,9 @@ public class MainPageHandler : MonoBehaviour
         dailyGameHandler.StartClock();
 
         muteButtonHandler.UpdateButtonIcon();
+
+        if (TemporaryData.user.GetStreak() != 0)
+            streakLabel.SetActive(true);
 
         // animator.SetInteger("Gems", TemporaryData.rewardedGems);
         // animator.SetInteger("Crowns", TemporaryData.rewardedCrowns);
@@ -59,15 +65,13 @@ public class MainPageHandler : MonoBehaviour
         TemporaryData.rewardedExperience = 0;
     }
 
-    public void ToggleMuteButton() {
+    public void ToggleMuteButton()
+    {
         muteButtonHandler.MuteButton();
     }
 
-    public void OpenSettingsInterface() {
+    public void OpenSettingsInterface()
+    {
         SceneManager.LoadScene("SettingsPage");
-    }
-
-    private void Update() {
-        // audioListener.enabled = TemporaryData.user.GetMute();
     }
 }

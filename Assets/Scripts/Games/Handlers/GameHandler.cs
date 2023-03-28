@@ -23,7 +23,8 @@ public class GameHandler : MonoBehaviour
 
     int index;
 
-    private string setSubjectText(int index) {
+    private string setSubjectText(int index)
+    {
         Game.Subject subject = TemporaryData.gameList[index].GetSubject();
         if (subject == Game.Subject.math)
             return "Matematică";
@@ -36,7 +37,8 @@ public class GameHandler : MonoBehaviour
         return "";
     }
 
-    private void SetDifficultyImages(int index) {
+    private void SetDifficultyImages(int index)
+    {
         Image image1 = GameObject.Find("Image1").GetComponent<Image>();
         Image image2 = GameObject.Find("Image2").GetComponent<Image>();
         Image image3 = GameObject.Find("Image3").GetComponent<Image>();
@@ -49,26 +51,34 @@ public class GameHandler : MonoBehaviour
         Color32 purple = new Color32(138, 43, 226, 255);
         Color32 grey = new Color32(0, 0, 0, 30);
 
-        if (difficulty == Game.Difficulty.easy) {
+        if (difficulty == Game.Difficulty.easy)
+        {
             image1.color = green;
             image2.color = grey;
             image3.color = grey;
-        } else if (difficulty == Game.Difficulty.medium) {
+        }
+        else if (difficulty == Game.Difficulty.medium)
+        {
             image1.color = orange;
             image2.color = orange;
             image3.color = grey;
-        } else if (difficulty == Game.Difficulty.hard) {
+        }
+        else if (difficulty == Game.Difficulty.hard)
+        {
             image1.color = red;
             image2.color = red;
             image3.color = red;
-        } else if (difficulty == Game.Difficulty.veryHard) {
+        }
+        else if (difficulty == Game.Difficulty.veryHard)
+        {
             image1.color = purple;
             image2.color = purple;
             image3.color = purple;
         }
     }
 
-    public void OpenGameInterface(GameObject thisGameObject) {
+    public void OpenGameInterface(GameObject thisGameObject)
+    {
         mainPage.SetActive(false);
         gamePage.SetActive(true);
 
@@ -76,17 +86,18 @@ public class GameHandler : MonoBehaviour
 
         gamePage.name = "GamePage" + index;
 
-        if (TemporaryData.gameList[index].GetTitle() != null) {
+        if (TemporaryData.gameList[index].GetTitle() != null)
+        {
             if (!TemporaryData.gameList[index].GetLeasonState())
                 titleText.text = TemporaryData.gameList[index].GetTitle();
-            else 
-                titleText.text = TemporaryData.gameList[index].GetTitle() + " (" +  
+            else
+                titleText.text = TemporaryData.gameList[index].GetTitle() + " (" +
                     (TemporaryData.gameList[index].GetCurrentLevel() + 1) + "/" + TemporaryData.gameList[index].GetLevelCount() + ")";
 
             SetDifficultyImages(index);
-                    
+
             descriptionText.text = TemporaryData.gameList[index].GetDescription();
-            
+
             subjectText.text = setSubjectText(index);
 
             leasonButton.SetActive(TemporaryData.gameList[index].GetLeasonState());
@@ -95,9 +106,11 @@ public class GameHandler : MonoBehaviour
             banner.sprite = TemporaryData.gameList[index].GetBanner();
 
             TemporaryData.currentGameIndex = index;
-            
+
             playButton.SetActive(true);
-        } else {
+        }
+        else
+        {
             titleText.text = "Not Found :(";
             playButton.SetActive(false);
             descriptionText.text = "";
@@ -109,27 +122,30 @@ public class GameHandler : MonoBehaviour
         }
     }
 
-    public void CloseGameInterface() {
+    public void CloseGameInterface()
+    {
         gamePage.name = "GamePage";
 
         mainPage.SetActive(true);
         gamePage.SetActive(false);
     }
 
-    public void OpenLeasonInterface() {
+    public void OpenLeasonInterface()
+    {
         SceneManager.LoadScene("LeasonPage");
     }
 
-    public void OpenTestInterface() {
+    public void OpenTestInterface()
+    {
         SceneManager.LoadScene("TestPage");
     }
 
-    public void OpenPlayInterface(GameObject thisGameObject) {
+    public void OpenPlayInterface(GameObject thisGameObject)
+    {
         index = Game.GetIndex(thisGameObject.name);
-        
-        gamePage = GameObject.Find(thisGameObject.name);
 
-        if (!TemporaryData.gameList[index].GetLeasonState()) {
+        if (!TemporaryData.gameList[index].GetLeasonState())
+        {
             TemporaryData.gameList[index].SetLeasonState(true);
 
             OpenLeasonInterface();
@@ -137,6 +153,6 @@ public class GameHandler : MonoBehaviour
         else
             OpenTestInterface();
 
-        gamePage.SetActive(false);
+        // gamePage.SetActive(false);
     }
 }

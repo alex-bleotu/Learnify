@@ -52,6 +52,7 @@ public class ReadData
         {
             Game.Level aux = new Game.Level();
             aux.id = data.levels[i].id;
+            aux.timer = data.levels[i].timer;
             aux.questionsCount = data.levels[i].questions.Count;
             aux.questions = data.levels[i].questions;
 

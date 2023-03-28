@@ -52,6 +52,8 @@ public class LoadingPage : MonoBehaviour
                     {
                         SceneManager.LoadScene("CreateProfilePage");
                     });
+
+                UnityMainThreadDispatcher.Instance().Destroy();
             });
         }
         catch (System.Exception e)
@@ -83,5 +85,7 @@ public class LoadingPage : MonoBehaviour
         });
 
         TimerSystem.StopStopWatch();
+
+        UnityMainThreadDispatcher.Instance().Destroy();
     }
 }

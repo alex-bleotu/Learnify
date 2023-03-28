@@ -5,7 +5,8 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [Serializable]
-public class User {
+public class User
+{
     private string username;
     private int age;
     private string avatarPath;
@@ -20,7 +21,7 @@ public class User {
     private int crowns = 0;
     private const int maxCrowns = 100000;
 
-    private int dailyStreak = 1;
+    private int streak = 0;
     private float volume = 10f;
     private bool mute = false;
 
@@ -31,9 +32,10 @@ public class User {
 
     private int gemRushReward;
 
-    private int timePotionEffect = 15000; // milliseconds
+    private int timePotionEffect = 15;
 
-    public User(string username, int age) {
+    public User(string username, int age)
+    {
         this.username = username;
         this.age = age;
 
@@ -47,7 +49,7 @@ public class User {
         gemToken = 2;
 
         gemRushReward = 2;
-    } 
+    }
 
     public string GetUsername() { return username; }
     public int GetAge() { return age; }
@@ -55,7 +57,7 @@ public class User {
     public int GetXP() { return xp; }
     public float GetVolume() { return volume; }
     public bool GetMute() { return mute; }
-    public int GetDailyStreak() { return dailyStreak; }
+    public int GetDailyStreak() { return streak; }
     public float GetExperienceMultiplier() { return experienceMultiplier; }
     public int GetGems() { return gems; }
     public int GetCorwns() { return crowns; }
@@ -64,7 +66,7 @@ public class User {
     public void SetVolume(float volume) { this.volume = volume; }
     public void SetMute(bool mute) { this.mute = mute; }
     public void SetExperienceMultiplier(int experienceMultiplier) { this.experienceMultiplier = experienceMultiplier; }
-    public void SetDailyStreak(int dailyStreak) { this.dailyStreak = dailyStreak; }
+    public void SetDailyStreak(int dailyStreak) { this.streak = dailyStreak; }
     public void SetGems(int gems) { this.gems = (gems < maxGems) ? gems : maxGems; }
     public void SetCrowns(int crowns) { this.crowns = (crowns < maxCrowns) ? crowns : maxCrowns; }
     public int GetHintToken() { return hintToken; }
@@ -77,31 +79,38 @@ public class User {
     public void SetGemRushReward(int gemRushReward) { this.gemRushReward = gemRushReward; }
     public int GetTimePotionEffect() { return timePotionEffect; }
     public string GetAvatarPath() { return avatarPath; }
+    public void SetStreak(int streak) { this.streak = streak; }
+    public int GetStreak() { return streak; }
 
-    public void AddGems(int gems) { 
+    public void AddGems(int gems)
+    {
         this.gems += gems;
         if (this.gems > maxGems)
             this.gems = maxGems;
     }
-    public void SubstractGems(int gems) { 
+    public void SubstractGems(int gems)
+    {
         this.gems -= gems;
         if (this.gems < 0)
             this.gems = 0;
     }
 
-    public void AddCrowns(int crowns) { 
+    public void AddCrowns(int crowns)
+    {
         this.crowns += crowns;
         if (this.crowns > maxCrowns)
-            this.crowns = maxCrowns; 
+            this.crowns = maxCrowns;
     }
 
-    public void SubstractCrowns(int crowns) { 
-        this.crowns -= crowns; 
+    public void SubstractCrowns(int crowns)
+    {
+        this.crowns -= crowns;
         if (this.crowns < 0)
             this.crowns = 0;
     }
-    
-    public void AddXP(int exp) {
+
+    public void AddXP(int exp)
+    {
         xp += exp;
 
         // while (xp >= level * experiencePerLevel) {

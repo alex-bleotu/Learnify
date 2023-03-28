@@ -29,6 +29,10 @@ public class TestPageHandler : MonoBehaviour
     public GameObject timePowerUp;
     public GameObject gemPowerUp;
 
+    public GameObject ttsButton;
+
+    public GameObject timeBar;
+
     public TMP_Text correctAnswersText;
     public TMP_Text wrongAnswersText;
     public TMP_Text scoreText;
@@ -78,7 +82,7 @@ public class TestPageHandler : MonoBehaviour
         UpdateTest();
     }
 
-    private void OpenWinInterface()
+    private void OpenWinInterface(bool time)
     {
         // correctAnswers.text = GameList.gameList[gameIndex]
         correctAnswersText.text = correctAnswers.ToString();
@@ -86,30 +90,36 @@ public class TestPageHandler : MonoBehaviour
 
         score = correctAnswers * 100 / TemporaryData.gameList[gameIndex].GetQuestionsCount(currentLevel);
 
-        if (score < 70)
+        if (time)
+            titleText.text = "Timpul a expirat";
+        else if (score < 70)
             titleText.text = "Test picat";
         else
         {
+            TemporaryData.user.SetStreak(1);
             titleText.text = "Test trecut";
             TemporaryData.rewardedExperience = TemporaryData.gameList[TemporaryData.currentGameIndex].GetXP(currentLevel);
         }
 
-        rewardedCrowns = 0;
-        rewardedGems = TemporaryData.gameList[gameIndex].GetGemReward(currentLevel, score);
-        if (score >= 70)
+        if (!time)
         {
-            rewardedCrowns++;
-            rewardedGems += 5;
-
-            if (score >= 80)
+            rewardedCrowns = 0;
+            rewardedGems = TemporaryData.gameList[gameIndex].GetGemReward(currentLevel, score);
+            if (score >= 70)
             {
                 rewardedCrowns++;
                 rewardedGems += 5;
 
-                if (score >= 90)
+                if (score >= 80)
                 {
-                    rewardedGems += 5;
                     rewardedCrowns++;
+                    rewardedGems += 5;
+
+                    if (score >= 90)
+                    {
+                        rewardedGems += 5;
+                        rewardedCrowns++;
+                    }
                 }
             }
         }
@@ -126,7 +136,9 @@ public class TestPageHandler : MonoBehaviour
 
         gemsText.text = "+" + rewardedGems;
 
-        timeText.text = TimerSystem.GetTime();
+        var timerTime = TimerSystem.GetTime();
+        timerTime += TimeSpan.FromSeconds(TemporaryData.user.GetTimePotionEffect() * powerUpsHandler.timeOuts);
+        timeText.text = timerTime.ToString(@"m\:ss");
 
         if (score == 0)
             scoreText.text = "0%";
@@ -138,17 +150,20 @@ public class TestPageHandler : MonoBehaviour
         TemporaryData.rewardedCrowns = rewardedCrowns;
         TemporaryData.rewardedGems = rewardedGems;
 
-        TimerSystem.TimerStart(1000, () =>
-        {
-            UnityMainThreadDispatcher.Instance().Enqueue(() => { try { animator.SetInteger("Score", score); } catch { } });
-            UnityMainThreadDispatcher.Instance().Destroy();
-        });
+        if (!time)
+            TimerSystem.TimerStart(500, () =>
+            {
+                UnityMainThreadDispatcher.Instance().Enqueue(() => { try { animator.SetInteger("Score", score); } catch { } });
+                UnityMainThreadDispatcher.Instance().Destroy();
+            });
 
         if (score >= 70)
             TemporaryData.gameList[TemporaryData.currentGameIndex].SetCurrentLevel(currentLevel + 1);
 
         if (score != 0)
             TimerSystem.TimerStart(250, () => { TimerSystem.CountUpText(0, score, 1000, scoreText, "{0}%"); });
+
+        // scoreText.text = score + "%";
     }
 
     public void CloseWinInterface()
@@ -171,13 +186,19 @@ public class TestPageHandler : MonoBehaviour
         {
             hintPowerUp.GetComponent<Button>().interactable = TemporaryData.user.GetHintToken() > 0;
 
+            if (hintPowerUp.GetComponent<Button>().interactable)
+                hintPowerUp.GetComponent<Image>().color = powerUpsHandler.red;
+
             nextButton.GetComponent<Button>().interactable = false;
             previuosButton.SetActive(true);
 
             if (questionIndex < TemporaryData.gameList[gameIndex].GetQuestionsCount(currentLevel))
                 ResetTest();
             else
-                OpenWinInterface();
+            {
+                OpenWinInterface(false);
+                TimerSystem.TimerStop();
+            }
         }
         else
             UpdateSavedAsnwers();
@@ -249,6 +270,8 @@ public class TestPageHandler : MonoBehaviour
     {
         hintPowerUp.GetComponent<Button>().interactable = false;
 
+        hintPowerUp.GetComponent<Image>().color = powerUpsHandler.grey;
+
         if (questionIndex == TemporaryData.gameList[gameIndex].GetQuestionsCount(currentLevel) - 1)
             TimerSystem.StopStopWatch();
 
@@ -287,8 +310,76 @@ public class TestPageHandler : MonoBehaviour
         SceneManager.LoadScene("MainPage");
     }
 
+    private void TimerBar()
+    {
+        TimerSystem.StartStopWatch();
+        UnityMainThreadDispatcher.Instance().Enqueue(() =>
+        {
+            try
+            {
+                timeBar.SetActive(true);
+                timeBar.transform.GetChild(2).transform.GetChild(1).GetComponent<Image>().fillAmount = 1f;
+                TimeSpan time = TimeSpan.FromSeconds(TemporaryData.gameList[gameIndex].GetTimer(currentLevel));
+                timeBar.transform.GetChild(1).GetComponent<TMP_Text>().text = time.ToString(@"m\:ss");
+            }
+            catch { }
+        });
+
+        bool action = true;
+
+        while (TimerSystem.GetStopWatchTime() < TemporaryData.gameList[gameIndex].GetTimer(currentLevel) * 1000)
+            if (TimerSystem.GetStopWatchTime() % 1000 == 0)
+            {
+                try
+                {
+                    if (powerUpsHandler.timeOut && action)
+                    {
+                        TimerSystem.StopStopWatch();
+                        action = false;
+                    }
+                    else if (!powerUpsHandler.timeOut && !action)
+                    {
+                        TimerSystem.ResumeStopWatch();
+                        action = true;
+                    }
+                }
+                catch { }
+                UnityMainThreadDispatcher.Instance().Enqueue(() =>
+                {
+                    try
+                    {
+                        timeBar.transform.GetChild(2).transform.GetChild(1).GetComponent<Image>().fillAmount = 1f - 1f *
+                            (((float)TimerSystem.GetStopWatchTime() / 1000) / TemporaryData.gameList[gameIndex].GetTimer(currentLevel));
+                        TimeSpan time = TimeSpan.FromSeconds(TemporaryData.gameList[gameIndex].GetTimer(currentLevel) - TimerSystem.GetStopWatchTime() / 1000);
+                        timeBar.transform.GetChild(1).GetComponent<TMP_Text>().text = time.ToString(@"m\:ss");
+                    }
+                    catch { }
+                });
+            }
+
+        UnityMainThreadDispatcher.Instance().Enqueue(() =>
+        {
+            try
+            {
+                timeBar.transform.GetChild(2).transform.GetChild(1).GetComponent<Image>().fillAmount = 1f;
+                timeBar.transform.GetChild(1).GetComponent<TMP_Text>().text = "0:00";
+                OpenWinInterface(true);
+            }
+            catch { }
+        });
+
+        TimerSystem.StopStopWatch();
+
+        UnityMainThreadDispatcher.Instance().Destroy();
+    }
+
     private void Start()
     {
+        if (Application.internetReachability == NetworkReachability.NotReachable)
+            ttsButton.GetComponent<Button>().interactable = false;
+
+        timeBar = testPage.transform.GetChild(6).gameObject;
+
         correctAnswers = 0;
         questionIndex = 0;
 
@@ -310,6 +401,9 @@ public class TestPageHandler : MonoBehaviour
 
         previuosButton.SetActive(false);
         nextButton.GetComponent<Button>().interactable = false;
+
+        if (TemporaryData.gameList[gameIndex].GetTimer(currentLevel) != 0)
+            TimerSystem.TimerStartPublic(50, TimerBar);
 
         testPage.SetActive(true);
     }

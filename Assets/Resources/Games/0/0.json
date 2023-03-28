@@ -4,12 +4,12 @@
     "type": "quiz",
     "subject": "math",
     "description": "Adunarea este o operație aritmetică elementară care totalizează două sau mai multe mărimi",
-    "leason": "Adunarea este o operație aritmetică elementară care totalizează două sau mai multe mărimi, numite „termenii adunării” într-o singură valoare, numită suma sau „totalul” mărimilor respective. Operației de adunare îi corespunde operația de reuniune a două mulțimi disjuncte de obiecte într-o mulțime cu număr cardinal mai mare, exact suma numerelor cardinale ale mulțimilor reunite.",
+    "leason": "dawdawdwaddwadwwwwwwwwwwwwwdawdawdwaddwadwwwwwwwwwwwwwdawdawdwaddwadwwwwwwwwwwwwwdawdawdwaddwadwwwwwwwwwwwwwdawdawdwaddwadwwwwwwwwwwwwwdawdawdwaddwadwwwwwwwwwwwwwdawdawdwaddwadwwwwwwwwwwwwwdawdawdwaddwadwwwwwwwwwwwwwdawdawdwaddwadwwwwwwwwwwwwwdawdawdwaddwadwwwwwwwwwwwwwdawdawdwaddwadwwwwwwwwwwwwwdawdawdwaddwadwwwwwwwwwwwwwdawdawdwaddwadwwwwwwwwwwwwwdawdawdwaddwadwwwwwwwwwwwwwdawdawdwaddwadwwwwwwwwwwwwwdawdawdwaddwadwwwwwwwwwwwwwdawdawdwaddwadwwwwwwwwwwwwwdawdawdwaddwadwwwwwwwwwwwwwdawdawdwaddwadwwwwwwwwwwwwwdawdawdwaddwadwwwwwwwwwwwwwdawdawdwaddwadwwwwwwwwwwwwwdawdawdwaddwadwwwwwwwwwwwwwdawdawdwaddwadwwwwwwwwwwwwwdawdawdwaddwadwwwwwwwwwwwwwdawdawdwaddwadwwwwwwwwwwwwwdawdawdwaddwadwwwwwwwwwwwwwdawdawdwaddwadwwwwwwwwwwwwwdawdawdwaddwadwwwwwwwwwwwwwdawdawdwaddwadwwwwwwwwwwwwwdawdawdwaddwadwwwwwwwwwwwwwdawdawdwaddwadwwwwwwwwwwwwwdawdawdwaddwadwwwwwwwwwwwwwdawdawdwaddwadwwwwwwwwwwwwwdawdawdwaddwadwwwwwwwwwwwwwdawdawdwaddwadwwwwwwwwwwwwwdawdawdwaddwadwwwwwwwwwwwwwdawdawdwaddwadwwwwwwwwwwwwwdawdawdwaddwadwwwwwwwwwwwwwdawdawdwaddwadwwwwwwwwwwwwwdawdawdwaddwadwwwwwwwwwwwwwdawdawdwaddwadwwwwwwwwwwwwwdawdawdwaddwadwwwwwwwwwwwwwdawdawdwaddwadwwwwwwwwwwwwwdawdawdwaddwadwwwwwwwwwwwwwdawdawdwaddwadwwwwwwwwwwwwwdawdawdwaddwadwwwwwwwwwwwwwdawdawdwaddwadwwwwwwwwwwwwwdawdawdwaddwadwwwwwwwwwwwww",
     "info": "",
     "levels": [
         {
             "id": 1,
-            "timer": 0,
+            "timer": 15,
             "difficulty": "medium",
             "questions": [
                 {
@@ -76,7 +76,7 @@
         },
         {
             "id": 0,
-            "timer": 0,
+            "timer": 20,
             "difficulty": "easy",
             "questions": [
                 {

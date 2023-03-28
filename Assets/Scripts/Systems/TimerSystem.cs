@@ -8,6 +8,21 @@ using TMPro;
 
 public class TimerSystem : MonoBehaviour
 {
+    public static Timer publicTimer;
+
+    public static void TimerStartPublic(int milliseconds, Action callback)
+    {
+        publicTimer = new Timer(milliseconds);
+        publicTimer.AutoReset = false;
+        publicTimer.Elapsed += (sender, e) => callback();
+        publicTimer.Start();
+    }
+
+    public static void TimerStop()
+    {
+        publicTimer.Stop();
+    }
+
     public static void TimerStart(int milliseconds, Action callback)
     {
         Timer timer = new Timer(milliseconds);
@@ -18,52 +33,57 @@ public class TimerSystem : MonoBehaviour
 
     public static void CountUpText(int start, int target, float duration, TMP_Text text, string format)
     {
-        Stopwatch timer = new Stopwatch();
-        timer.Start();
+        Stopwatch stopwatch = new Stopwatch();
+        stopwatch.Start();
 
-        while (timer.ElapsedMilliseconds < duration)
+        while (stopwatch.ElapsedMilliseconds < duration)
         {
-            UnityMainThreadDispatcher.Instance().Enqueue(() => { text.text = String.Format(format, start + (int)(1f * (target - start) * (timer.ElapsedMilliseconds / duration))); });
+            UnityMainThreadDispatcher.Instance().Enqueue(() => { text.text = String.Format(format, start + (int)(1f * (target - start) * (stopwatch.ElapsedMilliseconds / duration))); });
         }
-        timer.Stop();
+        stopwatch.Stop();
 
         UnityMainThreadDispatcher.Instance().Enqueue(() => { text.text = String.Format(format, target); });
 
         UnityMainThreadDispatcher.Instance().Destroy();
     }
 
-    public static Stopwatch stopWatch;
+    public static Stopwatch publicStopWatch;
 
     public static void StartStopWatch()
     {
-        stopWatch = new Stopwatch();
-        stopWatch.Start();
+        publicStopWatch = new Stopwatch();
+        publicStopWatch.Start();
     }
 
     public static void StopStopWatch()
     {
-        stopWatch.Stop();
+        publicStopWatch.Stop();
+    }
+
+    public static void ResumeStopWatch()
+    {
+        publicStopWatch.Start();
     }
 
     public static long GetStopWatchTime()
     {
-        return stopWatch.ElapsedMilliseconds;
+        return publicStopWatch.ElapsedMilliseconds;
     }
 
-    public static string GetTime()
+    public static TimeSpan GetTime()
     {
-        return stopWatch.Elapsed.ToString(@"m\:ss");
+        return publicStopWatch.Elapsed;
     }
 
     public static void FillUpImage(float start, float target, float duration, UnityEngine.UI.Image image)
     {
-        Stopwatch timer = new Stopwatch();
-        timer.Start();
+        Stopwatch stopwatch = new Stopwatch();
+        stopwatch.Start();
 
-        while (timer.ElapsedMilliseconds < duration)
-            UnityMainThreadDispatcher.Instance().Enqueue(() => { image.fillAmount = start + 1f * (target - start) * (timer.ElapsedMilliseconds / duration); });
+        while (stopwatch.ElapsedMilliseconds < duration)
+            UnityMainThreadDispatcher.Instance().Enqueue(() => { image.fillAmount = start + 1f * (target - start) * (stopwatch.ElapsedMilliseconds / duration); });
 
-        timer.Stop();
+        stopwatch.Stop();
 
         UnityMainThreadDispatcher.Instance().Enqueue(() => { image.fillAmount = target; });
 
@@ -74,13 +94,13 @@ public class TimerSystem : MonoBehaviour
     {
         UnityMainThreadDispatcher.Instance().Enqueue(() => { image.fillAmount = 1f; });
 
-        Stopwatch timer = new Stopwatch();
-        timer.Start();
+        Stopwatch stopwatch = new Stopwatch();
+        stopwatch.Start();
 
-        while (timer.ElapsedMilliseconds < duration)
-            UnityMainThreadDispatcher.Instance().Enqueue(() => { image.fillAmount = 1f - 1f * (timer.ElapsedMilliseconds / duration); });
+        while (stopwatch.ElapsedMilliseconds < duration)
+            UnityMainThreadDispatcher.Instance().Enqueue(() => { image.fillAmount = 1f - 1f * (stopwatch.ElapsedMilliseconds / duration); });
 
-        timer.Stop();
+        stopwatch.Stop();
 
         UnityMainThreadDispatcher.Instance().Enqueue(() => { image.fillAmount = 0f; });
 
