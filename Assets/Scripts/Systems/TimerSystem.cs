@@ -20,7 +20,11 @@ public class TimerSystem : MonoBehaviour
 
     public static void TimerStop()
     {
-        publicTimer.Stop();
+        try
+        {
+            publicTimer.Stop();
+        }
+        catch { }
     }
 
     public static void TimerStart(int milliseconds, Action callback)
