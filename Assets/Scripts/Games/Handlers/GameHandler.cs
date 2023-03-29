@@ -88,6 +88,28 @@ public class GameHandler : MonoBehaviour
 
         gamePage.name = "GamePage" + index;
 
+        if (index >= 100)
+        {
+            switch (index)
+            {
+                case 100:
+                    // index = 0;
+                    break;
+                case 101:
+                    // index = 1;
+                    break;
+                case 102:
+                    // index = 2;
+                    break;
+                case 103:
+                    // index = 3;
+                    break;
+                case 104:
+                    // index = 4;
+                    break;
+            }
+        }
+
         if (TemporaryData.gameList[index].GetTitle() != null)
         {
             if (!TemporaryData.gameList[index].GetLeasonState())

@@ -12,8 +12,12 @@ public class LoadingPage : MonoBehaviour
 
     public GameObject errorText;
 
+    private string scene;
+
     void Start()
     {
+        scene = null;
+
         errorText.SetActive(false);
 
         loadingPage.SetActive(false);
@@ -38,29 +42,23 @@ public class LoadingPage : MonoBehaviour
 
             TimerSystem.TimerStart(250, LoadingBar);
 
-            TimerSystem.TimerStart(3000, () =>
-            {
-                try
-                {
-                    if (TemporaryData.user != null && TemporaryData.gameList != null)
-                        UnityMainThreadDispatcher.Instance().Enqueue(() =>
-                        {
-                            SceneManager.LoadScene("MainPage");
-                        });
-                    else
-                        UnityMainThreadDispatcher.Instance().Enqueue(() =>
-                        {
-                            SceneManager.LoadScene("CreateProfilePage");
-                        });
+            TimerSystem.TimerStart(3000, LoadScene);
+        }
+        catch (System.Exception e)
+        {
+            errorText.SetActive(true);
+            errorText.GetComponent<TMP_Text>().text = e.ToString();
+        }
+    }
 
-                    UnityMainThreadDispatcher.Instance().Destroy();
-                }
-                catch (System.Exception e)
-                {
-                    errorText.SetActive(true);
-                    errorText.GetComponent<TMP_Text>().text = e.ToString();
-                }
-            });
+    private void LoadScene()
+    {
+        try
+        {
+            if (TemporaryData.user != null && TemporaryData.gameList != null)
+                scene = "MainPage";
+            else
+                scene = "CreateProfilePage";
         }
         catch (System.Exception e)
         {
@@ -93,5 +91,22 @@ public class LoadingPage : MonoBehaviour
         TimerSystem.StopStopWatch();
 
         UnityMainThreadDispatcher.Instance().Destroy();
+    }
+
+    private void Update()
+    {
+        if (scene != null)
+        {
+            try
+            {
+                SceneManager.LoadScene(scene);
+                scene = null;
+            }
+            catch (System.Exception e)
+            {
+                errorText.SetActive(true);
+                errorText.GetComponent<TMP_Text>().text = e.ToString();
+            }
+        }
     }
 }
