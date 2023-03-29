@@ -2,6 +2,7 @@
     "id": 3,
     "title": "Impartire",
     "video": true,
+    "videoLink": "",
     "type": "quiz",
     "subject": "math",
     "description": "Impartirea este o operație aritmetică elementară care totalizează două sau mai multe mărimi",

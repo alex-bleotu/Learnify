@@ -9,6 +9,7 @@ public class LeasonPageHandler : MonoBehaviour
 
     public TMP_Text leasonText;
     public TMP_Text leasonTitleText;
+    public TMP_Text buttonText;
 
     public TTSHandler ttsHandler;
 
@@ -19,10 +20,16 @@ public class LeasonPageHandler : MonoBehaviour
         gameIndex = TemporaryData.currentGameIndex;
 
         leasonTitleText.text = TemporaryData.gameList[gameIndex].GetTitle();
+        buttonText.text = "Link: " + TemporaryData.gameList[gameIndex].GetVideoLink();
         leasonText.text = TemporaryData.gameList[gameIndex].GetLeason();
 
         if (Application.internetReachability == NetworkReachability.NotReachable)
             ttsButton.GetComponent<Button>().interactable = false;
+    }
+
+    public void OnLinkButton()
+    {
+        Application.OpenURL(TemporaryData.gameList[gameIndex].GetVideoLink());
     }
 
     public void OnTTSButton()

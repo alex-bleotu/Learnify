@@ -2,6 +2,7 @@
     "id": 7,
     "title": "Adunarea",
     "video": false,
+    "videoLink": "",
     "type": "quiz",
     "subject": "math",
     "description": "Adunarea este o operație aritmetică elementară care totalizează două sau mai multe mărimi",

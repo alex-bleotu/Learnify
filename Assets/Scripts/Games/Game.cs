@@ -43,6 +43,8 @@ public class Game
     private Sprite banner;
     private VideoClip video;
 
+    private string videoLink;
+
     private bool videoState;
 
     private string title;
@@ -66,7 +68,7 @@ public class Game
         levels = new List<Level>();
         // levels.questions = new List<Questions>();
 
-        ReadData.Read(ref id, ref title, ref gameType, ref description, ref subject, ref videoState, ref levels,
+        ReadData.Read(ref id, ref title, ref gameType, ref description, ref subject, ref videoState, ref videoLink, ref levels,
             ref leason, ref info, path);
 
         levelCount = levels.Count;
@@ -116,6 +118,7 @@ public class Game
     public int GetLevelId(int index) { return levels[index].id; }
     public bool GetVideoState() { return videoState; }
     public VideoClip GetVideo() { return video; }
+    public string GetVideoLink() { return videoLink; }
 
     public void AddExperience(int experience)
     {
