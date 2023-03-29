@@ -1,12 +1,12 @@
 {
     "id": 3,
-    "title": "Impartire",
-    "video": true,
-    "videoLink": "",
+    "title": "Împărțire",
+    "video": false,
+    "videoLink": "https://www.youtube.com/watch?v=QChdCJX7n5U",
     "type": "quiz",
     "subject": "math",
-    "description": "Impartirea este o operație aritmetică elementară care totalizează două sau mai multe mărimi",
-    "leason": "Adunarea este o operație aritmetică elementară care totalizează două sau mai multe mărimi, numite „termenii adunării” într-o singură valoare, numită suma sau „totalul” mărimilor respective. Operației de adunare îi corespunde operația de reuniune a două mulțimi disjuncte de obiecte într-o mulțime cu număr cardinal mai mare, exact suma numerelor cardinale ale mulțimilor reunite.",
+    "description": "Copiii vor învăța cum să efectueze împărțiri simple și să rezolve probleme matematice legate de împărțire, dezvoltându-și abilitățile numerice.",
+    "leason": "Împărțirea este o operație matematică în care un număr (de împărțit) este împărțit la un alt număr (împărțitor) pentru a obține un rezultat (cât) și, uneori, un rest. Împărțirea te ajută să afli câte unități sunt în fiecare grup când împarți în mod egal. Semnul folosit pentru împărțire este (/) sau (÷). Exemplu: 12 ÷ 3 = 4. În acest exemplu, 12 este numărul de împărțit, 3 este împărțitorul, iar 4 este câtul. Prin practică și exerciții, vei învăța să efectuezi împărțiri cu ușurință și să le aplici în situații reale, precum împărțirea dulciurilor între prieteni sau calcularea mediei aritmetice.",
     "info": "",
     "levels": [
         {

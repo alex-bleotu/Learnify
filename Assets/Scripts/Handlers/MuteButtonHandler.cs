@@ -12,9 +12,9 @@ public class MuteButtonHandler : MonoBehaviour
 
     public void UpdateButtonIcon()
     {
-        Image buttonImage = GameObject.Find("SoundButton").transform.GetChild(0).GetComponent<Image>();
-        buttonImage.sprite = !TemporaryData.user.GetMute() ?
-            Resources.Load<Sprite>("Icons/sound") :
-            Resources.Load<Sprite>("Icons/mute");
+        // Image buttonImage = GameObject.Find("SoundButton").transform.GetChild(0).GetComponent<Image>();
+        // buttonImage.sprite = !TemporaryData.user.GetMute() ?
+        //     Resources.Load<Sprite>("Icons/sound") :
+        //     Resources.Load<Sprite>("Icons/mute");
     }
 }

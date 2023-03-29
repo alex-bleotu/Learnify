@@ -93,56 +93,58 @@ public class GameHandler : MonoBehaviour
             switch (index)
             {
                 case 100:
-                    // index = 0;
+                    Application.OpenURL("https://www.google.com/fbx?fbx=snake_arcade");
                     break;
                 case 101:
-                    // index = 1;
+                    Application.OpenURL("https://tetris.com/play-tetris");
                     break;
                 case 102:
-                    // index = 2;
+                    Application.OpenURL("https://playtictactoe.org/");
                     break;
                 case 103:
-                    // index = 3;
+                    Application.OpenURL("https://www.chess.com/play/computer");
                     break;
                 case 104:
-                    // index = 4;
+                    Application.OpenURL("https://www.ponggame.org/");
                     break;
             }
         }
-
-        if (TemporaryData.gameList[index].GetTitle() != null)
-        {
-            if (!TemporaryData.gameList[index].GetLeasonState())
-                titleText.text = TemporaryData.gameList[index].GetTitle();
-            else
-                titleText.text = TemporaryData.gameList[index].GetTitle() + " (" +
-                    (TemporaryData.gameList[index].GetCurrentLevel() + 1) + "/" + TemporaryData.gameList[index].GetLevelCount() + ")";
-
-            SetDifficultyImages(index);
-
-            descriptionText.text = TemporaryData.gameList[index].GetDescription();
-
-            subjectText.text = setSubjectText(index);
-
-            leasonButton.SetActive(TemporaryData.gameList[index].GetLeasonState());
-
-            icon.sprite = TemporaryData.gameList[index].GetIcon();
-            banner.sprite = TemporaryData.gameList[index].GetBanner();
-
-            TemporaryData.currentGameIndex = index;
-
-            playButton.SetActive(true);
-        }
         else
         {
-            titleText.text = "Not Found :(";
-            playButton.SetActive(false);
-            descriptionText.text = "";
-            subjectText.text = "";
-            leasonButton.SetActive(false);
+            if (TemporaryData.gameList[index].GetTitle() != null)
+            {
+                if (!TemporaryData.gameList[index].GetLeasonState())
+                    titleText.text = TemporaryData.gameList[index].GetTitle();
+                else
+                    titleText.text = TemporaryData.gameList[index].GetTitle() + " (" +
+                        (TemporaryData.gameList[index].GetCurrentLevel() + 1) + "/" + TemporaryData.gameList[index].GetLevelCount() + ")";
 
-            icon.sprite = null;
-            banner.sprite = null;
+                SetDifficultyImages(index);
+
+                descriptionText.text = TemporaryData.gameList[index].GetDescription();
+
+                subjectText.text = setSubjectText(index);
+
+                leasonButton.SetActive(TemporaryData.gameList[index].GetLeasonState());
+
+                icon.sprite = TemporaryData.gameList[index].GetIcon();
+                banner.sprite = TemporaryData.gameList[index].GetBanner();
+
+                TemporaryData.currentGameIndex = index;
+
+                playButton.SetActive(true);
+            }
+            else
+            {
+                titleText.text = "Not Found :(";
+                playButton.SetActive(false);
+                descriptionText.text = "";
+                subjectText.text = "";
+                leasonButton.SetActive(false);
+
+                icon.sprite = null;
+                banner.sprite = null;
+            }
         }
     }
 

@@ -1,13 +1,13 @@
 {
     "id": 2,
-    "title": "Inmultire",
+    "title": "Înmulțire",
     "video": true,
     "videoLink": "",
     "type": "quiz",
     "subject": "math",
-    "description": "Inmultirea este o operație aritmetică elementară care constă în repetarea de mai multe ori a unei mărimi.",
+    "description": "În această lecție, copiii vor învăța bazele înmulțirii prin exemple simple și jocuri didactice, pentru a dezvolta abilitățile matematice.",
     "leason": "Inmultirea este o operație aritmetică elementară care constă în repetarea de mai multe ori a unei mărimi. Operației de inmultire îi corespunde operația de înmulțire a două mulțimi de obiecte într-o nouă mulțime cu numărul de elemente dat de produsul numerelor cardinale ale mulțimilor înmulțite. De exemplu, înmulțirea a trei cu patru reprezintă adunarea numărului trei de patru ori: 3 x 4 = 12.\nÎnmulțirea este o operație aritmetică folosită pentru a găsi rezultatul adunării repetate a două sau mai multe numere. De exemplu, înmulțirea dintre 3 și 4 este aceeași cu adunarea repetată a 3, de 4 ori: 3 + 3 + 3 + 3 = 12. Simbolul folosit pentru a indica înmulțirea este 'x'.",
-    "info": "",
+    "info": "Reamintește-ți înmulțirea învățând tabla înmulțirii de la 1 la 10. Fiecare număr înmulțit cu altul dă un produs. Exemplu: 3 x 4 = 12. Prin repetare și practică, înmulțirea devine mai ușoară și rapidă. În curând, vei putea calcula produsele în minte!",
     "levels": [
         {
             "id": 0,
@@ -78,7 +78,7 @@
         },
         {
             "id": 1,
-            "timer": 0,
+            "timer": 250,
             "difficulty": "medium",
             "questions": [
                 {
@@ -145,7 +145,7 @@
         },
         {
             "id": 2,
-            "timer": 0,
+            "timer": 200,
             "difficulty": "hard",
             "questions": [
                 {
@@ -212,7 +212,7 @@
         },
         {
             "id": 3,
-            "timer": 0,
+            "timer": 150,
             "difficulty": "veryHard",
             "questions": [
                 {

@@ -1,12 +1,12 @@
 {
-    "id": 11,
-    "title": "Plante si animale",
+    "id": 10,
+    "title": "Plante și animale",
     "video": false,
     "videoLink": "",
     "type": "quiz",
     "subject": "science",
-    "description": "Plante si animale",
-    "leason": "Adunarea este o operație aritmetică elementară care totalizează două sau mai multe mărimi, numite „termenii adunării” într-o singură valoare, numită suma sau „totalul” mărimilor respective. Operației de adunare îi corespunde operația de reuniune a două mulțimi disjuncte de obiecte într-o mulțime cu număr cardinal mai mare, exact suma numerelor cardinale ale mulțimilor reunite.",
+    "description": "Lecția despre animale îi învață pe copiii din clasa întâi despre diversele specii de animale, habitatul lor și comportamentul specific. Elevii vor învăța să identifice animalele și să înțeleagă rolul lor în ecosistem.",
+    "leason": "Plantele și animalele sunt cele două regnuri majore ale ființelor vii de pe Pământ și interacționează în mod constant în ecosistemele naturale. Această lecție scurtă va prezenta copiilor concepte de bază despre plante și animale și relațiile dintre ele.\nPlantele sunt ființe vii care alcătuiesc regnul Plantae. Ele produc oxigen și hrană prin fotosinteză și pot fi clasificate în ierburi, arbuști, copaci și flori. Părțile principale ale unei plante includ rădăcinile, tulpina, frunzele și florile. Plantele sunt o sursă de hrană și adăpost pentru multe animale și sunt esențiale pentru echilibrul ecosistemelor.",
     "info": "",
     "levels": [
         {

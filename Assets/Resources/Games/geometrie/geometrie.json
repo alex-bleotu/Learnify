@@ -1,12 +1,12 @@
 {
     "id": 4,
-    "title": "Adunarea",
+    "title": "Geometrie",
     "video": false,
-    "videoLink": "",
+    "videoLink": "https://www.youtube.com/watch?v=SI0BPHQ1vWI&ab_channel=OraselulCopiilor-Deseneanimateeducative",
     "type": "quiz",
     "subject": "math",
-    "description": "Adunarea este o operație aritmetică elementară care totalizează două sau mai multe mărimi",
-    "leason": "Adunarea este o operație aritmetică elementară care totalizează două sau mai multe mărimi, numite „termenii adunării” într-o singură valoare, numită suma sau „totalul” mărimilor respective. Operației de adunare îi corespunde operația de reuniune a două mulțimi disjuncte de obiecte într-o mulțime cu număr cardinal mai mare, exact suma numerelor cardinale ale mulțimilor reunite.",
+    "description": "În această lecție de geometrie pentru clasa întâi, copiii vor învăța despre forme geometrice simple, cum ar fi cercul, pătratul și triunghiul. De asemenea, vor explora noțiuni de bază ale simetriei și vor învăța să recunoască și să numească formele în lumea înconjurătoare.",
+    "leason": "",
     "info": "",
     "levels": [
         {

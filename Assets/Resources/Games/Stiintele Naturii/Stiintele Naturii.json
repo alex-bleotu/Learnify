@@ -1,11 +1,11 @@
 {
     "id": 5,
-    "title": "Stiintele Naturii",
+    "title": "Științele Naturii",
     "video": false,
-    "videoLink": "",
+    "videoLink": "https://www.youtube.com/watch?v=15cB7EbS6Bw&ab_channel=MustKnowNow",
     "type": "quiz",
     "subject": "science",
-    "description": "Stiintele naturii",
+    "description": "În această lecție, copiii vor explora conceptele de bază ale științelor naturii, învățând despre plante, animale, roci și apă.",
     "leason": "Introducere în științele naturii\nDragi copii, astăzi vom începe să explorăm lumea fascinantă a științelor naturii. Științele naturii ne ajută să înțelegem și să apreciem mediul înconjurător în care trăim. În această serie de lecții, vom învăța despre diverse subiecte, cum ar fi corpurile ceresti, Pământul și mediul înconjurător, plantele și animalele, precum și modul în care toate acestea interacționează și se influențează reciproc.\nCe sunt științele naturii?\nȘtiințele naturii se ocupă cu studiul mediului natural și al fenomenelor care se întâmplă în jurul nostru. Aceasta include subiecte precum biologia (studierea plantelor și animalelor), geologia (studierea Pământului și rocilor), astronomia (studierea spațiului cosmic și a obiectelor din univers), meteorologia (studierea vremii și climei) și ecologia (studierea ecosistemelor și relațiilor dintre organisme și mediul lor).\nImportanța studierii științelor naturii:\nStudierea științelor naturii este importantă pentru a ne dezvolta cunoștințele despre lumea în care trăim și se influențează reciproc.\nCe sunt științele naturii?\nȘtiințele naturii se ocupă cu studiul mediului natural și al fenomenelor care se întâmplă în jurul nostru. Aceasta include subiecte precum biologia (studierea plantelor și animalelor), geologia (studierea Pământului și rocilor), astronomia (studierea spațiului cosmic și a obiectelor din univers), meteorologia (studierea vremii și climei) și ecologia (studierea ecosistemelor și relațiilor dintre organisme și mediul lor).\nImportanța studierii științelor naturii:\nStudierea științelor naturii este importantă pentru a ne dezvolta cunoștințele despre lumea în care trăim și pentru a înțelege cum funcționează natura. Acest lucru ne permite să ne bucurăm de mediul înconjurător, să fim responsabili față de el și să îl protejăm pentru viitor.\nSubiectele pe care le vom explora:\nPe parcursul acestor lecții, vom explora diverseteme interesante și importante legate de științele naturii. Vom începe cu o călătorie în spațiu pentru a învăța despre corpurile ceresti, precum Soarele, Luna și planetele din sistemul nostru solar. Apoi ne vom întoarce pe Pământ pentru a descoperi structura și procesele care au loc în interiorul și la suprafața planetei noastre, precum formarea rocilor, cutremurele și vulcanii.\nÎn continuare, vom explora lumea plantelor și animalelor și vom învăța despre caracteristicile, structura și funcțiile lor. Vom studia, de asemenea, diferite tipuri de habitate și cum animalele și plantele se adaptează pentru a supraviețui în aceste medii.\nMai târziu, vom învăța despre lanțurile trofice și ecosisteme și cum diferite organisme interacționează și colaborează în mediu. Vom discuta despre importanța resurselor naturale și conservarea lor și despre cum putem contribui la protejarea mediului înconjurător prin acțiuni responsabile și sustenabile.\nSpre sfârșitul acestor lecții, vom explora cum fenomenele meteorologice, precum vremea și clima, afectează mediul și cum pot fi prezise și înțelese pentru a ne ajuta să ne adaptăm la schimbări.\nPentru a învăța toate aceste lucruri interesante, vom folosi activități, jocuri și experimente care să ne ajute să înțelegem și să ne amintim conceptele învățate.",
     "info": "",
     "levels": [
@@ -78,7 +78,7 @@
         },
         {
             "id": 1,
-            "timer": 0,
+            "timer": 240,
             "difficulty": "medium",
             "questions": [
                 {
@@ -175,7 +175,7 @@
         },
         {
             "id": 10,
-            "timer": 0,
+            "timer": 120,
             "difficulty": "veryHard",
             "questions": [
                 {

@@ -1,12 +1,12 @@
 {
     "id": 0,
     "title": "Adunarea",
-    "video": true,
-    "videoLink": "",
+    "video": false,
+    "videoLink": "https://www.youtube.com/watch?v=R0uhYmbNMFM&ab_channel=invata.org",
     "type": "quiz",
     "subject": "math",
     "description": "Adunarea este o operație aritmetică elementară care totalizează două sau mai multe mărimi",
-    "leason": "Adunarea este o operație aritmetică elementară care totalizează două sau mai multe mărimi, numite „termenii adunării” într-o singură valoare, numită suma sau „totalul” mărimilor respective. Operației de adunare îi corespunde operația de reuniune a două mulțimi disjuncte de obiecte într-o mulțime cu număr cardinal mai mare, exact suma numerelor cardinale ale mulțimilor reunite.",
+    "leason": "Adunarea este o operație matematică simplă care ne ajută să combinăm două sau mai multe numere pentru a obține un total.Să luăm un exemplu simplu: 2 + 3 = 5. Pentru a face această adunare, trebuie să începem cu primul număr, 2, și să adăugăm apoi al doilea număr, 3. \nRezultatul, sau totalul, este 5.Putem face adunări cu orice numere, de la cele mai mici la cele mai mari. De exemplu, 6 + 4 = 10, 8 + 2 = 10 sau 1 + 7 = 8.\nMai există și o regulă importantă pe care trebuie să o ținem minte când facem adunări. Aceasta se numește comutativitatea și înseamnă că putem schimba ordinea numerelor într-o adunare fără să schimbăm rezultatul. De exemplu, 2 + 3 este același lucru cu 3 + 2.",
     "info": "",
     "levels": [
         {
