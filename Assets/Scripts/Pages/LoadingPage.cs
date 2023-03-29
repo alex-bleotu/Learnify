@@ -46,7 +46,6 @@ public class LoadingPage : MonoBehaviour
         }
         catch (System.Exception e)
         {
-            errorText.SetActive(true);
             errorText.GetComponent<TMP_Text>().text = e.ToString();
         }
     }
@@ -62,7 +61,6 @@ public class LoadingPage : MonoBehaviour
         }
         catch (System.Exception e)
         {
-            errorText.SetActive(true);
             errorText.GetComponent<TMP_Text>().text = e.ToString();
         }
     }
@@ -104,7 +102,6 @@ public class LoadingPage : MonoBehaviour
             }
             catch (System.Exception e)
             {
-                errorText.SetActive(true);
                 errorText.GetComponent<TMP_Text>().text = e.ToString();
             }
         }

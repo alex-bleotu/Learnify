@@ -81,12 +81,7 @@ public class GameHandler : MonoBehaviour
     {
         countUp.Stop();
 
-        mainPage.SetActive(false);
-        gamePage.SetActive(true);
-
         int index = Game.GetIndex(thisGameObject.name);
-
-        gamePage.name = "GamePage" + index;
 
         if (index >= 100)
         {
@@ -111,6 +106,12 @@ public class GameHandler : MonoBehaviour
         }
         else
         {
+
+            mainPage.SetActive(false);
+            gamePage.SetActive(true);
+
+            gamePage.name = "GamePage" + index;
+
             if (TemporaryData.gameList[index].GetTitle() != null)
             {
                 if (!TemporaryData.gameList[index].GetLeasonState())

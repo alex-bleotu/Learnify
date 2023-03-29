@@ -29,4 +29,9 @@ public class SettingsPageHandler : MonoBehaviour
         else
             TemporaryData.user.SetMute(false);
     }
+
+    public void OnGuideButton()
+    {
+        Application.OpenURL("https://docs.google.com/document/d/1Db-EzgW_x_OTb5SrT9x_Xse4f6TTpOFOY7zRDD1X6AY/edit?usp=sharing");
+    }
 }
