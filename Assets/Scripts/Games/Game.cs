@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Linq;
+using UnityEngine.Video;
 
 public class Game
 {
@@ -42,6 +43,9 @@ public class Game
 
     private Sprite icon;
     private Sprite banner;
+    private string video;
+
+    private bool videoState;
 
     private string title;
     private string description;
@@ -64,7 +68,7 @@ public class Game
         levels = new List<Level>();
         // levels.questions = new List<Questions>();
 
-        ReadData.Read(ref id, ref title, ref gameType, ref description, ref subject, ref levels,
+        ReadData.Read(ref id, ref title, ref gameType, ref description, ref subject, ref videoState, ref levels,
             ref leason, ref info, path);
 
         levelCount = levels.Count;
@@ -78,6 +82,9 @@ public class Game
 
         icon = Resources.Load<Sprite>("Games/" + path + "/icon");
         banner = Resources.Load<Sprite>("Images/Banners/" + subject.ToString());
+
+        if (videoState)
+            video = "Games/" + path + "/video";
 
         if (icon == null)
             icon = Resources.Load<Sprite>("Games/Default/icon");
@@ -109,6 +116,8 @@ public class Game
     public List<Level> GetLevels(int index) { return levels; }
     public int GetTimer(int index) { return levels[index].timer; }
     public int GetLevelId(int index) { return levels[index].id; }
+    public bool GetVideoState() { return videoState; }
+    public string GetVideoPath() { return video; }
 
     public void AddExperience(int experience)
     {

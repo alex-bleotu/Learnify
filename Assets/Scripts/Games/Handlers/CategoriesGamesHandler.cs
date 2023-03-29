@@ -57,9 +57,9 @@ public class CategoriesGamesHandler : MonoBehaviour
 
     void Start()
     {
-        fillGames(mathCategory, Game.Subject.math);
-        fillGames(scienceCategory, Game.Subject.science);
-        fillGames(romanianCategory, Game.Subject.romanian);
-        fillGames(englishCategory, Game.Subject.english);
+        // fillGames(mathCategory, Game.Subject.math);
+        // fillGames(scienceCategory, Game.Subject.science);
+        // fillGames(romanianCategory, Game.Subject.romanian);
+        // fillGames(englishCategory, Game.Subject.english);
     }
 }

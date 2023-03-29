@@ -1,6 +1,7 @@
 {
     "id": 1,
     "title": "Scadere",
+    "video": false,
     "type": "quiz",
     "subject": "math",
     "description": "Scaderea este o operație aritmetică elementară care totalizează două sau mai multe mărimi",
@@ -73,7 +74,7 @@
                     "correct": 1
                 }
             ]
-        },        
+        },
         {
             "id": 1,
             "timer": 0,
@@ -140,7 +141,7 @@
                     "correct": 0
                 }
             ]
-        },        
+        },
         {
             "id": 2,
             "timer": 0,
@@ -207,7 +208,7 @@
                     "correct": 0
                 }
             ]
-        },        
+        },
         {
             "id": 3,
             "timer": 0,
@@ -275,6 +276,5 @@
                 }
             ]
         }
-        
     ]
 }

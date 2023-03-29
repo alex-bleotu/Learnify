@@ -116,6 +116,8 @@ public class FriendsPageHandler : MonoBehaviour
         coordY = friendTemplate.transform.position.y;
         spacingCoord = friendTemplate.GetComponent<RectTransform>().rect.height;
 
+        Debug.Log(spacingCoord);
+
         for (int i = 0; i < friendsCount + 1; i++)
         {
             GameObject copyFriend = Instantiate(friendTemplate, new Vector3(0, 0, 0), Quaternion.identity);
@@ -136,6 +138,8 @@ public class FriendsPageHandler : MonoBehaviour
 
             copyFriend.transform.SetParent(friendslist.transform);
 
+            copyFriend.transform.localScale = new Vector3(1, 1, 1);
+
             copyFriend.transform.position = new Vector3(friendslist.transform.position.x, coordY - spacingCoord * i, 0);
             copyFriend.name = "Friend" + i;
             copyFriend.SetActive(true);
@@ -144,7 +148,7 @@ public class FriendsPageHandler : MonoBehaviour
         if (friendsCount <= 5)
             friendslist.transform.parent.GetComponent<ScrollRect>().enabled = false;
 
-        friendslist.GetComponent<RectTransform>().sizeDelta = new Vector2(350, (friendsCount + 1) * 70);
+        friendslist.GetComponent<RectTransform>().sizeDelta = new Vector2(friendslist.GetComponent<RectTransform>().sizeDelta.x, (friendsCount + 1) * spacingCoord);
 
         if (userIndex > friendsCount - 4)
             friendslist.transform.position = new Vector3(friendslist.transform.position.x, (friendsCount - 4) * spacingCoord, 0);

@@ -10,6 +10,7 @@ public class ReadData
     {
         public int id;
         public string title;
+        public bool video;
         public string type;
         public string subject;
         public string description;
@@ -27,7 +28,7 @@ public class ReadData
     }
 
     public static void Read(ref int id, ref string title, ref Game.GameType type, ref string description,
-        ref Game.Subject subject, ref List<Game.Level> levels, ref string leason, ref string info,
+        ref Game.Subject subject, ref bool withVideo, ref List<Game.Level> levels, ref string leason, ref string info,
         string filePath)
     {
         // if (!File.Exists(fileData))
@@ -44,6 +45,7 @@ public class ReadData
         id = data.id;
         title = data.title;
         description = data.description;
+        withVideo = data.video;
 
         leason = data.leason;
         info = data.info;
