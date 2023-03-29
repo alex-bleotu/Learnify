@@ -1,76 +1,76 @@
 {
     "id": 2,
-    "title": "Adunarea",
+    "title": "Inmultire",
     "type": "quiz",
     "subject": "math",
-    "description": "Adunarea este o operație aritmetică elementară care totalizează două sau mai multe mărimi",
-    "leason": "Adunarea este o operație aritmetică elementară care totalizează două sau mai multe mărimi, numite „termenii adunării” într-o singură valoare, numită suma sau „totalul” mărimilor respective. Operației de adunare îi corespunde operația de reuniune a două mulțimi disjuncte de obiecte într-o mulțime cu număr cardinal mai mare, exact suma numerelor cardinale ale mulțimilor reunite.",
+    "description": "Inmultirea este o operație aritmetică elementară care constă în repetarea de mai multe ori a unei mărimi.",
+    "leason": "Inmultirea este o operație aritmetică elementară care constă în repetarea de mai multe ori a unei mărimi. Operației de inmultire îi corespunde operația de înmulțire a două mulțimi de obiecte într-o nouă mulțime cu numărul de elemente dat de produsul numerelor cardinale ale mulțimilor înmulțite. De exemplu, înmulțirea a trei cu patru reprezintă adunarea numărului trei de patru ori: 3 x 4 = 12.\nÎnmulțirea este o operație aritmetică folosită pentru a găsi rezultatul adunării repetate a două sau mai multe numere. De exemplu, înmulțirea dintre 3 și 4 este aceeași cu adunarea repetată a 3, de 4 ori: 3 + 3 + 3 + 3 = 12. Simbolul folosit pentru a indica înmulțirea este 'x'.",
     "info": "",
     "levels": [
         {
-            "id": 0,
-            "timer": 0,
-            "difficulty": "easy",
-            "questions": [
+                "id": 0,
+                "timer": 0,
+                "difficulty": "easy",
+                "questions": [
                 {
                     "id": 0,
-                    "question": "Cât face 1 + 1?",
-                    "answers": ["1", "2", "3", "4"],
-                    "correct": 1
+                    "question": "Care este produsul înmulțirii dintre 5 și 3?",
+                    "answers": ["15", "12", "10", "8"],
+                    "correct": 0
                 },
                 {
                     "id": 1,
-                    "question": "Cât face 2 + 2?",
-                    "answers": ["1", "2", "4", "3"],
-                    "correct": 2
+                    "question": "Care este produsul înmulțirii dintre 8 și 2?",
+                    "answers": ["16", "14", "12", "10"],
+                    "correct": 0
                 },
                 {
                     "id": 2,
-                    "question": "Care este rezultatul calculului 41 + 12?",
-                    "answers": ["53", "50", "63", "49"],
+                    "question": "Care este produsul înmulțirii dintre 6 și 4?",
+                    "answers": ["24", "22", "20", "18"],
                     "correct": 0
                 },
                 {
                     "id": 3,
-                    "question": "Care este rezultatul calculului 59 + 38?",
-                    "answers": ["89", "93", "69", "97"],
-                    "correct": 3
+                    "question": "Care este produsul înmulțirii dintre 9 și 1?",
+                    "answers": ["8", "9", "10", "11"],
+                    "correct": 1
                 },
                 {
                     "id": 4,
-                    "question": "Cât face 104 + 59?",
-                    "answers": ["169", "170", "163", "161"],
-                    "correct": 2
+                    "question": "Care este produsul înmulțirii dintre 7 și 2?",
+                    "answers": ["13", "14", "15", "16"],
+                    "correct": 1
                 },
                 {
                     "id": 5,
-                    "question": "Cât face 174 + 16?",
-                    "answers": ["181", "187", "190", "193"],
+                    "question": "Care este produsul înmulțirii dintre 4 și 6?",
+                    "answers": ["20", "22", "24", "26"],
                     "correct": 2
                 },
                 {
                     "id": 6,
-                    "question": "Cât face 147 + 299?",
-                    "answers": ["446", "441", "439", "450"],
+                    "question": "Care este produsul înmulțirii dintre 3 și 5?",
+                    "answers": ["15", "17", "19", "21"],
                     "correct": 0
                 },
                 {
                     "id": 7,
-                    "question": "Cât face 239 + 245?",
-                    "answers": ["481", "484", "485", "487"],
+                    "question": "Care este produsul înmulțirii dintre 2 și 9?",
+                    "answers": ["16", "18", "20", "22"],
                     "correct": 1
                 },
                 {
                     "id": 8,
-                    "question": "Cât face 519 + 231?",
-                    "answers": ["755", "748", "750", "751"],
-                    "correct": 2
+                    "question": "Care este rezultatul înmulțirii dintre 6 și 8?",
+                    "answers": ["42", "44", "46", "48"],
+                    "correct": 3
                 },
                 {
                     "id": 9,
-                    "question": "Cât face 1024 + 571?",
-                    "answers": ["1780", "1576", "1495", "1595"],
-                    "correct": 3
+                    "question": "Care este rezultatul înmulțirii dintre 9 și 4?",
+                    "answers": ["32", "36", "40", "44"],
+                    "correct": 1
                 }
             ]
         },
@@ -79,19 +79,201 @@
             "timer": 0,
             "difficulty": "medium",
             "questions": [
+            {
+            "id": 0,
+            "question": "Care este rezultatul înmulțirii dintre 8 și 7?",
+            "answers": ["54", "56", "58", "60"],
+            "correct": 1
+            },
+            {
+            "id": 1,
+            "question": "Care este rezultatul înmulțirii dintre 6 și 9?",
+            "answers": ["52", "54", "56", "58"],
+            "correct": 1
+            },
+            {
+            "id": 2,
+            "question": "Care este rezultatul înmulțirii dintre 7 și 5?",
+            "answers": ["30", "32", "34", "35"],
+            "correct": 3
+            },
+            {
+            "id": 3,
+            "question": "Care este rezultatul înmulțirii dintre 9 și 3?",
+            "answers": ["24", "25", "26", "27"],
+            "correct": 3
+            },
+            {
+            "id": 4,
+            "question": "Care este rezultatul înmulțirii dintre 4 și 8?",
+            "answers": ["30", "32", "34", "36"],
+            "correct": 1
+            },
+            {
+            "id": 5,
+            "question": "Care este rezultatul înmulțirii dintre 5 și 11?",
+            "answers": ["52", "54", "55", "57"],
+            "correct": 2
+            },
+            {
+            "id": 6,
+            "question": "Care este rezultatul înmulțirii dintre 10 și 2?",
+            "answers": ["18", "20", "22", "24"],
+            "correct": 1
+            },
+            {
+            "id": 7,
+            "question": "Care este rezultatul înmulțirii dintre 3 și 9?",
+            "answers": ["25", "26", "27", "28"],
+            "correct": 2
+            },
+            {
+            "id": 8,
+            "question": "Care este rezultatul înmulțirii dintre 6 și 7?",
+            "answers": ["40", "42", "44", "46"],
+            "correct": 1
+            },
+            {
+            "id": 9,
+            "question": "Care este rezultatul înmulțirii dintre 8 și 5?",
+            "answers": ["38", "40", "42", "44"],
+            "correct": 1
+            }
+            ]
+            },
+            {
+                "id": 2,
+                "timer": 0,
+                "difficulty": "hard",
+                "questions": [
                 {
-                    "id": 0,
-                    "question": "Cât face 1 + 1?",
-                    "answers": ["1", "2", "3", "4"],
-                    "correct": 1
+                "id": 0,
+                "question": "Care este rezultatul înmulțirii dintre 93 și 17?",
+                "answers": ["1571", "1579", "1587", "1581"],
+                "correct": 3
                 },
                 {
-                    "id": 1,
-                    "question": "Cât face 2 + 2?",
-                    "answers": ["1", "2", "4", "3"],
-                    "correct": 2
+                "id": 1,
+                "question": "Care este rezultatul înmulțirii dintre 58 și 26?",
+                "answers": ["1508", "1516", "1524", "1532"],
+                "correct": 0
+                },
+                {
+                "id": 2,
+                "question": "Care este rezultatul înmulțirii dintre 72 și 14?",
+                "answers": ["1008", "1016", "1024", "1032"],
+                "correct": 0
+                },
+                {
+                "id": 3,
+                "question": "Care este rezultatul înmulțirii dintre 49 și 33?",
+                "answers": ["1633", "1625", "1617", "1641"],
+                "correct": 2
+                },
+                {
+                "id": 4,
+                "question": "Care este rezultatul înmulțirii dintre 87 și 12?",
+                "answers": ["1044", "1054", "1064", "1074"],
+                "correct": 1
+                },
+                {
+                "id": 5,
+                "question": "Care este rezultatul înmulțirii dintre 64 și 18?",
+                "answers": ["1152", "1160", "1168", "1176"],
+                "correct": 0
+                },
+                {
+                "id": 6,
+                "question": "Care este rezultatul înmulțirii dintre 29 și 39?",
+                "answers": ["1131", "1139", "1147", "1155"],
+                "correct": 0
+                },
+                {
+                "id": 7,
+                "question": "Care este rezultatul înmulțirii dintre 76 și 21?",
+                "answers": ["1596", "1604", "1612", "1620"],
+                "correct": 0
+                },
+                {
+                "id": 8,
+                "question": "Care este rezultatul înmulțirii dintre 41 și 27?",
+                "answers": ["1107", "1115", "1123", "1131"],
+                "correct": 0
+                },
+                {
+                "id": 9,
+                "question": "Care este rezultatul înmulțirii dintre 95 și 11?",
+                "answers": ["1045", "1055", "1065", "1075"],
+                "correct": 0
                 }
-            ]
-        }
+                ]
+                },
+            {
+                "id": 3,
+                "timer": 0,
+                "difficulty": "veryHard",
+                "questions": [
+                {
+                "id": 0,
+                "question": "Care este rezultatul înmulțirii dintre 123 și 42?",
+                "answers": ["5176", "5166", "5186", "5196"],
+                "correct": 1
+                },
+                {
+                "id": 1,
+                "question": "Care este rezultatul înmulțirii dintre 235 și 64?",
+                "answers": ["15000", "15040", "15080", "15120"],
+                "correct": 1
+                },
+                {
+                "id": 2,
+                "question": "Care este rezultatul înmulțirii dintre 314 și 27?",
+                "answers": ["8478", "8488", "8498", "8508"],
+                "correct": 0
+                },
+                {
+                "id": 3,
+                "question": "Care este rezultatul înmulțirii dintre 178 și 53?",
+                "answers": ["9424", "9444", "9434", "9454"],
+                "correct": 2
+                },
+                {
+                "id": 4,
+                "question": "Care este rezultatul înmulțirii dintre 291 și 36?",
+                "answers": ["10476", "10486", "10496", "10506"],
+                "correct": 0
+                },
+                {
+                "id": 5,
+                "question": "Care este rezultatul înmulțirii dintre 423 și 15?",
+                "answers": ["6345", "6350", "6355", "6360"],
+                "correct": 0
+                },
+                {
+                "id": 6,
+                "question": "Care este rezultatul înmulțirii dintre 169 și 47?",
+                "answers": ["7933", "7963", "7953", "7943"],
+                "correct": 3
+                },
+                {
+                "id": 7,
+                "question": "Care este rezultatul înmulțirii dintre 512 și 28?",
+                "answers": ["14316", "14336", "14356", "14376"],
+                "correct": 1
+                },
+                {
+                "id": 8,
+                "question": "Care este rezultatul înmulțirii dintre 831 și 19?",
+                "answers": ["15769", "15809", "15789", "15829"],
+                "correct": 2
+                },
+                {
+                "id": 9,
+                "question": "Care este rezultatul înmulțirii dintre 547 și 33?",
+                "answers": ["18051", "18061", "18071", "18081"],
+                "correct": 0
+                }
+                ]
+                }
     ]
 }
