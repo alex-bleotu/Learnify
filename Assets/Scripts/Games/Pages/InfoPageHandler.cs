@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
@@ -11,7 +9,8 @@ public class InfoPageHandler : MonoBehaviour
     public TMP_Text infoTitleText;
     public TMP_Text infoDescriptionText;
 
-    public void OpenInterface(GameObject thisGameObject) {
+    public void OpenInterface(GameObject thisGameObject)
+    {
         testPage.SetActive(false);
         infoPage.SetActive(true);
 
@@ -19,7 +18,8 @@ public class InfoPageHandler : MonoBehaviour
         infoDescriptionText.text = TemporaryData.gameList[TemporaryData.currentGameIndex].GetInfo();
     }
 
-    public void CloseInterface() {
+    public void CloseInterface()
+    {
         infoPage.SetActive(false);
         testPage.SetActive(true);
     }

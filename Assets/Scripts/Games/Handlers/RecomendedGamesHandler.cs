@@ -1,12 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
 public class RecomendedGamesHandler : MonoBehaviour
 {
-    private int[] GetRandomValues() {
+    private int[] GetRandomValues()
+    {
         System.Random random = new System.Random();
 
         int[] randomValues = new int[3];
@@ -30,21 +28,23 @@ public class RecomendedGamesHandler : MonoBehaviour
     {
         System.Random random = new System.Random();
 
-        if (TemporaryData.gameList.Count >= 3) {
+        if (TemporaryData.gameList.Count >= 3)
+        {
             int[] randomValues = GetRandomValues();
 
             // Debug.Log(randomValues[0] + ", " + randomValues[1] + ", " + randomValues[2]);
 
             int index = 0;
             GameObject buttonParent = GameObject.Find("RecommendedGames");
-            
-            foreach (Transform child in buttonParent.transform) {
+
+            foreach (Transform child in buttonParent.transform)
+            {
                 if (child.name == "TitleText (TMP)")
                     continue;
 
                 GameObject game = child.gameObject;
 
-                game.name = "RecommendedGame" + randomValues[index]; 
+                game.name = "RecommendedGame" + randomValues[index];
 
                 // games[i].onClick.AddListener(buttonClick);
 
@@ -52,7 +52,7 @@ public class RecomendedGamesHandler : MonoBehaviour
                 // buttonText.text = GameList.gameList[randomValues[index]].GetTitle();
 
                 game.transform.GetChild(0).GetComponent<Image>().sprite = TemporaryData.gameList[randomValues[index]].GetIcon();
-                
+
                 index++;
             }
         }

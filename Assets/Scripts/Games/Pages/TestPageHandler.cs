@@ -33,6 +33,11 @@ public class TestPageHandler : MonoBehaviour
 
     public GameObject timeBar;
 
+    public AudioSource wrongAnswer;
+    public AudioSource correctAnswer;
+    public AudioSource testFinished;
+    public AudioSource countUp;
+
     public TMP_Text correctAnswersText;
     public TMP_Text wrongAnswersText;
     public TMP_Text scoreText;
@@ -94,8 +99,10 @@ public class TestPageHandler : MonoBehaviour
             titleText.text = "Timpul a expirat";
         else if (score < 70)
             titleText.text = "Test picat";
-        else
+        else if (score >= 70)
         {
+            testFinished.Play();
+
             TemporaryData.user.SetStreak(1);
             titleText.text = "Test trecut";
             TemporaryData.rewardedExperience = TemporaryData.gameList[TemporaryData.currentGameIndex].GetXP(currentLevel);
@@ -161,7 +168,7 @@ public class TestPageHandler : MonoBehaviour
             TemporaryData.gameList[TemporaryData.currentGameIndex].SetCurrentLevel(currentLevel + 1);
 
         if (score != 0)
-            TimerSystem.TimerStart(250, () => { TimerSystem.CountUpText(0, score, 1000, scoreText, "{0}%"); });
+            TimerSystem.TimerStart(250, () => { TimerSystem.CountUpText(0, score, 1000, scoreText, "{0}%", countUp); });
 
         // scoreText.text = score + "%";
     }
@@ -176,6 +183,9 @@ public class TestPageHandler : MonoBehaviour
 
     public void OnNextClick()
     {
+        wrongAnswer.Stop();
+        correctAnswer.Stop();
+
         questionIndex++;
 
         ttsHandler.StopTTS();
@@ -286,11 +296,15 @@ public class TestPageHandler : MonoBehaviour
 
             correctAnswers++;
 
+            correctAnswer.Play();
+
             if (powerUpsHandler.gemRush)
                 rewardedGems += TemporaryData.user.GetGemRushReward();
         }
         else
         {
+            wrongAnswer.Play();
+
             answerButtons[buttonIndex].GetComponent<Image>().color = red;
             answerButtons[TemporaryData.gameList[gameIndex].GetQuestions(currentLevel)[questionIndex].correct].GetComponent<Image>().color = green;
             answerButtons[buttonIndex].transform.GetChild(0).gameObject.GetComponent<TMP_Text>().color = Color.white;
@@ -379,6 +393,11 @@ public class TestPageHandler : MonoBehaviour
             ttsButton.GetComponent<Button>().interactable = false;
 
         timeBar = testPage.transform.GetChild(6).gameObject;
+
+        correctAnswer.volume = TemporaryData.user.GetVolume();
+        wrongAnswer.volume = TemporaryData.user.GetVolume();
+        testFinished.volume = TemporaryData.user.GetVolume();
+        countUp.volume = TemporaryData.user.GetVolume();
 
         correctAnswers = 0;
         questionIndex = 0;

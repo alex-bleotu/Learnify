@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -13,6 +11,8 @@ public class GameHandler : MonoBehaviour
     public GameObject playButton;
 
     public GameObject leasonButton;
+
+    public AudioSource countUp;
 
     public TMP_Text titleText;
     public TMP_Text descriptionText;
@@ -79,6 +79,8 @@ public class GameHandler : MonoBehaviour
 
     public void OpenGameInterface(GameObject thisGameObject)
     {
+        countUp.Stop();
+
         mainPage.SetActive(false);
         gamePage.SetActive(true);
 

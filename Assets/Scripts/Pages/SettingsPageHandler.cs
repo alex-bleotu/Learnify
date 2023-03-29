@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -8,18 +6,21 @@ public class SettingsPageHandler : MonoBehaviour
 {
     public Slider audioSlider;
 
-    public void Start() {
+    public void Start()
+    {
         if (TemporaryData.user.GetMute())
             audioSlider.value = 0f;
         else
             audioSlider.value = TemporaryData.user.GetVolume();
     }
 
-    public void CloseInterface() {
+    public void CloseInterface()
+    {
         SceneManager.LoadScene("MainPage");
     }
 
-    public void UpdateSlider() {
+    public void UpdateSlider()
+    {
         if (audioSlider.value != 0f)
             TemporaryData.user.SetVolume(audioSlider.value);
 

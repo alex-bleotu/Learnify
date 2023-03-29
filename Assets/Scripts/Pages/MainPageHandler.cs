@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using System;
 using UnityEngine;
 using UnityEngine.UI;
@@ -14,6 +12,8 @@ public class MainPageHandler : MonoBehaviour
     public Image expBar;
 
     public AudioListener audioListener;
+
+    public AudioSource countUp;
 
     public MuteButtonHandler muteButtonHandler;
     public DailyGameHandler dailyGameHandler;
@@ -31,6 +31,8 @@ public class MainPageHandler : MonoBehaviour
     {
         usernameText.text = TemporaryData.user.GetUsername();
         levelText.text = "Nivel " + TemporaryData.user.GetLevel();
+
+        countUp.volume = TemporaryData.user.GetVolume();
 
         avatar.sprite = TemporaryData.avatar;
 
@@ -52,10 +54,10 @@ public class MainPageHandler : MonoBehaviour
         TemporaryData.user.AddGems(TemporaryData.rewardedGems);
 
         if (TemporaryData.rewardedGems != 0)
-            TimerSystem.TimerStart(750, () => { TimerSystem.CountUpText(Int32.Parse(gemsText.text), TemporaryData.user.GetGems(), 1000, gemsText, "{0}"); });
+            TimerSystem.TimerStart(750, () => { TimerSystem.CountUpText(Int32.Parse(gemsText.text), TemporaryData.user.GetGems(), 1000, gemsText, "{0}", countUp); });
 
         if (TemporaryData.rewardedCrowns != 0)
-            TimerSystem.TimerStart(750, () => { TimerSystem.CountUpText(Int32.Parse(crownsText.text), TemporaryData.user.GetCorwns(), 1000, crownsText, "{0}"); });
+            TimerSystem.TimerStart(750, () => { TimerSystem.CountUpText(Int32.Parse(crownsText.text), TemporaryData.user.GetCorwns(), 1000, crownsText, "{0}", countUp); });
 
         // if (TemporaryData.rewardedExperience != 0)
         //     TimerSystem.TimerStart(250, () => { TimerSystem.FillUpImage(expBar.fillAmount, (float)TemporaryData.user.GetExperience() / (TemporaryData.user.GetLevel() * 100), 1000, expBar); });

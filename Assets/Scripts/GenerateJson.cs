@@ -1,10 +1,10 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class GenerateJson : MonoBehaviour
 {
-    private struct Game {
+    private struct Game
+    {
         public int id;
         public string title;
         public string type;
@@ -14,7 +14,8 @@ public class GenerateJson : MonoBehaviour
         public string info;
         public List<Level> levels;
 
-        public Game(int id, string title, string type, string subject, string description, string leason, string info, List<Level> levels) {
+        public Game(int id, string title, string type, string subject, string description, string leason, string info, List<Level> levels)
+        {
             this.id = id;
             this.title = title;
             this.type = type;
@@ -26,26 +27,30 @@ public class GenerateJson : MonoBehaviour
         }
     }
 
-    private struct Level {
+    private struct Level
+    {
         public int id;
         public int timer;
         public string difficulty;
         public List<Questions> questions;
     }
 
-    public struct Questions {
+    public struct Questions
+    {
         public string id;
         public string question;
         public List<string> answers;
         public int correct;
     }
 
-    public static void Generate() {
+    public static void Generate()
+    {
         int levelCount = 1; // questionsCount = 1;
 
         List<Level> levels = new List<Level>();
 
-        for (int i = 0; i < levelCount; i++) {
+        for (int i = 0; i < levelCount; i++)
+        {
             levels.Add(new Level());
 
             Level aux = new Level();

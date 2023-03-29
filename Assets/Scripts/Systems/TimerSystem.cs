@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using System.Timers;
 using System.Diagnostics;
 using System;
@@ -35,10 +33,12 @@ public class TimerSystem : MonoBehaviour
         timer.Start();
     }
 
-    public static void CountUpText(int start, int target, float duration, TMP_Text text, string format)
+    public static void CountUpText(int start, int target, float duration, TMP_Text text, string format, AudioSource countUp)
     {
         Stopwatch stopwatch = new Stopwatch();
         stopwatch.Start();
+
+        UnityMainThreadDispatcher.Instance().Enqueue(() => { countUp.Play(); });
 
         while (stopwatch.ElapsedMilliseconds < duration)
         {
@@ -46,7 +46,11 @@ public class TimerSystem : MonoBehaviour
         }
         stopwatch.Stop();
 
-        UnityMainThreadDispatcher.Instance().Enqueue(() => { text.text = String.Format(format, target); });
+        UnityMainThreadDispatcher.Instance().Enqueue(() =>
+        {
+            text.text = String.Format(format, target);
+            countUp.Stop();
+        });
 
         UnityMainThreadDispatcher.Instance().Destroy();
     }

@@ -1,7 +1,7 @@
 {
     "id": 2,
     "title": "Inmultire",
-    "video": false,
+    "video": true,
     "type": "quiz",
     "subject": "math",
     "description": "Inmultirea este o operație aritmetică elementară care constă în repetarea de mai multe ori a unei mărimi.",

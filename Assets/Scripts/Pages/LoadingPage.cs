@@ -1,6 +1,4 @@
-using System.Collections;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using UnityEngine.SceneManagement;
 using UnityEngine;
@@ -42,18 +40,26 @@ public class LoadingPage : MonoBehaviour
 
             TimerSystem.TimerStart(3000, () =>
             {
-                if (TemporaryData.user != null && TemporaryData.gameList != null)
-                    UnityMainThreadDispatcher.Instance().Enqueue(() =>
-                    {
-                        SceneManager.LoadScene("MainPage");
-                    });
-                else
-                    UnityMainThreadDispatcher.Instance().Enqueue(() =>
-                    {
-                        SceneManager.LoadScene("CreateProfilePage");
-                    });
+                try
+                {
+                    if (TemporaryData.user != null && TemporaryData.gameList != null)
+                        UnityMainThreadDispatcher.Instance().Enqueue(() =>
+                        {
+                            SceneManager.LoadScene("MainPage");
+                        });
+                    else
+                        UnityMainThreadDispatcher.Instance().Enqueue(() =>
+                        {
+                            SceneManager.LoadScene("CreateProfilePage");
+                        });
 
-                UnityMainThreadDispatcher.Instance().Destroy();
+                    UnityMainThreadDispatcher.Instance().Destroy();
+                }
+                catch (System.Exception e)
+                {
+                    errorText.SetActive(true);
+                    errorText.GetComponent<TMP_Text>().text = e.ToString();
+                }
             });
         }
         catch (System.Exception e)

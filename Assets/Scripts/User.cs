@@ -1,8 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using System;
-using UnityEngine;
-using UnityEngine.UI;
 
 [Serializable]
 public class User
@@ -22,7 +18,7 @@ public class User
     private const int maxCrowns = 100000;
 
     private int streak = 0;
-    private float volume = 10f;
+    private float volume = 1f;
     private bool mute = false;
 
     private int hintToken;
@@ -47,6 +43,8 @@ public class User
         hintToken = 5;
         timeToken = 2;
         gemToken = 2;
+
+        volume = 0.25f;
 
         gemRushReward = 2;
     }

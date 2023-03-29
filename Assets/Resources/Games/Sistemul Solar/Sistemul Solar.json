@@ -1,7 +1,7 @@
 {
     "id": 8,
     "title": "Sistemul Solar",
-    "video": false,
+    "video": true,
     "type": "quiz",
     "subject": "science",
     "description": "Această lecție va răspunde la întrebările de bază despre Sistemul Solar și va oferi informații generale despre fiecare subiect.",
