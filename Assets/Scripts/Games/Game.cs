@@ -43,7 +43,7 @@ public class Game
 
     private Sprite icon;
     private Sprite banner;
-    private string video;
+    private VideoClip video;
 
     private bool videoState;
 
@@ -84,7 +84,7 @@ public class Game
         banner = Resources.Load<Sprite>("Images/Banners/" + subject.ToString());
 
         if (videoState)
-            video = "Games/" + path + "/video";
+            video = Resources.Load<VideoClip>("Games/" + path + "/video");
 
         if (icon == null)
             icon = Resources.Load<Sprite>("Games/Default/icon");
@@ -117,7 +117,7 @@ public class Game
     public int GetTimer(int index) { return levels[index].timer; }
     public int GetLevelId(int index) { return levels[index].id; }
     public bool GetVideoState() { return videoState; }
-    public string GetVideoPath() { return video; }
+    public VideoClip GetVideo() { return video; }
 
     public void AddExperience(int experience)
     {

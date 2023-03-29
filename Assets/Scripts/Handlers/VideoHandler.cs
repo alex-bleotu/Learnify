@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Video;
 using UnityEngine.UI;
+using TMPro;
 
 public class VideoHandler : MonoBehaviour
 {
     public GameObject videoPanel;
     public VideoPlayer videoPlayer;
+    public Button ttsButton;
     public Slider progress;
+    public TMP_Text timeText;
 
     void Start()
     {
@@ -16,8 +19,11 @@ public class VideoHandler : MonoBehaviour
         if (TemporaryData.gameList[TemporaryData.currentGameIndex].GetVideoState())
         {
             videoPanel.SetActive(true);
-            videoPlayer.url = TemporaryData.gameList[TemporaryData.currentGameIndex].GetVideoPath();
+            ttsButton.interactable = false;
+            videoPlayer.clip = TemporaryData.gameList[TemporaryData.currentGameIndex].GetVideo();
         }
+        else if (Application.internetReachability != NetworkReachability.NotReachable)
+            ttsButton.interactable = true;
     }
 
     public void OnButton()
@@ -33,7 +39,10 @@ public class VideoHandler : MonoBehaviour
         try
         {
             if (videoPlayer.frameCount > 0)
+            {
                 progress.value = (float)videoPlayer.frame / (float)videoPlayer.frameCount;
+                timeText.text = videoPlayer.time.ToString("00:00");
+            }
         }
         catch { }
     }
