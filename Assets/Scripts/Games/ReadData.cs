@@ -1,103 +1,37 @@
+using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using Newtonsoft.Json;
 using UnityEngine;
 
 public class ReadData
 {
-    private struct Data
-    {
+    public struct Data {
         public int id;
-        public string title;
-        public bool video;
-        public string videoLink;
-        public string type;
-        public string subject;
-        public string description;
-        public string leason;
-        public string info;
-        public List<Level> levels;
+        public string question;
+        public List<string> answers;
+        public int correct;
     }
 
-    private struct Level
-    {
-        public int id;
-        public int timer;
-        public string difficulty;
-        public List<Game.Questions> questions;
-    }
+    public static void Read(ref List<string> questions, ref List<List<string>> answers, ref List<int> correctAnswers, string file) {
+        if (!File.Exists(file))
+            return;
 
-    public static void Read(ref int id, ref string title, ref Game.GameType type, ref string description,
-        ref Game.Subject subject, ref bool withVideo, ref string videoLink, ref List<Game.Level> levels, ref string leason, ref string info,
-        string filePath)
-    {
-        // if (!File.Exists(fileData))
-        //     return;
+        List<Data> data = new List<Data>();
 
-        TextAsset jsonFile = Resources.LoadAll<TextAsset>("Games/" + filePath)[0];
-
-        // List<Data> data = new List<Data>();
-        Data data = new Data();
-
-        string json = jsonFile.text;
-        data = JsonConvert.DeserializeObject<Data>(json);
-
-        id = data.id;
-        title = data.title;
-        description = data.description;
-        withVideo = data.video;
-        videoLink = data.videoLink;
-
-        leason = data.leason;
-        info = data.info;
-
-        for (int i = 0; i < data.levels.Count; i++)
-        {
-            Game.Level aux = new Game.Level();
-            aux.id = data.levels[i].id;
-            aux.timer = data.levels[i].timer;
-            aux.questionsCount = data.levels[i].questions.Count;
-            aux.questions = data.levels[i].questions;
-
-            switch (data.levels[i].difficulty)
-            {
-                case "easy":
-                    aux.difficulty = Game.Difficulty.easy;
-                    break;
-                case "medium":
-                    aux.difficulty = Game.Difficulty.medium;
-                    break;
-                case "hard":
-                    aux.difficulty = Game.Difficulty.hard;
-                    break;
-                case "veryHard":
-                    aux.difficulty = Game.Difficulty.veryHard;
-                    break;
-            }
-
-            levels.Add(aux);
+        using (StreamReader r = new StreamReader(file)) {
+            string json = r.ReadToEnd();
+            data = JsonConvert.DeserializeObject<List<Data>>(json);
         }
 
-        switch (data.subject)
-        {
-            case "math":
-                subject = Game.Subject.math;
-                break;
-            case "romanian":
-                subject = Game.Subject.romanian;
-                break;
-            case "science":
-                subject = Game.Subject.english;
-                break;
-            case "english":
-                subject = Game.Subject.science;
-                break;
-        }
+        int count = data.Count;
 
-        switch (data.type)
-        {
-            case "quiz":
-                type = Game.GameType.quiz;
-                break;
+        for (int i = 0; i < count; i++) {
+            questions.Add(data[i].question);
+            answers.Add(data[i].answers);
+            correctAnswers.Add(data[i].correct);
+
+            // Debug.Log(data[i].correct);
         }
     }
 }
