@@ -1,0 +1,281 @@
+{
+    "id": 0,
+    "title": "Adunarea",
+    "video": false,
+    "videoLink": "https://www.youtube.com/watch?v=R0uhYmbNMFM&ab_channel=invata.org",
+    "type": "quiz",
+    "subject": "math",
+    "description": "Adunarea este o operație aritmetică elementară care totalizează două sau mai multe mărimi",
+    "leason": "Adunarea este o operație matematică simplă care ne ajută să combinăm două sau mai multe numere pentru a obține un total.Să luăm un exemplu simplu: 2 + 3 = 5. Pentru a face această adunare, trebuie să începem cu primul număr, 2, și să adăugăm apoi al doilea număr, 3. \nRezultatul, sau totalul, este 5.Putem face adunări cu orice numere, de la cele mai mici la cele mai mari. De exemplu, 6 + 4 = 10, 8 + 2 = 10 sau 1 + 7 = 8.\nMai există și o regulă importantă pe care trebuie să o ținem minte când facem adunări. Aceasta se numește comutativitatea și înseamnă că putem schimba ordinea numerelor într-o adunare fără să schimbăm rezultatul. De exemplu, 2 + 3 este același lucru cu 3 + 2.",
+    "info": "",
+    "levels": [
+        {
+            "id": 0,
+            "timer": 0,
+            "difficulty": "easy",
+            "questions": [
+                {
+                    "id": 0,
+                    "question": "Rezolvati ecuatia\n 1 + 1?",
+                    "answers": ["1", "2", "3", "4"],
+                    "correct": 1
+                },
+                {
+                    "id": 1,
+                    "question": "Rezolvati ecuatia\n 2 + 2?",
+                    "answers": ["1", "2", "4", "3"],
+                    "correct": 2
+                },
+                {
+                    "id": 2,
+                    "question": "Rezolvati ecuatia\n 7 + 2?",
+                    "answers": ["9", "10", "8", "11"],
+                    "correct": 0
+                },
+                {
+                    "id": 3,
+                    "question": "Rezolvati ecuatia\n 9 + 3?",
+                    "answers": ["11", "13", "14", "12"],
+                    "correct": 3
+                },
+                {
+                    "id": 4,
+                    "question": "Rezolvati ecuatia\n 5 + 5?",
+                    "answers": ["9", "12", "10", "11"],
+                    "correct": 2
+                },
+                {
+                    "id": 5,
+                    "question": "Rezolvati ecuatia\n 9 + 9?",
+                    "answers": ["17", "16", "18", "19"],
+                    "correct": 2
+                },
+                {
+                    "id": 6,
+                    "question": "Rezolvati ecuatia\n 8 + 7?",
+                    "answers": ["15", "16", "14", "13"],
+                    "correct": 0
+                },
+                {
+                    "id": 7,
+                    "question": "Rezolvati ecuatia\n 9 + 5?",
+                    "answers": ["11", "14", "13", "15"],
+                    "correct": 1
+                },
+                {
+                    "id": 8,
+                    "question": "Rezolvati ecuatia\n 9 + 1?",
+                    "answers": ["9", "11", "10", "15"],
+                    "correct": 2
+                },
+                {
+                    "id": 9,
+                    "question": "Rezolvati ecuatia\n 6 + 6?",
+                    "answers": ["9", "11", "10", "12"],
+                    "correct": 3
+                }
+            ]
+        },
+        {
+            "id": 1,
+            "timer": 0,
+            "difficulty": "medium",
+            "questions": [
+                {
+                    "id": 0,
+                    "question": "Care este rezultatul adunării dintre 34 și 11?",
+                    "answers": ["45", "54", "65", "75"],
+                    "correct": 0
+                },
+                {
+                    "id": 1,
+                    "question": "Care este rezultatul adunării dintre 57 și 21?",
+                    "answers": ["68", "78", "88", "98"],
+                    "correct": 1
+                },
+                {
+                    "id": 2,
+                    "question": "Care este rezultatul adunării dintre 23 și 46?",
+                    "answers": ["59", "69", "79", "89"],
+                    "correct": 1
+                },
+                {
+                    "id": 3,
+                    "question": "Care este rezultatul adunării dintre 78 și 13?",
+                    "answers": ["81", "92", "101", "91"],
+                    "correct": 1
+                },
+                {
+                    "id": 4,
+                    "question": "Care este rezultatul adunării dintre 45 și 34?",
+                    "answers": ["69", "78", "79", "96"],
+                    "correct": 2
+                },
+                {
+                    "id": 5,
+                    "question": "Care este rezultatul adunării dintre 69 și 27?",
+                    "answers": ["84", "96", "106", "116"],
+                    "correct": 1
+                },
+                {
+                    "id": 6,
+                    "question": "Care este rezultatul adunării dintre 54 și 18?",
+                    "answers": ["62", "72", "82", "92"],
+                    "correct": 1
+                },
+                {
+                    "id": 7,
+                    "question": "Care este rezultatul adunării dintre 31 și 63?",
+                    "answers": ["84", "94", "104", "114"],
+                    "correct": 1
+                },
+                {
+                    "id": 8,
+                    "question": "Care este rezultatul adunării dintre 76 și 12?",
+                    "answers": ["87", "88", "89", "90"],
+                    "correct": 1
+                },
+                {
+                    "id": 9,
+                    "question": "Care este rezultatul adunării dintre 49 și 28?",
+                    "answers": ["77", "87", "97", "107"],
+                    "correct": 0
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "timer": 0,
+            "difficulty": "hard",
+            "questions": [
+                {
+                    "id": 0,
+                    "question": "Care este rezultatul adunării dintre 467 și 322?",
+                    "answers": ["779", "789", "799", "809"],
+                    "correct": 2
+                },
+                {
+                    "id": 1,
+                    "question": "Care este rezultatul adunării dintre 658 și 179?",
+                    "answers": ["827", "837", "847", "857"],
+                    "correct": 0
+                },
+                {
+                    "id": 2,
+                    "question": "Care este rezultatul adunării dintre 983 și 298?",
+                    "answers": ["1171", "1181", "1191", "1201"],
+                    "correct": 1
+                },
+                {
+                    "id": 3,
+                    "question": "Care este rezultatul adunării dintre 424 și 566?",
+                    "answers": ["990", "980", "970", "960"],
+                    "correct": 0
+                },
+                {
+                    "id": 4,
+                    "question": "Care este rezultatul adunării dintre 234 și 576?",
+                    "answers": ["780", "790", "800", "810"],
+                    "correct": 0
+                },
+                {
+                    "id": 5,
+                    "question": "Care este rezultatul adunării dintre 341 și 429?",
+                    "answers": ["760", "770", "780", "790"],
+                    "correct": 2
+                },
+                {
+                    "id": 6,
+                    "question": "Care este rezultatul adunării dintre 732 și 243?",
+                    "answers": ["965", "975", "985", "995"],
+                    "correct": 1
+                },
+                {
+                    "id": 7,
+                    "question": "Care este rezultatul adunării dintre 128 și 862?",
+                    "answers": ["980", "990", "1000", "1010"],
+                    "correct": 2
+                },
+                {
+                    "id": 8,
+                    "question": "Care este rezultatul adunării dintre 564 și 245?",
+                    "answers": ["789", "799", "809", "819"],
+                    "correct": 2
+                },
+                {
+                    "id": 9,
+                    "question": "Care este rezultatul adunării dintre 425 și 549?",
+                    "answers": ["964", "974", "984", "994"],
+                    "correct": 3
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "timer": 0,
+            "difficulty": "veryHard",
+            "questions": [
+                {
+                    "id": 0,
+                    "question": "Care este rezultatul adunării dintre 4653 și 2739?",
+                    "answers": ["7292", "7392", "7492", "7592"],
+                    "correct": 1
+                },
+                {
+                    "id": 1,
+                    "question": "Care este rezultatul adunării dintre 8265 și 4297?",
+                    "answers": ["12762", "12662", "12562", "12862"],
+                    "correct": 2
+                },
+                {
+                    "id": 2,
+                    "question": "Care este rezultatul adunării dintre 7384 și 1369?",
+                    "answers": ["8753", "8563", "8573", "8583"],
+                    "correct": 0
+                },
+                {
+                    "id": 3,
+                    "question": "Care este rezultatul adunării dintre 4226 și 7399?",
+                    "answers": ["11925", "11725", "11825", "11625"],
+                    "correct": 3
+                },
+                {
+                    "id": 4,
+                    "question": "Care este rezultatul adunării dintre 9827 și 2756?",
+                    "answers": ["12783", "12683", "12583", "12883"],
+                    "correct": 2
+                },
+                {
+                    "id": 5,
+                    "question": "Care este rezultatul adunării dintre 6462 și 3819?",
+                    "answers": ["10271", "10281", "10471", "10571"],
+                    "correct": 1
+                },
+                {
+                    "id": 6,
+                    "question": "Care este rezultatul adunării dintre 5328 și 8495?",
+                    "answers": ["13923", "13823", "14023", "14123"],
+                    "correct": 1
+                },
+                {
+                    "id": 7,
+                    "question": "Care este rezultatul adunării dintre 2547 și 9148?",
+                    "answers": ["11795", "11695", "11895", "11995"],
+                    "correct": 1
+                },
+                {
+                    "id": 8,
+                    "question": "Care este rezultatul adunării dintre 3789 și 6271?",
+                    "answers": ["10050", "10150", "10060", "10350"],
+                    "correct": 2
+                },
+                {
+                    "id": 9,
+                    "question": "Care este rezultatul adunării dintre 9654 și 1423?",
+                    "answers": ["11077", "11177", "11277", "11377"],
+                    "correct": 0
+                }
+            ]
+        }
+    ]
+}

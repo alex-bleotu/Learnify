@@ -1,0 +1,177 @@
+{
+    "id": 10,
+    "title": "Plante și animale",
+    "video": false,
+    "videoLink": "",
+    "type": "quiz",
+    "subject": "science",
+    "description": "Lecția despre animale îi învață pe copiii din clasa întâi despre diversele specii de animale, habitatul lor și comportamentul specific.",
+    "leason": "Plantele și animalele sunt cele două regnuri majore ale ființelor vii de pe Pământ și interacționează în mod constant în ecosistemele naturale. Această lecție scurtă va prezenta copiilor concepte de bază despre plante și animale și relațiile dintre ele.\nPlantele sunt ființe vii care alcătuiesc regnul Plantae. Ele produc oxigen și hrană prin fotosinteză și pot fi clasificate în ierburi, arbuști, copaci și flori. Părțile principale ale unei plante includ rădăcinile, tulpina, frunzele și florile. Plantele sunt o sursă de hrană și adăpost pentru multe animale și sunt esențiale pentru echilibrul ecosistemelor.",
+    "info": "",
+    "levels": [
+        {
+            "id": 0,
+            "timer": 0,
+            "difficulty": "easy",
+            "questions": [
+                {
+                    "id": 0,
+                    "question": "Ce fel de animal este un câine?",
+                    "answers": ["Mamifer", "Păsăre", "Pește", "Reptilă"],
+                    "correct": 0
+                },
+                {
+                    "id": 1,
+                    "question": "Care dintre următoarele este o plantă?",
+                    "answers": ["Măr", "Vultur", "Șarpe", "Balenă"],
+                    "correct": 0
+                },
+                {
+                    "id": 2,
+                    "question": "Ce fel de animal este un urs?",
+                    "answers": ["Mamifer", "Păsăre", "Pește", "Reptilă"],
+                    "correct": 0
+                },
+                {
+                    "id": 3,
+                    "question": "Care dintre următoarele este o floare?",
+                    "answers": ["Trandafir", "Leu", "Căprioară", "Cal"],
+                    "correct": 0
+                },
+                {
+                    "id": 4,
+                    "question": "Ce fel de animal este o broască?",
+                    "answers": ["Mamifer", "Amfibiu", "Pește", "Reptilă"],
+                    "correct": 1
+                },
+                {
+                    "id": 5,
+                    "question": "Care dintre următoarele este un copac?",
+                    "answers": ["Stejar", "Iepure", "Gândac", "Cioară"],
+                    "correct": 0
+                },
+                {
+                    "id": 6,
+                    "question": "Ce fel de animal este un țipar?",
+                    "answers": ["Mamifer", "Păsăre", "Pește", "Reptilă"],
+                    "correct": 2
+                },
+                {
+                    "id": 7,
+                    "question": "Care dintre următoarele este un fruct?",
+                    "answers": ["Banana", "Elefant", "Crocodil", "Arici"],
+                    "correct": 0
+                },
+                {
+                    "id": 8,
+                    "question": "Ce fel de animal este o pasăre?",
+                    "answers": ["Mamifer", "Păsăre", "Pește", "Reptilă"],
+                    "correct": 1
+                },
+                {
+                    "id": 9,
+                    "question": "Care dintre următoarele este o legumă?",
+                    "answers": ["Morcov", "Căluț de mare", "Buhai", "Arahnide"],
+                    "correct": 0
+                }
+            ]
+        },
+        {
+            "id": 1,
+            "timer": 0,
+            "difficulty": "medium",
+            "questions": [
+                {
+                    "id": 0,
+                    "question": "Care este procesul prin care plantele eliberează excesul de apă în atmosferă?",
+                    "answers": [
+                        "Fotosinteza",
+                        "Respirația",
+                        "Transpirația",
+                        "Fermentația"
+                    ],
+                    "correct": 2
+                },
+                {
+                    "id": 1,
+                    "question": "Care este denumirea plantelor care trăiesc în medii uscate și au adaptări pentru a reține apa?",
+                    "answers": ["Epifite", "Succulente", "Cormofite", "Fungi"],
+                    "correct": 1
+                },
+                {
+                    "id": 2,
+                    "question": "Care este principala diferență între reptile și amfibieni?",
+                    "answers": [
+                        "Pielea umedă și solzii",
+                        "Structura oaselor",
+                        "Modul de reproducere",
+                        "Dieta"
+                    ],
+                    "correct": 0
+                },
+                {
+                    "id": 3,
+                    "question": "Care este numele plantelor care trăiesc pe alte plante, dar nu le parazitează?",
+                    "answers": ["Epifite", "Succulente", "Cormofite", "Fungi"],
+                    "correct": 0
+                },
+                {
+                    "id": 4,
+                    "question": "Care dintre următoarele animale este un insectivor?",
+                    "answers": ["Leu", "Vultur", "Iepure", "Păianjen"],
+                    "correct": 3
+                },
+                {
+                    "id": 5,
+                    "question": "Care este denumirea științifică a studiului plantelor?",
+                    "answers": [
+                        "Zoologie",
+                        "Botanică",
+                        "Entomologie",
+                        "Ornitologie"
+                    ],
+                    "correct": 1
+                },
+                {
+                    "id": 6,
+                    "question": "Ce tip de simbioză există între alge și ciuperci în licheni?",
+                    "answers": [
+                        "Mutualism",
+                        "Comensalism",
+                        "Parazitism",
+                        "Predație"
+                    ],
+                    "correct": 0
+                },
+                {
+                    "id": 7,
+                    "question": "Care este termenul folosit pentru animalele care se hrănesc cu plante și animale?",
+                    "answers": ["Erbivor", "Carnivor", "Omnivor", "Insectivor"],
+                    "correct": 2
+                },
+                {
+                    "id": 8,
+                    "question": "Care este denumirea procesului prin care plantele produc semințe în interiorul fructelor?",
+                    "answers": [
+                        "Germinație",
+                        "Polenizare",
+                        "Fertilizare",
+                        "Fruștificație"
+                    ],
+                    "correct": 3
+                },
+                {
+                    "id": 9,
+                    "question": "Care dintre următoarele este o adaptare a plantelor carnivore?",
+                    "answers": [
+                        "Producerea de nectar",
+                        "Rădăcini aeriene",
+                        "Capcane pentru insecte",
+                        "Fructe cărnate"
+                    ],
+                    "correct": 2
+                }
+            ]
+        }
+    ]
+}

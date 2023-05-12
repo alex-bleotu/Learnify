@@ -1,0 +1,80 @@
+{
+    "id": 7,
+    "title": "Plante",
+    "video": false,
+    "videoLink": "https://www.youtube.com/watch?v=72iiOUNqLL8&ab_channel=AventurileluiLittleEdu",
+    "type": "quiz",
+    "subject": "Science",
+    "description": "Această lecție prezintă copiilor din clasa întâi diferite tipuri de plante, modul lor de creștere și importanța lor în natură și pentru oameni.",
+    "leason": "Plantele sunt ființe vii care alcătuiesc regnul Plantae și sunt esențiale pentru viața pe Pământ. Ele produc oxigen și hrană prin procesul de fotosinteză, în care absorb lumina soarelui, dioxidul de carbon și apă pentru a produce glucoză și oxigen. Există o mare varietate de plante, inclusiv ierburi, arbuști, copaci și flori, fiecare cu propriile caracteristici și adaptări.",
+    "info": "",
+    "levels": [
+        {
+            "id": 0,
+            "timer": 0,
+            "difficulty": "easy",
+            "questions": [
+            {
+            "id": 0,
+            "question": "Ce parte a plantei se află sub pământ?",
+            "answers": ["Rădăcină", "Tulpină", "Frunză", "Floare"],
+            "correct": 0
+            },
+            {
+            "id": 1,
+            "question": "Care parte a plantei produce florile?",
+            "answers": ["Frunză", "Tulpină", "Rădăcină", "Ramură"],
+            "correct": 1
+            },
+            {
+            "id": 2,
+            "question": "Ce parte a plantei este responsabilă pentru fotosinteză?",
+            "answers": ["Frunză", "Tulpină", "Rădăcină", "Floare"],
+            "correct": 0
+            },
+            {
+            "id": 3,
+            "question": "Care dintre următoarele este o plantă carnivora?",
+            "answers": ["Lalea", "Venus Flytrap", "Crin", "Trandafir"],
+            "correct": 1
+            },
+            {
+            "id": 4,
+            "question": "Ce plantă este folosită pentru a face hârtie?",
+            "answers": ["Copac de eucalipt", "Copac de mesteacăn", "Arbore de cauciuc", "Copac de plop"],
+            "correct": 3
+            },
+            {
+            "id": 5,
+            "question": "Ce plantă produce oxigen prin fotosinteză?",
+            "answers": ["Alge", "Ciuperci", "Licheni", "Bacterii"],
+            "correct": 0
+            },
+            {
+            "id": 6,
+            "question": "Ce fruct crește pe un cactus?",
+            "answers": ["Măr", "Figa", "Prună", "Rodie"],
+            "correct": 1
+            },
+            {
+            "id": 7,
+            "question": "Ce plantă este folosită pentru a face ulei de măsline?",
+            "answers": ["Măslin", "Palmier", "Rapiță", "Porumb"],
+            "correct": 0
+            },
+            {
+            "id": 8,
+            "question": "Ce este un bonsai?",
+            "answers": ["O plantă acvatică", "Un copac în miniatură", "Un tip de iarbă", "O plantă parazită"],
+            "correct": 1
+            },
+            {
+            "id": 9,
+            "question": "Ce plantă este folosită pentru a face ceai verde?",
+            "answers": ["Camellia sinensis", "Hibiscus", "Mentă", "Cătină"],
+            "correct": 0
+            }
+            ]
+            }
+    ]
+}

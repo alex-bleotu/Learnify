@@ -1,33 +1,26 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
 public class InfoPageHandler : MonoBehaviour
 {
-    private GameObject infoPage;
-    private TMP_Text infoTitleText;
-    private TMP_Text infoDescriptionText;
+    public GameObject infoPage;
+    public GameObject testPage;
 
-    public void OpenInterface(GameObject thisGameObject) {
+    public TMP_Text infoTitleText;
+    public TMP_Text infoDescriptionText;
+
+    public void OpenInterface(GameObject thisGameObject)
+    {
+        testPage.SetActive(false);
         infoPage.SetActive(true);
 
-        int index = GameList.GetIndex(thisGameObject.name);
-
-        infoTitleText.text = GameList.gameList[index].GetTitle();
+        infoTitleText.text = TemporaryData.gameList[TemporaryData.currentGameIndex].GetTitle();
+        infoDescriptionText.text = TemporaryData.gameList[TemporaryData.currentGameIndex].GetInfo();
     }
 
-    public void CloseInterface() {
+    public void CloseInterface()
+    {
         infoPage.SetActive(false);
+        testPage.SetActive(true);
     }
-
-    private void Start() {
-        infoPage = GameObject.Find("InfoPage");
-        // gamePage = GameObject.Find("GamePage");
-
-        infoTitleText = GameObject.Find("InfoTitleText (TMP)").GetComponent<TMP_Text>();
-        infoDescriptionText = GameObject.Find("InfoDescriptionText (TMP)").GetComponent<TMP_Text>();
-
-        infoPage.SetActive(false);
-    } 
 }

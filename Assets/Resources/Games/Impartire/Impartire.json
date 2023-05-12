@@ -1,0 +1,281 @@
+{
+    "id": 3,
+    "title": "Împărțire",
+    "video": false,
+    "videoLink": "https://www.youtube.com/watch?v=QChdCJX7n5U",
+    "type": "quiz",
+    "subject": "math",
+    "description": "Copiii vor învăța cum să efectueze împărțiri simple și să rezolve probleme matematice legate de împărțire, dezvoltându-și abilitățile numerice.",
+    "leason": "Împărțirea este o operație matematică în care un număr (de împărțit) este împărțit la un alt număr (împărțitor) pentru a obține un rezultat (cât) și, uneori, un rest. Împărțirea te ajută să afli câte unități sunt în fiecare grup când împarți în mod egal. Semnul folosit pentru împărțire este (/) sau (÷). Exemplu: 12 ÷ 3 = 4. În acest exemplu, 12 este numărul de împărțit, 3 este împărțitorul, iar 4 este câtul. Prin practică și exerciții, vei învăța să efectuezi împărțiri cu ușurință și să le aplici în situații reale, precum împărțirea dulciurilor între prieteni sau calcularea mediei aritmetice.",
+    "info": "",
+    "levels": [
+        {
+            "id": 0,
+            "timer": 0,
+            "difficulty": "easy",
+            "questions": [
+                {
+                    "id": 0,
+                    "question": "Care este rezultatul împărțirii dintre 12 și 3?",
+                    "answers": ["2", "3", "4", "5"],
+                    "correct": 2
+                },
+                {
+                    "id": 1,
+                    "question": "Care este rezultatul împărțirii dintre 20 și 5?",
+                    "answers": ["2", "4", "6", "8"],
+                    "correct": 1
+                },
+                {
+                    "id": 2,
+                    "question": "Care este rezultatul împărțirii dintre 15 și 3?",
+                    "answers": ["3", "4", "5", "6"],
+                    "correct": 2
+                },
+                {
+                    "id": 3,
+                    "question": "Care este rezultatul împărțirii dintre 18 și 6?",
+                    "answers": ["1", "2", "3", "4"],
+                    "correct": 2
+                },
+                {
+                    "id": 4,
+                    "question": "Care este rezultatul împărțirii dintre 12 și 3?",
+                    "answers": ["2", "3", "4", "5"],
+                    "correct": 2
+                },
+                {
+                    "id": 5,
+                    "question": "Care este rezultatul împărțirii dintre 20 și 5?",
+                    "answers": ["2", "4", "6", "8"],
+                    "correct": 1
+                },
+                {
+                    "id": 6,
+                    "question": "Care este rezultatul împărțirii dintre 15 și 3?",
+                    "answers": ["3", "4", "5", "6"],
+                    "correct": 2
+                },
+                {
+                    "id": 7,
+                    "question": "Care este rezultatul împărțirii dintre 18 și 6?",
+                    "answers": ["1", "2", "3", "4"],
+                    "correct": 2
+                },
+                {
+                    "id": 8,
+                    "question": "Care este rezultatul împărțirii dintre 24 și 4?",
+                    "answers": ["4", "6", "8", "10"],
+                    "correct": 1
+                },
+                {
+                    "id": 9,
+                    "question": "Care este rezultatul împărțirii dintre 30 și 10?",
+                    "answers": ["2", "3", "5", "6"],
+                    "correct": 1
+                }
+            ]
+        },
+        {
+            "id": 1,
+            "timer": 0,
+            "difficulty": "medium",
+            "questions": [
+                {
+                    "id": 0,
+                    "question": "Care este rezultatul împărțirii dintre 36 și 4?",
+                    "answers": ["6", "8", "9", "12"],
+                    "correct": 2
+                },
+                {
+                    "id": 1,
+                    "question": "Care este rezultatul împărțirii dintre 55 și 5?",
+                    "answers": ["9", "10", "11", "12"],
+                    "correct": 1
+                },
+                {
+                    "id": 2,
+                    "question": "Care este rezultatul împărțirii dintre 48 și 6?",
+                    "answers": ["6", "8", "10", "12"],
+                    "correct": 1
+                },
+                {
+                    "id": 3,
+                    "question": "Care este rezultatul împărțirii dintre 81 și 9?",
+                    "answers": ["6", "7", "8", "9"],
+                    "correct": 3
+                },
+                {
+                    "id": 4,
+                    "question": "Care este rezultatul împărțiriidintre 63 și 7?",
+                    "answers": ["7", "8", "9", "10"],
+                    "correct": 0
+                },
+                {
+                    "id": 5,
+                    "question": "Care este rezultatul împărțirii dintre 84 și 12?",
+                    "answers": ["6", "7", "8", "9"],
+                    "correct": 1
+                },
+                {
+                    "id": 6,
+                    "question": "Care este rezultatul împărțirii dintre 56 și 8?",
+                    "answers": ["5", "6", "7", "8"],
+                    "correct": 2
+                },
+                {
+                    "id": 7,
+                    "question": "Care este rezultatul împărțirii dintre 72 și 9?",
+                    "answers": ["6", "8", "9", "12"],
+                    "correct": 0
+                },
+                {
+                    "id": 8,
+                    "question": "Care este rezultatul împărțirii dintre 77 și 11?",
+                    "answers": ["6", "7", "9", "11"],
+                    "correct": 1
+                },
+                {
+                    "id": 9,
+                    "question": "Care este rezultatul împărțirii dintre 90 și 10?",
+                    "answers": ["8", "9", "12", "15"],
+                    "correct": 1
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "timer": 0,
+            "difficulty": "hard",
+            "questions": [
+                {
+                    "id": 0,
+                    "question": "Care este rezultatul împărțirii dintre 121 și 11?",
+                    "answers": ["9", "10", "11", "12"],
+                    "correct": 2
+                },
+                {
+                    "id": 1,
+                    "question": "Care este rezultatul împărțirii dintre 144 și 12?",
+                    "answers": ["10", "11", "12", "13"],
+                    "correct": 2
+                },
+                {
+                    "id": 2,
+                    "question": "Care este rezultatul împărțirii dintre 169 și 13?",
+                    "answers": ["10", "11", "12", "13"],
+                    "correct": 3
+                },
+                {
+                    "id": 3,
+                    "question": "Care este rezultatul împărțirii dintre 196 și 14?",
+                    "answers": ["12", "13", "14", "15"],
+                    "correct": 2
+                },
+                {
+                    "id": 4,
+                    "question": "Care este rezultatul împărțirii dintre 225 și 15?",
+                    "answers": ["13", "14", "15", "16"],
+                    "correct": 2
+                },
+                {
+                    "id": 5,
+                    "question": "Care este rezultatul împărțirii dintre 256 și 16?",
+                    "answers": ["14", "15", "16", "17"],
+                    "correct": 2
+                },
+                {
+                    "id": 6,
+                    "question": "Care este rezultatul împărțirii dintre 289 și 17?",
+                    "answers": ["15", "16", "17", "18"],
+                    "correct": 1
+                },
+                {
+                    "id": 7,
+                    "question": "Care este rezultatul împărțirii dintre 324 și 18?",
+                    "answers": ["16", "17", "18", "19"],
+                    "correct": 2
+                },
+                {
+                    "id": 8,
+                    "question": "Care este rezultatul împărțirii dintre 361 și 19?",
+                    "answers": ["17", "18", "19", "20"],
+                    "correct": 2
+                },
+                {
+                    "id": 9,
+                    "question": "Care este rezultatul împărțirii dintre 400 și 20?",
+                    "answers": ["18", "19", "20", "21"],
+                    "correct": 2
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "timer": 0,
+            "difficulty": "veryHard",
+            "questions": [
+                {
+                    "id": 0,
+                    "question": "Care este rezultatul împărțirii dintre 999 și 37?",
+                    "answers": ["26", "27", "28", "29"],
+                    "correct": 0
+                },
+                {
+                    "id": 1,
+                    "question": "Care este rezultatul împărțirii dintre 819 și 19?",
+                    "answers": ["42", "43", "44", "45"],
+                    "correct": 1
+                },
+                {
+                    "id": 2,
+                    "question": "Care este rezultatul împărțirii dintre 714 și 17?",
+                    "answers": ["40", "41", "42", "43"],
+                    "correct": 2
+                },
+                {
+                    "id": 3,
+                    "question": "Care este rezultatul împărțirii dintre 630 și 21?",
+                    "answers": ["29", "30", "31", "32"],
+                    "correct": 1
+                },
+                {
+                    "id": 4,
+                    "question": "Care este rezultatul împărțirii dintre 782 și 29?",
+                    "answers": ["26", "27", "28", "29"],
+                    "correct": 0
+                },
+                {
+                    "id": 5,
+                    "question": "Care este rezultatul împărțirii dintre 968 și 34?",
+                    "answers": ["27", "28", "29", "30"],
+                    "correct": 1
+                },
+                {
+                    "id": 6,
+                    "question": "Care este rezultatul împărțirii dintre 899 și 23?",
+                    "answers": ["38", "39", "40", "41"],
+                    "correct": 1
+                },
+                {
+                    "id": 7,
+                    "question": "Care este rezultatul împărțirii dintre 1056 și 48?",
+                    "answers": ["21", "22", "23", "24"],
+                    "correct": 1
+                },
+                {
+                    "id": 8,
+                    "question": "Care este rezultatul împărțirii dintre 1025 și 25?",
+                    "answers": ["40", "41", "42", "43"],
+                    "correct": 0
+                },
+                {
+                    "id": 9,
+                    "question": "Care este rezultatul împărțirii dintre 879 și 33?",
+                    "answers": ["25", "26", "27", "28"],
+                    "correct": 2
+                }
+            ]
+        }
+    ]
+}

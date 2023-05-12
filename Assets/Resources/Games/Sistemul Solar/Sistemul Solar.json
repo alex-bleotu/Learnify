@@ -1,0 +1,187 @@
+{
+    "id": 8,
+    "title": "Sistemul Solar",
+    "video": false,
+    "videoLink": "https://www.youtube.com/watch?v=2Izl6ilJfzM",
+    "type": "quiz",
+    "subject": "science",
+    "description": "Copiii vor descoperi sistemul solar, învățând despre planete, stele și alte corpuri cerești, pentru a-și dezvolta cunoștințele în astronomie.",
+    "leason": "Introducere:\nSistemul Solar este format din Soare, cele opt planete, sateliții lor naturali, asteroizi, comete și alte corpuri ceresti mici care orbitează în jurul Soarelui. Acesta este locul nostru în Univers, și este important să înțelegem caracteristicile sale de bază.\nSoarele:\nSoarele este o stea, nu o planetă sau un satelit. Este centrul Sistemului Solar și are o masă enormă. Toate celelalte obiecte din Sistemul Solar orbitează în jurul său datorită gravitației sale puternice.\nPlanetele:\nExistă opt planete în Sistemul Solar: Mercur, Venus, Pământ, Marte, Jupiter, Saturn, Uranus și Neptun. Fiecare planetă are propriile sale caracteristici și orbitează în jurul Soarelui la diferite distanțe.\nCea mai mare planetă: Jupiter este cea mai mare planetă din Sistemul Solar.\nCea mai mică planetă: Mercur este cea mai mică planetă din Sistemul Solar.\nPlaneta Roșie: Marte este cunoscută drept 'Planeta Roșie' datorită culorii sale roșiatice, cauzate de oxidul de fier (rugină) de la suprafața sa.\nPlanete cu inele: Saturn, Jupiter și Uranus au inele, dar Saturn este cel mai cunoscut pentru sistemul său de inele spectaculoase.\nOrdinea planetelor de la Soare:\nMercur -> Venus -> Pământ -> Marte -> Jupiter -> Saturn -> Uranus -> Neptun\nCentura de asteroizi:\nCentura de asteroizi este o regiune situată între Marte și Jupiter, unde orbitează mii de asteroizi. Asteroizii sunt corpuri ceresti mici, compuse în mare parte din roci și metale.\nCometele:\nCometele sunt corpuri ceresti compuse în mare parte din gheață și praf. Ele orbitează în jurul Soarelui și, atunci când se apropie suficient de Soare, gheața de la suprafața lor se evaporă, formând o coadă luminoasă care se întinde în spațiu.",
+    "info": "",
+    "levels": [
+        {
+            "id": 0,
+            "timer": 0,
+            "difficulty": "easy",
+            "questions": [
+                {
+                    "id": 0,
+                    "question": "Ce este Soarele?",
+                    "answers": [
+                        "O planetă",
+                        "O stea",
+                        "Un satelit",
+                        "Un asteroid"
+                    ],
+                    "correct": 1
+                },
+                {
+                    "id": 1,
+                    "question": "Care este cea mai mare planetă din sistemul nostru solar?",
+                    "answers": ["Pământ", "Marte", "Jupiter", "Saturn"],
+                    "correct": 2
+                },
+                {
+                    "id": 2,
+                    "question": "Câte planete sunt în sistemul solar?",
+                    "answers": ["6", "8", "9", "10"],
+                    "correct": 1
+                },
+                {
+                    "id": 3,
+                    "question": "Care este cea mai mică planetă din sistemul nostru solar?",
+                    "answers": ["Mercur", "Venus", "Pământ", "Marte"],
+                    "correct": 0
+                },
+                {
+                    "id": 4,
+                    "question": "Ce planetă este cunoscută ca 'Planeta Roșie'?",
+                    "answers": ["Venus", "Pământ", "Marte", "Jupiter"],
+                    "correct": 2
+                },
+                {
+                    "id": 5,
+                    "question": "Care planetă are inele?",
+                    "answers": [
+                        "Jupiter",
+                        "Saturn",
+                        "Uranus",
+                        "Toate cele de mai sus"
+                    ],
+                    "correct": 3
+                },
+                {
+                    "id": 6,
+                    "question": "Ce planetă este cea mai apropiată de Soare?",
+                    "answers": ["Mercur", "Venus", "Pământ", "Marte"],
+                    "correct": 0
+                },
+                {
+                    "id": 7,
+                    "question": "Ce planetă este cea mai îndepărtată de Soare?",
+                    "answers": ["Saturn", "Uranus", "Neptun", "Pluto"],
+                    "correct": 2
+                },
+                {
+                    "id": 8,
+                    "question": "Ce tip de corpuri cerești orbitează în jurul Soarelui în Centura de asteroizi?",
+                    "answers": ["Comete", "Sateliți", "Asteroizi", "Meteori"],
+                    "correct": 2
+                },
+                {
+                    "id": 9,
+                    "question": "Ce este o cometă?",
+                    "answers": [
+                        "O stea",
+                        "O planetă",
+                        "Un satelit",
+                        "Un corp ceresc format din gheață și praf"
+                    ],
+                    "correct": 3
+                }
+            ]
+        },
+        {
+            "id": 1,
+            "timer": 0,
+            "difficulty": "medium",
+            "questions": [
+                {
+                    "id": 0,
+                    "question": "Care este procesul prin care plantele verzi transformă energia luminii în energie chimică stocată?",
+                    "answers": [
+                        "Fotosinteza",
+                        "Respirația",
+                        "Transpirația",
+                        "Fermentația"
+                    ],
+                    "correct": 0
+                },
+                {
+                    "id": 1,
+                    "question": "Care este grupul de animale cu sânge rece?",
+                    "answers": ["Mamifere", "Reptile", "Păsări", "Insecte"],
+                    "correct": 1
+                },
+                {
+                    "id": 2,
+                    "question": "Ce parte a plantei este responsabilă pentru absorbția apei și mineralelor din sol?",
+                    "answers": ["Frunze", "Tulpină", "Rădăcini", "Flori"],
+                    "correct": 2
+                },
+                {
+                    "id": 3,
+                    "question": "Ce tip de animale au o perioadă de somn lung și adânc în timpul iernii?",
+                    "answers": [
+                        "Animale migratoare",
+                        "Animale hibernante",
+                        "Animale acvatice",
+                        "Animale nocturne"
+                    ],
+                    "correct": 1
+                },
+                {
+                    "id": 4,
+                    "question": "Care dintre următoarele plante este o plantă carnivora?",
+                    "answers": ["Rosa", "Venus Flytrap", "Mimosa", "Orhidee"],
+                    "correct": 1
+                },
+                {
+                    "id": 5,
+                    "question": "Care este cel mai mare animal de pe Pământ?",
+                    "answers": [
+                        "Elefantul african",
+                        "Balena albastră",
+                        "Girafa",
+                        "Ursul polar"
+                    ],
+                    "correct": 1
+                },
+                {
+                    "id": 6,
+                    "question": "Cum se numește procesul de polenizare efectuat de albine și alte insecte?",
+                    "answers": [
+                        "Polenizarea anemofilă",
+                        "Polenizarea entomofilă",
+                        "Polenizarea artificială",
+                        "Polenizarea zoofilă"
+                    ],
+                    "correct": 1
+                },
+                {
+                    "id": 7,
+                    "question": "Ce animale pot regenera anumite părți ale corpului dacă acestea sunt deteriorate sau pierdute?",
+                    "answers": [
+                        "Mamifere",
+                        "Reptile",
+                        "Amfibieni",
+                        "Nevertebrate"
+                    ],
+                    "correct": 2
+                },
+                {
+                    "id": 8,
+                    "question": "Care este cel mai rapid animal terestru?",
+                    "answers": ["Ghepard", "Gazelă", "Leu", "Iepure"],
+                    "correct": 0
+                },
+                {
+                    "id": 9,
+                    "question": "Ce tip de plantă crește în principal în deșerturi și are capacitatea de a stoca apă în frunze, tulpini sau rădăcini?",
+                    "answers": ["Bambus", "Muschi", "Fern", "Suculentă"],
+                    "correct": 3
+                }
+            ]
+        }
+    ]
+}
