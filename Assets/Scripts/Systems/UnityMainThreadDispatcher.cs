@@ -106,10 +106,11 @@ public class UnityMainThreadDispatcher : MonoBehaviour
     void OnDestroy()
     {
         instance = null;
+        SaveSystem.SaveData();
     }
 
     private void OnApplicationQuit()
     {
-        // SaveSystem.SaveData();
+        SaveSystem.SaveData();
     }
 }

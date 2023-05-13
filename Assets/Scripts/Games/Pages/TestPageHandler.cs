@@ -181,6 +181,8 @@ public class TestPageHandler : MonoBehaviour
         friendsPage.SetActive(false);
 
         SceneManager.LoadScene("MainPage");
+
+        SaveSystem.SaveData();
     }
 
     public void OnNextClick()

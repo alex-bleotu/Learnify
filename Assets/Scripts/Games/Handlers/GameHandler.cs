@@ -31,9 +31,9 @@ public class GameHandler : MonoBehaviour
         else if (subject == Game.Subject.romanian)
             return "Română";
         else if (subject == Game.Subject.science)
-            return "Științe";
-        else if (subject == Game.Subject.english)
             return "Engleză";
+        else if (subject == Game.Subject.english)
+            return "Științe";
         return "";
     }
 

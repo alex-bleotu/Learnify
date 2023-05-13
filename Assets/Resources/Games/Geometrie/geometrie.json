@@ -1,97 +1,108 @@
-{
+{   
     "id": 4,
     "title": "Geometrie",
     "video": false,
-    "videoLink": "https://www.youtube.com/watch?v=SI0BPHQ1vWI&ab_channel=OraselulCopiilor-Deseneanimateeducative",
+    "videoLink": "https://www.youtube.com/watch?v=R0uhYmbNMFM&ab_channel=invata.org",
     "type": "quiz",
     "subject": "math",
-    "description": "În această lecție de geometrie pentru clasa întâi, copiii vor învăța despre forme geometrice simple, cum ar fi cercul, pătratul și triunghiul. De asemenea, vor explora noțiuni de bază ale simetriei și vor învăța să recunoască și să numească formele în lumea înconjurătoare.",
-    "leason": "",
+    "description": "Geometria este matematica formelor și spațiilor. Studiază proprietățile obiectelor și modelează lumea fizică, dezvoltându-se de-a lungul istoriei și fiind aplicată în diverse domenii.",
+    "leason": "Bună ziua copii, astăzi vom discuta despre geometrie, o ramură a matematicii care se concentrează pe formele geometrice. În geometrie, există multe termeni și concepte importanți pe care trebuie să-i învățăm.Vom începe prin a discuta despre triunghiuri. Un triunghi este o formă geometrică compusă din trei laturi și trei unghiuri. \nÎn mod obișnuit, triunghiurile sunt clasificate în funcție de măsurile unghiurilor și lungimile laturilor.Un alt concept important este pătratul. Un pătrat este o formă geometrică cu patru laturi egale și patru unghiuri drepte. Aria unui pătrat este egală cu latura sa ridicată la puterea a doua.\nCercul este o altă formă geometrică importantă. Cercul este o formă geometrică închisă cu o circumferință, care este lungimea curbei din cerc. Cercul este compus dintr-un singur punct, numit centrul cercului.\nSimetria axială este un alt concept important în geometrie. Simetria axială se referă la o figură care poate fi împărțită în două părți egale prin desenarea unei linii de simetrie.În încheiere, în geometrie există multe alte concepte și forme geometrice, dar acestea sunt cele mai importante pe care trebuie să le învățăm.\n Un alt concept important în geometrie este dreptunghiul. \nUn dreptunghi este o formă geometrică cu două perechi de laturi egale și patru unghiuri drepte. Aria unui dreptunghi este egală cu produsul dintre lățime și lungime.Triunghiul dreptunghic este un alt tip important de triunghi. Este definit ca un triunghi care are un unghi drept, adică un unghi de 90 de grade. Latura opusă unghiului drept se numește ipotenuza și este cea mai lungă latură a triunghiului dreptunghic.O altă noțiune importantă în geometrie este volumul. \nVolumul este spațiul interior ocupat de un obiect tridimensional, cum ar fi un cub, o sferă sau un cilindru. Volumul se măsoară în unități cubice, cum ar fi metri cubi sau centimetri cubi.\nÎn final, geometria este o ramură importantă a matematicii care ne ajută să înțelegem și să lucrăm cu formele geometrice. Învățarea noțiunilor și conceptelor geometrice de bază ne poate ajuta să dezvoltăm gândirea abstractă, creativitatea și abilitățile matematice necesare pentru a rezolva probleme complexe.",
     "info": "",
-    "levels": [
+    "levels":[
         {
             "id": 0,
             "timer": 0,
             "difficulty": "easy",
-            "questions": [
+            "questions":[
                 {
                     "id": 0,
-                    "question": "Cât face 1 + 1?",
-                    "answers": ["1", "2", "3", "4"],
+                    "question": "Care este diferența dintre un pătrat și un dreptunghi?",
+                    "answers": ["Are patru laturi egale, iar un dreptunghi are laturi diferite.",
+                    "Are patru unghiuri drepte, iar un dreptunghi are unghiuri obtuze și unghiuri ascuțite.",
+                    "Un dreptunghi cu laturile egale.",
+                    "Un dreptunghi care are diagonalele egale."],
                     "correct": 1
                 },
                 {
                     "id": 1,
-                    "question": "Cât face 2 + 2?",
-                    "answers": ["1", "2", "4", "3"],
-                    "correct": 2
+                    "question": "Care este diferența dintre un cerc și o elipsă?",
+                    "answers": ["O formă ovală, în timp ce o elipsă are o formă circulară.",
+                    "Are o rază fixă, în timp ce o elipsă are două raze diferite.",
+                    "Are o suprafață mai mică decât o elipsă.",
+                    "Are o circumferință mai mare decât o elipsă."],
+                    "correct": 1
                 },
                 {
                     "id": 2,
-                    "question": "Care este rezultatul calculului 41 + 12?",
-                    "answers": ["53", "50", "63", "49"],
-                    "correct": 0
+                    "question": "Ce este un triunghi isoscel și cum se recunoaște?",
+                    "answers": ["Are două laturi și unghiuri egale.",
+                    "Are toate laturile și unghiurile egale.",
+                    "Are două laturi egale.",
+                    "Se recunoaște prin faptul că are două laturi egale."],
+                    "correct": 2
                 },
                 {
                     "id": 3,
-                    "question": "Care este rezultatul calculului 59 + 38?",
-                    "answers": ["89", "93", "69", "97"],
-                    "correct": 3
+                    "question": "Ce este o figură geometrică convexă?",
+                    "answers": ["O figură geometrică care are cel puțin un unghi obtuz.",
+                    "O figură geometrică în care orice segment care unește două puncte din interiorul figurii este complet în interiorul figurii.",
+                    "O figură geometrică cu cel puțin un unghi ascuțit.",
+                    "O figură geometrică în care cel puțin un unghi este mai mare de 180 de grade."],
+                    "correct": 1
                 },
                 {
                     "id": 4,
-                    "question": "Cât face 104 + 59?",
-                    "answers": ["169", "170", "163", "161"],
+                    "question": "Ce este o trapeză și cum se recunoaște?",
+                    "answers": ["O figură geometrică cu trei laturi egale.",
+                    "O figură geometrică cu patru laturi și un unghi drept.",
+                    "O figură geometrică cu două laturi paralele și două laturi neaparalele.",
+                    "Se recunoaște prin faptul că are două laturi paralele."],
                     "correct": 2
                 },
                 {
                     "id": 5,
-                    "question": "Cât face 174 + 16?",
-                    "answers": ["181", "187", "190", "193"],
-                    "correct": 2
+                    "question": "Ce este o piramidă și cum se recunoaște?",
+                    "answers": ["O figură geometrică cu toate laturile egale.",
+                    "O figură geometrică cu baza plană și fețele laterale triunghiulare care se unesc într-un vârf.",
+                    "O figură geometrică cu baza circulară.",
+                    "Se recunoaște prin faptul că are patru laturi egale."],
+                    "correct": 1
                 },
                 {
                     "id": 6,
-                    "question": "Cât face 147 + 299?",
-                    "answers": ["446", "441", "439", "450"],
-                    "correct": 0
+                    "question": "Ce este o simetrie axială și cum se poate recunoaște?",
+                    "answers": [" O transformare geometrică în care o figură este rotită în jurul unui punct.",
+                    "O transformare geometrică în care o figură este translatată.",
+                    "Se poate recunoaște prin faptul că figura rezultată este identică cu figura inițială.",
+                    "O transformare geometrică în care o figură este redusă la jumătatea sa prin înjumătățirea sa pe o linie."],
+                    "correct": 3
                 },
                 {
                     "id": 7,
-                    "question": "Cât face 239 + 245?",
-                    "answers": ["481", "484", "485", "487"],
-                    "correct": 1
+                    "question": "Ce este un patrulater și cum se recunoaște?",
+                    "answers": [" O figură geometrică cu trei laturi.",
+                    "O figură geometrică cu patru laturi.",
+                    "O figură geometrică cu două laturi paralele.",
+                    "O figura geometrică care are numar par de laturi."],
+                    "correct": 3
                 },
                 {
                     "id": 8,
-                    "question": "Cât face 519 + 231?",
-                    "answers": ["755", "748", "750", "751"],
-                    "correct": 2
+                    "question": "Ce este un cub și cum se recunoaște?",
+                    "answers": ["O figură geometrică cu șase laturi egale și unghiuri drepte.",
+                    "O figură geometrică cu toate laturile egale.",
+                    "O figură geometrică cu baza plană și fețele laterale triunghiulare care se unesc într-un vârf.",
+                    "Se recunoaște prin faptul că are șase fețe pătrate."],
+                    "correct": 3
                 },
                 {
                     "id": 9,
-                    "question": "Cât face 1024 + 571?",
-                    "answers": ["1780", "1576", "1495", "1595"],
+                    "question": "Ce este un hexagon și cum se recunoaște?",
+                    "answers": ["O figură geometrică cu cinci laturi.",
+                    "O figură geometrică cu șase laturi.",
+                    "O figură geometrică cu patru laturi.",
+                    "Se recunoaște prin faptul că are șase laturi egale."],
                     "correct": 3
-                }
-            ]
-        },
-        {
-            "id": 1,
-            "timer": 0,
-            "difficulty": "medium",
-            "questions": [
-                {
-                    "id": 0,
-                    "question": "Cât face 1 + 1?",
-                    "answers": ["1", "2", "3", "4"],
-                    "correct": 1
-                },
-                {
-                    "id": 1,
-                    "question": "Cât face 2 + 2?",
-                    "answers": ["1", "2", "4", "3"],
-                    "correct": 2
                 }
             ]
         }

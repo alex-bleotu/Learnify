@@ -129,9 +129,9 @@ public class FriendsPageHandler : MonoBehaviour
             }
         }
 
-        friendslist.transform.position = new Vector3(friendslist.transform.position.x, 40 * (userIndex - 1), 0);
+        friendslist.transform.position = new Vector3(friendslist.transform.position.x, 35 * (userIndex - 1), 0);
         if (userIndex > 15) {
-            friendslist.transform.position = new Vector3(friendslist.transform.position.x, 40 * 16, 0);
+            friendslist.transform.position = new Vector3(friendslist.transform.position.x, 35 * 16, 0);
         }
 
         // coordX = friendTemplate.transform.position.x;
